@@ -5,7 +5,7 @@ fetch("/ghost.json")
         return resp.json();
     })
     .then(function(data){
-        console.log(data);
+        console.log(data[0].name);
     });
 /*
 window.onload = function(){
