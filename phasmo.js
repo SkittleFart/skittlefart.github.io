@@ -1,8 +1,8 @@
 var GHOSTS_URL = "ghost.json";
 
-$(document).ready(function(){
+window.onload = function(){
     var mydata = JSON.parse(GHOSTS_URL);
 
     //alert(mydata[0].name);
     console.log(mydata[0].name);
-}); 
+}; 
