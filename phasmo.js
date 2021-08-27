@@ -5,8 +5,11 @@ fetch("/ghost.json")
         return resp.json();
     })
     .then(function(data){
-        console.log(data[0].name);
-        //var $ghostDiv = $("<div>", {id: data[0].name, "class": "ghostBox"});
-        var ghostDiv = $("<div id="+data[0].name+" class='ghostBox'><h6>"+data[0].name+"</h6><p>"+data[0].desc+"</p><p>"+data[0].stren+"</p><p>"+data[0].weak+"</p><p>"+data[0].evidence+"</p></div>");
-        $("#ghostList").append(ghostDiv);
+        //console.log(data[0].name);
+
+        for(var i=0; i<data.length; i++){
+            var ghostDiv = $("<div id="+data[i].name+" class='ghostBox'><h6>"+data[i].name+"</h6><p>"+data[i].desc+"</p><p>"+data[i].stren+"</p><p>"+data[i].weak+"</p><p>"+data[i].evidence+"</p></div>");
+            $("#ghostList").append(ghostDiv);
+        }
+        
     });
