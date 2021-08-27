@@ -5,4 +5,4 @@ $(document).ready(function(){
 
     //alert(mydata[0].name);
     console.log(mydata[0].name);
-});
+}); 
