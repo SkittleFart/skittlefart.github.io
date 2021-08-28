@@ -15,5 +15,11 @@ fetch("/ghost.json")
     });
 
 function evidence(){
-    
+
 }
+
+function reset(){
+
+}
+
+
