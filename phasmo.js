@@ -13,3 +13,7 @@ fetch("/ghost.json")
         }
         
     });
+
+function evidence(){
+    
+}
