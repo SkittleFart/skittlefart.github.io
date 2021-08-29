@@ -14,7 +14,12 @@ fetch("/ghost.json")
         
     });
 
-function evidence(){
+
+function evidence(ev){
+    $(this).hide();
+}
+
+function removeEvidence(){
 
 }
 
