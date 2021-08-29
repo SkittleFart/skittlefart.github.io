@@ -16,8 +16,8 @@ fetch("/ghost.json")
 
 
 function evidence(ev){
-    $(this).hide();
-    console.log("hidden");
+    ev.hide();
+    console.log("hidden1");
 }
 
 function removeEvidence(){
