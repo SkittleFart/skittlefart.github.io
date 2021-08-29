@@ -14,11 +14,10 @@ fetch("/ghost.json")
         
     });
 
-
-function evidence(ev){
-    ev.hide();
-    console.log("hidden1");
-}
+$('.evBTN').on('click', function(evt) {
+    $(this).hide(); // does not run a DOM query
+    //$('.class-name').hide() // runs a DOM query
+}); 
 
 function removeEvidence(){
 
