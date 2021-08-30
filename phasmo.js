@@ -32,8 +32,10 @@ $('.evBTN').on('click', function(evt){
         console.log("testing");
         $('#ev1').append(this);
 
+        console.log("hi");
         // scan ghosts to eliminate potential options
         for(var j=0; j<GHOSTS.length; j++){
+            console.log("hello");
             for(var k=0; k<EVIDENCE[j].length; k++){
                 //if($(this).text() == EVIDENCE[j][k]){}
                 console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
