@@ -49,7 +49,7 @@ $('.evBTN').on('click', function(evt){
                     console.log("Evidence is not required");
                     var temp = GHOSTS[j];
                     console.log("#"+temp);
-                    $("#"+GHOSTS[j]).hide();
+                    $("#"+temp).hide();
                 }
                 
             }
