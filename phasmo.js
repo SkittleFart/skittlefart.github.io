@@ -43,7 +43,7 @@ $('.evBTN').on('click', function(evt){
                 //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
                 console.log("this.text: "+$(this).text());
                 console.log("arrayText: "+EVIDENCE[j][k]);
-                if($(this).text() !== EVIDENCE[j][k]){
+                if($(this).text().localeCompare(EVIDENCE[j][k]) != 0){
                     //console.log("Ghost:"+GHOSTS[j]);
                     $("#"+GHOSTS[j]).hide();
                 }
