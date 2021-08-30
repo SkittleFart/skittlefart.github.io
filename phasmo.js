@@ -41,6 +41,7 @@ $('.evBTN').on('click', function(evt){
             //console.log("hello");
             for(var k=0; k<EVIDENCE[j].length; k++){
                 //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
+                console.log("this.text: "+$(this).text());
                 if($(this).text() !== EVIDENCE[j][k]){
                     console.log("Ghost:"+GHOSTS[j]);
                     $("#"+GHOSTS[j]).hide();
