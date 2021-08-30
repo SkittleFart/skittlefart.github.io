@@ -28,6 +28,9 @@ $('.evBTN').on('click', function(evt){
     console.log("buttonText: "+ $(this).text());
     */
 
+    console.log("GHOSTS: "+GHOSTS);
+    console.log("EVIDENCE:"+EVIDENCE);
+
     if ($("#ev1 .evBTN").length == 0){ 
         console.log("testing");
         $('#ev1').append(this);
