@@ -45,9 +45,9 @@ $('.evBTN').on('click', function(evt){
                 console.log("arrayText: "+EVIDENCE[j][k]);
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     console.log("Evidence is required");
-                    //$("#"+GHOSTS[j]).hide();
                 }else{
                     console.log("Evidence is not required");
+                    $("#"+GHOSTS[j]).hide();
                 }
                 
             }
