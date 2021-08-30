@@ -1,7 +1,7 @@
 var GHOSTS_URL = "/ghost.json";
 
-var GHOSTS = {};
-var EVIDENCE = {};
+var GHOSTS = [];
+var EVIDENCE = [];
 
 fetch(GHOSTS_URL)
     .then(function(resp){
