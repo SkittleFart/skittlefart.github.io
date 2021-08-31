@@ -28,7 +28,7 @@ $('.evBTN').on('click', function(evt){
     console.log("buttonText: "+ $(this).text());
     */
 
-    console.log("GHOSTS: "+GHOSTS[0]);
+    console.log("GHOSTS: "+GHOSTS);
     console.log("EVIDENCE:"+EVIDENCE);
 
     if ($("#ev1 .evBTN").length == 0){ 
@@ -43,6 +43,7 @@ $('.evBTN').on('click', function(evt){
                 //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
                 console.log("this.text: "+$(this).text());
                 console.log("arrayText: "+EVIDENCE[j][k]);
+                console.log("thisGhost: "+GHOSTS[j]);
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     console.log("Evidence is required");
                 }else{
