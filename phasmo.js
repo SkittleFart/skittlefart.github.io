@@ -50,7 +50,7 @@ $('.evBTN').on('click', function(evt){
                     var temp = GHOSTS[j];
                     var temp2 = String("#"+temp+"");
                     console.log(temp2);
-                    $(temp2).hide();
+                    $("#Spirit").hide();
                 }
                 
             }
