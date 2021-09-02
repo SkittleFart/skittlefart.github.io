@@ -1,4 +1,4 @@
-var GHOSTS_URL = "/ghost.json";
+var GHOSTS_URL = "ghost.json";
 
 var GHOSTS = [];
 var EVIDENCE = [];
