@@ -20,25 +20,15 @@ fetch(GHOSTS_URL)
 
 // Evidence buttons
 $('.evBTN').on('click', function(evt){
-    /*
-    console.log("count1: "+$("#ev1 .evBTN").length);
-    console.log("count2: "+$("#ev2 .evBTN").length);
-    console.log("count3: "+$("#ev3 .evBTN").length);
-    console.log("testJSON: "+ghosts.evidence[0]);
-    console.log("buttonText: "+ $(this).text());
-    */
-
     console.log("GHOSTS: "+GHOSTS);
     console.log("EVIDENCE:"+EVIDENCE);
 
     if ($("#ev1 .evBTN").length == 0){ 
-        console.log("testing");
         $('#ev1').append(this);
 
-        // console.log("hi");
         // scan ghosts to eliminate potential options
         for(var j=0; j<GHOSTS.length; j++){
-            //console.log("hello");
+            var evidenceNotFound = false;
             for(var k=0; k<EVIDENCE[j].length; k++){
                 //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
                 console.log("this.text: "+$(this).text());
@@ -48,12 +38,12 @@ $('.evBTN').on('click', function(evt){
                     console.log("Evidence is required");
                 }else{
                     console.log("Evidence is not required");
-                    var temp = GHOSTS[j];
-                    var temp2 = String("#"+temp+"");
-                    console.log(temp2);
-                    $('#'+GHOSTS[j]).hide();
-                }
-                
+                    evidenceNotFound = true;                    
+                }                
+            }
+
+            if(evidenceNotFound){
+                $('#'+GHOSTS[j]).hide();
             }
         }
     }else if($("#ev2 .evBTN").length == 0){
