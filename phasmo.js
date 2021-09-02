@@ -70,6 +70,8 @@ $('#resetBTN').on('click', function(evt){
     $("#posEvidence").append($("#ev1 .evBTN"));
     $("#posEvidence").append($("#ev2 .evBTN"));
     $("#posEvidence").append($("#ev3 .evBTN"));
-    $(".ghostBtn").show();
+    for(var j=0; j<GHOSTS.length; j++){
+        $('#'+GHOSTS[j]).show();
+    }
 }); 
 
