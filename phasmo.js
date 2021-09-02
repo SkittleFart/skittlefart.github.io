@@ -74,8 +74,30 @@ $('.evBTN').on('click', function(evt){
             }
         }
     }else if($("#ev3 .evBTN").length == 0){
-        console.log("testing3");
         $('#ev3').append(this);
+
+        // scan ghosts to eliminate potential options
+        for(var j=0; j<GHOSTS.length; j++){
+            var evidenceFound = false;
+            for(var k=0; k<EVIDENCE[j].length; k++){
+                //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
+                console.log("this.text: "+$(this).text());
+                console.log("arrayText: "+EVIDENCE[j][k]);
+                console.log("thisGhost: "+GHOSTS[j]);
+                if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
+                    console.log("Evidence is required");
+                    evidenceFound = true;
+                }else{
+                    console.log("Evidence is not required");
+                }                
+            }
+
+            console.log("Ghost: "+GHOSTS[j]);
+            console.log("evidenceFound: "+evidenceFound);
+            if(!evidenceFound){
+                $('#'+GHOSTS[j]).hide();
+            }
+        }
     }
 }); 
 
