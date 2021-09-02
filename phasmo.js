@@ -28,7 +28,7 @@ $('.evBTN').on('click', function(evt){
 
         // scan ghosts to eliminate potential options
         for(var j=0; j<GHOSTS.length; j++){
-            var evidenceNotFound = false;
+            var evidenceFound = false;
             for(var k=0; k<EVIDENCE[j].length; k++){
                 //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
                 console.log("this.text: "+$(this).text());
@@ -36,15 +36,15 @@ $('.evBTN').on('click', function(evt){
                 console.log("thisGhost: "+GHOSTS[j]);
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     console.log("Evidence is required");
+                    evidenceFound = true;
                 }else{
                     console.log("Evidence is not required");
-                    evidenceNotFound = true;                    
                 }                
             }
 
             console.log("Ghost: "+GHOSTS[j]);
-            console.log("evidenceNotFound: "+evidenceNotFound);
-            if(evidenceNotFound){
+            console.log("evidenceNotFound: "+evidenceFound);
+            if(!evidenceFound){
                 $('#'+GHOSTS[j]).hide();
             }
         }
