@@ -42,6 +42,8 @@ $('.evBTN').on('click', function(evt){
                 }                
             }
 
+            console.log("Ghost: "+GHOSTS[j]);
+            console.log("evidenceNotFound: "+evidenceNotFound);
             if(evidenceNotFound){
                 $('#'+GHOSTS[j]).hide();
             }
