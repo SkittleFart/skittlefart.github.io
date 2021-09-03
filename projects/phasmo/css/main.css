@@ -4,3 +4,8 @@
     border-width: 0.5em;
     border-color: gray;
 }
+
+h1{
+    font-family: 'October Crow';
+    src: url('font/OctoberCrow.tiff') format('tiff');
+}
