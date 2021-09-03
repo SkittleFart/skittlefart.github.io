@@ -1,0 +1,26 @@
+@font-face{
+    src: url(../font/OctoberCrow.ttf);
+    font-family: crow;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+.ghostBox{
+    background-color: lightgray;
+    border-style: dashed;
+    border-width: 0.5em;
+    border-color: gray;
+}
+
+h1, h2{
+    font-family: crow;
+    font-size: xx-large;
+    text-align: center;
+}
+
+#ev1{
+    font-size: large;
+}

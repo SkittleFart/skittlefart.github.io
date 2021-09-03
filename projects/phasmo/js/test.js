@@ -1,5 +1,15 @@
 var GHOSTS_URL = "js/ghost.json";
 
+var tempEv = [["EMF 5", "Spirit Box", "Ghost Writing"],
+              ["EMF 5", "Spirit Box", "DOTS"],
+              ["Spirit Box", "Fingerprints", "DOTS"]
+            ];
+// availEv should read EMF 5, Spirit Box, Ghost Writing, DOTS, Fingerprints ; length = 5
+
+var tempEvSingle = ["EMF 5", "Spirit Box", "Ghost Writing"];
+var tempEvSingle2 = ["EMF 5", "Spirit Box", "DOTS"];
+var tempEvSingle3 = ["Spirit Box", "Fingerprints", "DOTS"];
+
 var GHOSTS = [];
 var EVIDENCE = [];
 
@@ -17,6 +27,38 @@ fetch(GHOSTS_URL)
             EVIDENCE[i] = data[i].evidence;
         }
     });
+
+Array.prototype.contains = function(v) {
+    for (var i = 0; i < this.length; i++) {
+        if (this[i] === v) return true;
+    }
+    return false;
+};
+    
+Array.prototype.unique = function() {
+    var arr = [];
+    for (var i = 0; i < this.length; i++) {
+        if (!arr.contains(this[i])) {
+            arr.push(this[i]);
+        }
+    }
+    return arr;
+};
+
+$( document ).ready(function() {
+    //var temp = tempEvSingle.concat(tempEvSingle2);
+    //temp = temp.concat(tempEvSingle3);
+    var newArr = [];
+
+    for(var i=0; i<tempEv.length; i++){
+        newArr = newArr.concat(tempEv[i]);
+    }
+
+    var availEv = newArr.unique();    
+
+    console.log("availEv: "+availEv);
+    
+});
 
 // Evidence buttons
 $('.evBTN').on('click', function(evt){
