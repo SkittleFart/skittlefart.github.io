@@ -1,3 +1,8 @@
+@font-face{
+    src: url(skittlefart.github.io\projects\phasmo\font\OctoberCrow.ttf);
+    font-family: crow;
+}
+
 .ghostBox{
     background-color: lightgray;
     border-style: dashed;
@@ -6,6 +11,5 @@
 }
 
 h1{
-    font-family: 'October Crow';
-    src: url('font/OctoberCrow.tiff') format('tiff');
+    font-family: crow;
 }
