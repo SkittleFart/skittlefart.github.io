@@ -1,4 +1,4 @@
-var GHOSTS_URL = "skittlefart.github.io\projects\phasmo\js\ghost.json";
+var GHOSTS_URL = "projects/phasmo/js/ghost.json";
 
 var GHOSTS = [];
 var EVIDENCE = [];
