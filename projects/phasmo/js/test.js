@@ -29,7 +29,7 @@ fetch(GHOSTS_URL)
         //console.log(data[0].name);
 
         for(var i=0; i<data.length; i++){
-            var ghostDiv = $("<div id="+data[i].name+" class='ghostBox'><h6>"+data[i].name+"</h6><p>"+data[i].desc+"</p><p><strong>Strengths: </strong>"+data[i].stren+"</p><p><strong>Weaknesses: </strong>"+data[i].weak+"</p><p class='evidence'>"+data[i].evidence[0]+"</p><p class='evidence'>"+data[i].evidence[1]+"</p><p class='evidence'>"+data[i].evidence[2]+"</p></div>");
+            var ghostDiv = $("<div id="+data[i].name+" class='card col-lg-12'><div class=card-body><h5 class='card-title'>"+data[i].name+"</h5><ul class='list-group list-group-horizontal'><li class='list-group-item bg-secondary'>"+data[i].evidence[0]+"</li><li class='list-group-item bg-secondary'>"+data[i].evidence[1]+"</li><li class='list-group-item bg-secondary>"+data[i].evidence[2]+"</li></ul><div class='card card-body'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
             $("#ghostList").append(ghostDiv);
             GHOSTS[i] = data[i].name;
             EVIDENCE[i] = data[i].evidence;
