@@ -1,5 +1,23 @@
 var GHOSTS_URL = "js/ghost.json";
 
+var tempEv = [["EMF 5", "Spirit Box", "Ghost Writing"],
+              ["EMF 5", "Spirit Box", "DOTS"],
+              ["Spirit Box", "Fingerprints", "DOTS"],
+              ["Spirit Box", "Fingerprints", "Ghost Writing"],
+              ["Fingerprints", "Ghost Orb", "DOTS"],
+              ["EMF 5", "Fingerprints", "Freezing Temps"],
+              ["Spirit Box", "Ghost Orb", "Ghost Writing"],
+              ["Ghost Orb", "Ghost Writing", "Freezing Temps"],
+              ["EMF 5", "Ghost Writing", "Freezing Temps"],
+              ["Fingerprints", "Ghost Writing", "Freezing Temps"],
+              ["Ghost Orb", "Freezing Temps", "DOTS"],
+              ["EMF 5", "Freezing Temps", "DOTS"],
+              ["Fingerprints", "Ghost Orb", "Freezing Temps"],
+              ["Spirit Box", "Ghost Orb", "DOTS"],
+              ["EMF 5", "Fingerprints", "DOTS"],
+              ["EMF 5", "Fingerprints", "Ghost Writing"]
+            ];
+
 var GHOSTS = [];
 var EVIDENCE = [];
 
@@ -11,12 +29,49 @@ fetch(GHOSTS_URL)
         //console.log(data[0].name);
 
         for(var i=0; i<data.length; i++){
-            var ghostDiv = $("<div id="+data[i].name+" class='ghostBox'><h6>"+data[i].name+"</h6><p>"+data[i].desc+"</p><p><strong>Strengths: </strong>"+data[i].stren+"</p><p><strong>Weaknesses: </strong>"+data[i].weak+"</p><p class='evidence'>"+data[i].evidence[0]+"</p><p class='evidence'>"+data[i].evidence[1]+"</p><p class='evidence'>"+data[i].evidence[2]+"</p></div>");
+            var ghostDiv = $("<div id="+data[i].name+" class='card col-lg-12'><div class=card-body><h5 class='card-title'>"+data[i].name+"</h5><ul class='list-group list-group-horizontal'><li class='list-group-item bg-secondary'>"+data[i].evidence[0]+"</li><li class='list-group-item bg-secondary'>"+data[i].evidence[1]+"</li><li class='list-group-item bg-secondary'>"+data[i].evidence[2]+"</li></ul><div class='card card-body'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
             $("#ghostList").append(ghostDiv);
             GHOSTS[i] = data[i].name;
             EVIDENCE[i] = data[i].evidence;
         }
     });
+
+Array.prototype.contains = function(v) {
+    for (var i = 0; i < this.length; i++) {
+        if (this[i] === v) return true;
+    }
+    return false;
+};
+    
+Array.prototype.unique = function() {
+    var arr = [];
+    for (var i = 0; i < this.length; i++) {
+        if (!arr.contains(this[i])) {
+            arr.push(this[i]);
+        }
+    }
+    return arr;
+};
+
+$( document ).ready(function() {
+    var newArr = [];
+
+    for(var i=0; i<tempEv.length; i++){
+        newArr = newArr.concat(tempEv[i]);
+    }
+
+    var availEv = newArr.unique();    
+
+    console.log("availEv: "+availEv);
+
+    /*
+    for(var i=0; i<availEv.length; i++){
+        var temp = String(availEv[i]);
+        var evidenceListItem = $("<button type='button' class='evBTN btn btn-primary'>"+availEv[i]+"</button>");
+        $('#posEvidence').append(evidenceListItem);
+    }*/
+    
+});
 
 // Evidence buttons
 $('.evBTN').on('click', function(evt){
