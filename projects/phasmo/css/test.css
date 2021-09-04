@@ -36,17 +36,6 @@ h1, h2{
     Class styles
 */
 
-.ghostBox{
-    background-color: lightgray;
-    border-style: dashed;
-    border-width: 0.5em;
-    border-color: gray;
-}
-
-.evBTN{
-    
-}
-
 .evHeader{
     display: inline-block;
 }
@@ -59,4 +48,19 @@ h1, h2{
 .col{
     background-color: #1A1A1A;
     border: 5px solid darkcyan;
+}
+
+.card{
+    background-color: #3A3A3A;
+    font-size: 0.75em;
+    /*display: inline-block;*/
+}
+
+.card .list-group-item{
+    font-size: 0.8em;
+    color: white;
+}
+
+.moreInfoBTN{
+    margin-top: 10px;
 }
