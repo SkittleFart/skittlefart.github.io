@@ -1,3 +1,6 @@
+/*
+    Page styles
+*/
 @font-face{
     src: url(../font/OctoberCrow.ttf);
     font-family: crow;
@@ -6,7 +9,32 @@
 body{
     background-color: black;
     color: white;
+    font-size: 24px;
 }
+
+h1, h2{
+    font-family: crow;
+    font-size: 2em;
+    text-align: center;
+}
+
+/*
+    ID styles
+*/
+
+#ev1, #ev2, #ev3{
+    font-size: large;
+    margin: 20px 0px 50px 0px;
+}
+
+#posEvidence{
+    margin: 10px 5px 30px 5px;
+}
+
+
+/*
+    Class styles
+*/
 
 .ghostBox{
     background-color: lightgray;
@@ -15,16 +43,20 @@ body{
     border-color: gray;
 }
 
-h1, h2{
-    font-family: crow;
-    font-size: xx-large;
+.evBTN{
+    
+}
+
+.evHeader{
+    display: inline-block;
+}
+
+.mainHeader{
+    margin: 20px 0px;
     text-align: center;
 }
 
-#ev1{
-    font-size: large;
-}
-
-.evBTN{
-    margin: 0px 5px;
+.col{
+    background-color: #1A1A1A;
+    border: 5px solid darkcyan;
 }

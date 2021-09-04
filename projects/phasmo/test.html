@@ -34,34 +34,48 @@
 </head>
 
 <body>
-    <h1>Phasmophobia Evidence Assistant</h1>
-    <div id="evTracker">
-      <h2>Evidence</h2>
-      <button type="button" id="resetBTN" class="btn btn-danger" value="reset">Reset</button>
-      <hr>
-      <div id="posEvidence">   
-        <button type="button" id="evidenceBTN_1" class="evBTN btn btn-primary" value="DOTS">DOTS</button>
-        <button type="button" id="evidenceBTN_2" class="evBTN btn btn-primary" value="EMF">EMF 5</button>
-        <button type="button" id="evidenceBTN_3" class="evBTN btn btn-primary" value="Prints">Fingerprints</button>
-        <button type="button" id="evidenceBTN_4" class="evBTN btn btn-primary" value="Temps">Freezing Temps</button>
-        <button type="button" id="evidenceBTN_5" class="evBTN btn btn-primary" value="Orbs">Ghost Orb</button>
-        <button type="button" id="evidenceBTN_6" class="evBTN btn btn-primary" value="Writing">Ghost Writing</button>
-        <button type="button" id="evidenceBTN_7" class="evBTN btn btn-primary" value="Box">Spirit Box</button>     
-      </div>
-      <div id="ev1">
-        <h3>Evidence 1</h3>
-      </div>
-      <div id="ev2">
-        <h3>Evidence 2</h3>
-      </div>
-      <div id="ev3">
-        <h3>Evidence 3</h3>
-      </div>
+    <h1 class="mainHeader">Phasmophobia Evidence Assistant</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-12 text-center">
+                <div id="evHeader">
+                    <h2  class="evHeader">Evidence</h2>
+                    <button type="button" id="resetBTN" class="btn btn-danger evHeader" value="reset">Reset</button>
+                    <hr>
+                    <div id="posEvidence">   
+                        <button type="button" id="evidenceBTN_1" class="evBTN btn btn-primary" value="DOTS">DOTS</button>
+                        <button type="button" id="evidenceBTN_2" class="evBTN btn btn-primary" value="EMF">EMF 5</button>
+                        <button type="button" id="evidenceBTN_3" class="evBTN btn btn-primary" value="Prints">Fingerprints</button>
+                        <button type="button" id="evidenceBTN_4" class="evBTN btn btn-primary" value="Temps">Freezing Temps</button>
+                        <button type="button" id="evidenceBTN_5" class="evBTN btn btn-primary" value="Orbs">Ghost Orb</button>
+                        <button type="button" id="evidenceBTN_6" class="evBTN btn btn-primary" value="Writing">Ghost Writing</button>
+                        <button type="button" id="evidenceBTN_7" class="evBTN btn btn-primary" value="Box">Spirit Box</button>     
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-4">
+                <div id="ev1">
+                    <h3>Evidence 1</h3>
+                </div>
+                <div id="ev2">
+                    <h3>Evidence 2</h3>
+                </div>
+                <div id="ev3">
+                    <h3>Evidence 3</h3>
+                </div>
+            </div>
+            <div class="col col-lg-8">
+                <div id="posGhosts">
+                    <h2>Possible Ghosts</h2>
+                    <div id="ghostList"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="posGhosts">
-      <h2>Possible Ghosts</h2>
-      <div id="ghostList"></div>
-    </div>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
