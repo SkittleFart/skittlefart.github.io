@@ -2,13 +2,21 @@ var GHOSTS_URL = "js/ghost.json";
 
 var tempEv = [["EMF 5", "Spirit Box", "Ghost Writing"],
               ["EMF 5", "Spirit Box", "DOTS"],
-              ["Spirit Box", "Fingerprints", "DOTS"]
+              ["Spirit Box", "Fingerprints", "DOTS"],
+              ["Spirit Box", "Fingerprints", "Ghost Writing"],
+              ["Fingerprints", "Ghost Orb", "DOTS"],
+              ["EMF 5", "Fingerprints", "Freezing Temps"],
+              ["Spirit Box", "Ghost Orb", "Ghost Writing"],
+              ["Ghost Orb", "Ghost Writing", "Freezing Temps"],
+              ["EMF 5", "Ghost Writing", "Freezing Temps"],
+              ["Fingerprints", "Ghost Writing", "Freezing Temps"],
+              ["Ghost Orb", "Freezing Temps", "DOTS"],
+              ["EMF 5", "Freezing Temps", "DOTS"],
+              ["Fingerprints", "Ghost Orb", "Freezing Temps"],
+              ["Spirit Box", "Ghost Orb", "DOTS"],
+              ["EMF 5", "Fingerprints", "DOTS"],
+              ["EMF 5", "Fingerprints", "Ghost Writing"]
             ];
-// availEv should read EMF 5, Spirit Box, Ghost Writing, DOTS, Fingerprints ; length = 5
-
-var tempEvSingle = ["EMF 5", "Spirit Box", "Ghost Writing"];
-var tempEvSingle2 = ["EMF 5", "Spirit Box", "DOTS"];
-var tempEvSingle3 = ["Spirit Box", "Fingerprints", "DOTS"];
 
 var GHOSTS = [];
 var EVIDENCE = [];
@@ -46,8 +54,6 @@ Array.prototype.unique = function() {
 };
 
 $( document ).ready(function() {
-    //var temp = tempEvSingle.concat(tempEvSingle2);
-    //temp = temp.concat(tempEvSingle3);
     var newArr = [];
 
     for(var i=0; i<tempEv.length; i++){
@@ -57,6 +63,13 @@ $( document ).ready(function() {
     var availEv = newArr.unique();    
 
     console.log("availEv: "+availEv);
+
+    /*
+    for(var i=0; i<availEv.length; i++){
+        var temp = String(availEv[i]);
+        var evidenceListItem = $("<button type='button' class='evBTN btn btn-primary'>"+availEv[i]+"</button>");
+        $('#posEvidence').append(evidenceListItem);
+    }*/
     
 });
 

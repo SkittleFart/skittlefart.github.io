@@ -24,3 +24,7 @@ h1, h2{
 #ev1{
     font-size: large;
 }
+
+.evBTN{
+    margin: 0px 5px;
+}
