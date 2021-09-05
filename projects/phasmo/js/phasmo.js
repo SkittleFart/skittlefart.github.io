@@ -21,6 +21,13 @@ var tempEv = [["EMF 5", "Spirit Box", "Ghost Writing"],
 var GHOSTS = [];
 var EVIDENCE = [];
 
+function removeSpaces(v){
+    var moo = String(v).replace(/\s/g, '');
+    console.log("moo: "+moo);
+
+    return moo;
+}
+
 fetch(GHOSTS_URL)
     .then(function(resp){
         return resp.json();
@@ -29,7 +36,7 @@ fetch(GHOSTS_URL)
         //console.log(data[0].name);
 
         for(var i=0; i<data.length; i++){
-            var ghostDiv = $("<div id="+data[i].name+" class='card col-lg-12'><div class=card-body><h5 class='card-title'>"+data[i].name+"</h5><ul class='list-group list-group-horizontal'><li class='list-group-item bg-secondary'>"+data[i].evidence[0]+"</li><li class='list-group-item bg-secondary'>"+data[i].evidence[1]+"</li><li class='list-group-item bg-secondary'>"+data[i].evidence[2]+"</li></ul><div class='card card-body'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
+            var ghostDiv = $("<div id="+data[i].name+" class='card col-lg-12'><div class=card-body><h5 class='card-title'>"+data[i].name+"</h5><ul class='list-group list-group-horizontal'><li class='list-group-item bg-secondary EV-"+removeSpaces(data[i].evidence[0])+"'>"+data[i].evidence[0]+"</li><li class='list-group-item bg-secondary EV-"+removeSpaces(data[i].evidence[1])+"'>"+data[i].evidence[1]+"</li><li class='list-group-item bg-secondary EV-"+removeSpaces(data[i].evidence[2])+"'>"+data[i].evidence[2]+"</li></ul><div class='card card-body'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
             $("#ghostList").append(ghostDiv);
             GHOSTS[i] = data[i].name;
             EVIDENCE[i] = data[i].evidence;
@@ -92,6 +99,7 @@ $('.evBTN').on('click', function(evt){
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     //console.log("Evidence is required");
                     evidenceFound = true;
+                    $('.EV-'+removeSpaces($(this).text())).css("color", "black");
                 }else{
                     //console.log("Evidence is not required");
                 }                
@@ -111,19 +119,20 @@ $('.evBTN').on('click', function(evt){
             var evidenceFound = false;
             for(var k=0; k<EVIDENCE[j].length; k++){
                 //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
-                console.log("this.text: "+$(this).text());
-                console.log("arrayText: "+EVIDENCE[j][k]);
-                console.log("thisGhost: "+GHOSTS[j]);
+                //console.log("this.text: "+$(this).text());
+                //console.log("arrayText: "+EVIDENCE[j][k]);
+                //console.log("thisGhost: "+GHOSTS[j]);
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
-                    console.log("Evidence is required");
+                    //console.log("Evidence is required");
                     evidenceFound = true;
+                    $('.EV-'+removeSpaces($(this).text())).css("color", "black");
                 }else{
-                    console.log("Evidence is not required");
+                    //console.log("Evidence is not required");
                 }                
             }
 
-            console.log("Ghost: "+GHOSTS[j]);
-            console.log("evidenceFound: "+evidenceFound);
+            //console.log("Ghost: "+GHOSTS[j]);
+            //console.log("evidenceFound: "+evidenceFound);
             if(!evidenceFound){
                 $('#'+GHOSTS[j]).hide();
             }
@@ -136,19 +145,20 @@ $('.evBTN').on('click', function(evt){
             var evidenceFound = false;
             for(var k=0; k<EVIDENCE[j].length; k++){
                 //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
-                console.log("this.text: "+$(this).text());
-                console.log("arrayText: "+EVIDENCE[j][k]);
-                console.log("thisGhost: "+GHOSTS[j]);
+                //console.log("this.text: "+$(this).text());
+                //console.log("arrayText: "+EVIDENCE[j][k]);
+                //console.log("thisGhost: "+GHOSTS[j]);
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
-                    console.log("Evidence is required");
+                    //console.log("Evidence is required");
                     evidenceFound = true;
+                    $('.EV-'+removeSpaces($(this).text())).css("color", "black");
                 }else{
-                    console.log("Evidence is not required");
+                    //console.log("Evidence is not required");
                 }                
             }
 
-            console.log("Ghost: "+GHOSTS[j]);
-            console.log("evidenceFound: "+evidenceFound);
+            //console.log("Ghost: "+GHOSTS[j]);
+            //console.log("evidenceFound: "+evidenceFound);
             if(!evidenceFound){
                 $('#'+GHOSTS[j]).hide();
             }
@@ -164,5 +174,6 @@ $('#resetBTN').on('click', function(evt){
     for(var j=0; j<GHOSTS.length; j++){
         $('#'+GHOSTS[j]).show();
     }
+    $('.list-group-item').css("color", "white");
 }); 
 
