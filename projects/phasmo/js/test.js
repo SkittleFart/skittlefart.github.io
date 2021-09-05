@@ -92,7 +92,7 @@ $('.evBTN').on('click', function(evt){
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     //console.log("Evidence is required");
                     evidenceFound = true;
-                    var meow = EVIDENCE[j][k].split(" ").join("");
+                    var meow = $(this).text().split(" ").join("");
                     $('.EV-'+meow).css("color", "black");
                 }else{
                     //console.log("Evidence is not required");
@@ -119,7 +119,7 @@ $('.evBTN').on('click', function(evt){
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     console.log("Evidence is required");
                     evidenceFound = true;
-                    var meow = EVIDENCE[j][k].split(" ").join("");
+                    var meow = $(this).text().split(" ").join("");
                     $('.EV-'+meow).css("color", "black");
                 }else{
                     console.log("Evidence is not required");
@@ -146,7 +146,7 @@ $('.evBTN').on('click', function(evt){
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     console.log("Evidence is required");
                     evidenceFound = true;
-                    var meow = EVIDENCE[j][k].split(" ").join("");
+                    var meow = $(this).text().split(" ").join("");
                     $('.EV-'+meow).css("color", "black");
                 }else{
                     console.log("Evidence is not required");
