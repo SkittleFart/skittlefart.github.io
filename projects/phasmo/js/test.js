@@ -92,7 +92,7 @@ $('.evBTN').on('click', function(evt){
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     //console.log("Evidence is required");
                     evidenceFound = true;
-                    var meow = $(this).text().replace(/\s/g, ' ');
+                    var meow = String($(this).text()).replace(/\s/g, ' ');
                     console.log("this.text: "+$(this).text());
                     console.log("meow: "+meow);
                     $('.EV-'+meow).css("color", "black");
@@ -121,7 +121,7 @@ $('.evBTN').on('click', function(evt){
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     //console.log("Evidence is required");
                     evidenceFound = true;
-                    var meow = $(this).text().replace(/\s/g, ' ');
+                    var meow = String($(this).text()).replace(/\s/g, ' ');
                     console.log("this.text: "+$(this).text());
                     console.log("meow: "+meow);
                     $('.EV-'+meow).css("color", "black");
@@ -150,7 +150,7 @@ $('.evBTN').on('click', function(evt){
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     //console.log("Evidence is required");
                     evidenceFound = true;
-                    var meow = $(this).text().replace(/\s/g, ' ');
+                    var meow = String($(this).text()).replace(/\s/g, ' ');
                     console.log("this.text: "+$(this).text());
                     console.log("meow: "+meow);
                     $('.EV-'+meow).css("color", "black");
