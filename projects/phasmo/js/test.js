@@ -115,23 +115,23 @@ $('.evBTN').on('click', function(evt){
             var evidenceFound = false;
             for(var k=0; k<EVIDENCE[j].length; k++){
                 //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
-                console.log("this.text: "+$(this).text());
-                console.log("arrayText: "+EVIDENCE[j][k]);
-                console.log("thisGhost: "+GHOSTS[j]);
+                //console.log("this.text: "+$(this).text());
+                //console.log("arrayText: "+EVIDENCE[j][k]);
+                //console.log("thisGhost: "+GHOSTS[j]);
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
-                    console.log("Evidence is required");
+                    //console.log("Evidence is required");
                     evidenceFound = true;
                     var meow = $(this).text().replace(/\s/g, ' ');
                     console.log("this.text: "+$(this).text());
                     console.log("meow: "+meow);
                     $('.EV-'+meow).css("color", "black");
                 }else{
-                    console.log("Evidence is not required");
+                    //console.log("Evidence is not required");
                 }                
             }
 
-            console.log("Ghost: "+GHOSTS[j]);
-            console.log("evidenceFound: "+evidenceFound);
+            //console.log("Ghost: "+GHOSTS[j]);
+            //console.log("evidenceFound: "+evidenceFound);
             if(!evidenceFound){
                 $('#'+GHOSTS[j]).hide();
             }
@@ -144,23 +144,23 @@ $('.evBTN').on('click', function(evt){
             var evidenceFound = false;
             for(var k=0; k<EVIDENCE[j].length; k++){
                 //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
-                console.log("this.text: "+$(this).text());
-                console.log("arrayText: "+EVIDENCE[j][k]);
-                console.log("thisGhost: "+GHOSTS[j]);
+                //console.log("this.text: "+$(this).text());
+                //console.log("arrayText: "+EVIDENCE[j][k]);
+                //console.log("thisGhost: "+GHOSTS[j]);
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
-                    console.log("Evidence is required");
+                    //console.log("Evidence is required");
                     evidenceFound = true;
                     var meow = $(this).text().replace(/\s/g, ' ');
                     console.log("this.text: "+$(this).text());
                     console.log("meow: "+meow);
                     $('.EV-'+meow).css("color", "black");
                 }else{
-                    console.log("Evidence is not required");
+                    //console.log("Evidence is not required");
                 }                
             }
 
-            console.log("Ghost: "+GHOSTS[j]);
-            console.log("evidenceFound: "+evidenceFound);
+            //console.log("Ghost: "+GHOSTS[j]);
+            //console.log("evidenceFound: "+evidenceFound);
             if(!evidenceFound){
                 $('#'+GHOSTS[j]).hide();
             }
