@@ -99,10 +99,7 @@ $('.evBTN').on('click', function(evt){
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     //console.log("Evidence is required");
                     evidenceFound = true;
-                    var meow = String($(this).text()).replace(/\s/g, '');
-                    console.log("this.text: "+$(this).text());
-                    console.log("meow: "+meow);
-                    $('.EV-'+meow).css("color", "black");
+                    $('.EV-'+removeSpaces($(this).text())).css("color", "black");
                 }else{
                     //console.log("Evidence is not required");
                 }                
@@ -128,10 +125,7 @@ $('.evBTN').on('click', function(evt){
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     //console.log("Evidence is required");
                     evidenceFound = true;
-                    var meow = String($(this).text()).replace(/\s/g, '');
-                    console.log("this.text: "+$(this).text());
-                    console.log("meow: "+meow);
-                    $('.EV-'+meow).css("color", "black");
+                    $('.EV-'+removeSpaces($(this).text())).css("color", "black");
                 }else{
                     //console.log("Evidence is not required");
                 }                
@@ -157,10 +151,7 @@ $('.evBTN').on('click', function(evt){
                 if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
                     //console.log("Evidence is required");
                     evidenceFound = true;
-                    var meow = String($(this).text()).replace(/\s/g, '');
-                    console.log("this.text: "+$(this).text());
-                    console.log("meow: "+meow);
-                    $('.EV-'+meow).css("color", "black");
+                    $('.EV-'+removeSpaces($(this).text())).css("color", "black");
                 }else{
                     //console.log("Evidence is not required");
                 }                
