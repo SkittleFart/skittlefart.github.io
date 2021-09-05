@@ -122,6 +122,8 @@ $('.evBTN').on('click', function(evt){
                     console.log("Evidence is required");
                     evidenceFound = true;
                     var meow = $(this).text().replace(/\s/g, ' ');
+                    console.log("this.text: "+$(this).text());
+                    console.log("meow: "+meow);
                     $('.EV-'+meow).css("color", "black");
                 }else{
                     console.log("Evidence is not required");
@@ -149,6 +151,8 @@ $('.evBTN').on('click', function(evt){
                     console.log("Evidence is required");
                     evidenceFound = true;
                     var meow = $(this).text().replace(/\s/g, ' ');
+                    console.log("this.text: "+$(this).text());
+                    console.log("meow: "+meow);
                     $('.EV-'+meow).css("color", "black");
                 }else{
                     console.log("Evidence is not required");
