@@ -23,6 +23,7 @@ var EVIDENCE = [];
 
 function removeSpaces(v){
     var moo = String(v).replace(/\s/g, '');
+    console.log("moo: "+moo);
 
     return moo;
 }
