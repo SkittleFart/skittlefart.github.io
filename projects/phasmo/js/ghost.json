@@ -1,35 +1,35 @@
 [
     {
         "name": "Spirit",
-        "desc": "A spirit is the most common Ghost you will come across, however it is still very powerful and dangerous. They are usually discovered at one of their hunting grounds after an unexplained death.",
+        "desc": "Spirits are very common ghosts. They are very powerful, by passive, only attacking when they need to. They defend their place of death to the utmost degree, killing anyone that is caught overstaying their welcome.",
         "stren": "Nothing",
-        "weak": "Using Smudge Sticks on a Spirit will stop it from attacking for a long period of time.",
+        "weak": "A Spirit can be temporarily stopped by burning Smudge Sticks near them.",
         "evidence": ["EMF 5", "Spirit Box", "Ghost Writing"]
     },
     {
         "name": "Wraith",
-        "desc": "A wraith is one of the most dangerous ghosts you will find. It is also the only known Ghost that has the ability of flight and has sometimes been known to travel through walls.",
-        "stren": "Wraiths almost never touch the ground meaning it can't be tracked by footsteps.",
+        "desc": "Wraiths are one of the most dangerous ghosts you will find. It is also the only known ghost that has the ability of flight and has sometimes been known to travel through walls.",
+        "stren": "Wraiths almost never touch the ground, meaning it can't be tracked by footsteps.",
         "weak": "Wraiths have a toxic reaction to Salt.",
         "evidence": ["EMF 5", "Spirit Box", "DOTS"]
     },
     {
         "name": "Phantom",
-        "desc": "A Phantom is a ghost that can possess the living, most commonly summoned by a Ouija Board. It also induces fear into those around it.",
-        "stren": "Looking at a Phantom will considerably drop your sanity.",
+        "desc": "A Phantom is a ghost that can possess the living, inducing fear into those around it. They are most commonly summoned from Ouija Boards.",
+        "stren": "Looking at a Phantom will drop your sanity considerably faster.",
         "weak": "Taking a photo of the Phantom will make it temporarily disappear.",
         "evidence": ["Spirit Box", "Fingerprints", "DOTS"]
     },
     {
         "name": "Poltergeist",
-        "desc": "One of the most famous Ghosts, a Poltergeist, also known as a noisy ghost can manipulate objects around it to spread fear into its victims.",
-        "stren": " A Poltergeist can throw huge amounts of objects at once.",
-        "weak": "A Poltergeist is almost ineffective in an empty room.",
+        "desc": "One of the most famous ghosts, the Poltergeist. Known to manipulate objects around it to spread fear into its victims.",
+        "stren": " Poltergeists can throw multiple objects at once.",
+        "weak": "With nothing to throw, Poltergeists become powerless.",
         "evidence": ["Spirit Box", "Fingerprints", "Ghost Writing"]
     },
     {
         "name": "Banshee",
-        "desc": "A Banshee is a natural hunter and will attack anything. It has been known to stalk its prey one at a time until making its kill.",
+        "desc": "A Banshee is a natural hunter and will attack anything. It has been known to single out its prey before making a killing blow.",
         "stren": "A Banshee will only target one person at a time.",
         "weak": "Banshees fear the Crucifix and will be less aggressive when near one.",
         "evidence": ["Fingerprints", "Ghost Orb", "DOTS"]
@@ -50,56 +50,56 @@
     },
     {
         "name": "Revenant",
-        "desc": "A Revenant is a slow but violent ghost that will attack indiscriminately. It has been rumoured to travel at a significantly high speed when hunting.",
-        "stren": "A Revenant will travel at a significantly faster speed when hunting a victim.",
+        "desc": "A Revenant is a slow but violent ghost that will attack indiscriminately. Their speed can be deceiving, as they are slow while dormant; however, as soon as they hunt they can move incredibly fast.",
+        "stren": "A Revenant will travel at a significantly faster speed when hunting their prey.",
         "weak": "Hiding from the Revenant will cause it to move very slowly.",
         "evidence": ["Ghost Orb", "Ghost Writing", "Freezing Temps"]
     },
     {
         "name": "Shade",
-        "desc": "A Shade is known to be a Shy Ghost. There is evidence that a Shade will stop all paranormal activity if there are multiple people nearby.",
-        "stren": "Being shy means the Ghost will be harder to find.",
-        "weak": "The Ghost will not enter hunting mode if there is multiple people nearby.",
+        "desc": "A Shade is known to be very shy. There is evidence that a Shade will stop all paranormal activity if there are multiple people nearby.",
+        "stren": "Shades are much harder to find.",
+        "weak": "The ghost will not enter hunting mode if there are multiple people nearby.",
         "evidence": ["EMF 5", "Ghost Writing", "Freezing Temps"]
     },
     {
         "name": "Demon",
-        "desc": "A Demon is one of the worst Ghosts you can encounter. It has been known to attack without a reason.",
-        "stren": "Demons will attack more often than any other Ghost.",
-        "weak": "Asking a Demon successful questions on the Ouija Board won't lower the user's sanity.",
+        "desc": "A Demon is one of the worst ghosts you can encounter. It has been known to attack without a reason.",
+        "stren": "Demons will attack more often than other ghosts.",
+        "weak": "Demons will take less sanity when answering through a Ouija Board.",
         "evidence": ["Fingerprints", "Ghost Writing", "Freezing Temps"]
     },
     {
         "name": "Yurei",
-        "desc": "A Yurei is a Ghost that has returned to the physical world, usually for the purpose of revenge or hatred.",
-        "stren": "Yurei's have been known to have a stronger effect on people sanity.",
-        "weak": "Smudging the Yurei's room will cause it to not wander around the location for a long time.",
+        "desc": "A Yurei is a ghost that has returned to the physical world, usually for the purpose of revenge or hatred.",
+        "stren": "Yureis have been known to have a stronger effect on people's sanity.",
+        "weak": "Smudging the Yurei's place of death will trap it temporarily, reducing how much it wanders..",
         "evidence": ["Ghost Orb", "Freezing Temps", "DOTS"]
     },
     {
         "name": "Oni",
-        "desc": "Oni's are a cousin to the Demon and possess extreme strength. There have been rumours that they become more active around their prey.",
-        "stren": "Oni's are more active when people are nearby and have been seen moving objects at great speed.",
-        "weak": "Being more active will make the Oni easier to find and identify",
+        "desc": "Onis share traits with Demons, and possess extreme strength. There have been rumours that they become more active around their prey.",
+        "stren": "Onis are more active when people are nearby and have been seen moving objects at great speed.",
+        "weak": "Onis are very active, making them easier to find.",
         "evidence": ["EMF 5", "Freezing Temps", "DOTS"]
     },
     {
-        "name": "Hantu",
-        "desc": "A rare ghost that can be found in hot climates. They are known to attack often during cold weather.",
-        "stren": "Lower temperatures can cause the Hantu to move at faster speeds.",
-        "weak": "A Hantu will move slower in warmer areas.",
-        "evidence": ["Fingerprints", "Ghost Orb", "Freezing Temps"]
-    },
-    {
         "name": "Yokai",
-        "desc": "A Yokai is a common type of chost that is attracted to human voices. They can usually be found haunting family homes.",
-        "stren": "Talking near a Yokai will anger it and increase its chance of attacking.",
+        "desc": "Yokai are common ghosts that are attracted to human voices. They can usually be found haunting family homes.",
+        "stren": "Talking near a Yokai will anger it, increasing the chance of an attack.",
         "weak": "When hunting, a Yokai can only hear voices close to it.",
         "evidence": ["Spirit Box", "Ghost Orb", "DOTS"]
     },
     {
+        "name": "Hantu",
+        "desc": "A Hantu is a rare ghost that can be found in hotter climates. They are known to attack often during cold weather.",
+        "stren": "Lower temperatures allow the Hantu to move at faster speeds.",
+        "weak": "Hantus move slower in warmer areas.",
+        "evidence": ["Fingerprints", "Ghost Orb", "Freezing Temps"]
+    },
+    {
         "name": "Goryo",
-        "desc": "When a Goryo passes through a DOTS Projector, using a video camera is the only way to see it.",
+        "desc": "When a Goryo passes through a DOTS projector, using a video camera is the only way to see it.",
         "stren": "A Goryo will usually only show itself on camera if there are no people nearby.",
         "weak": "They are rarely seen far from their place of death.",
         "evidence": ["EMF 5", "Fingerprints", "DOTS"]
@@ -110,5 +110,33 @@
         "stren": "A Myling is known to be quieter when hunting.",
         "weak": "Mylings more frequently make paranormal sounds.",
         "evidence": ["EMF 5", "Fingerprints", "Ghost Writing"]
+    },
+    {
+        "name": "Onryo",
+        "desc": "The Onryo is often referred to as 'The Wrathful Spirit'. It steals souls from dying victims' bodies to seek revenge. This ghost has been known to fear any form of fire, and will do anything to be far from it.",
+        "stren": "Extinguishing a flame can cause an Onryo to attack.",
+        "weak": "When threatened, this ghost will be less likely to hunt.",
+        "evidence": ["Spirit Box", "Ghost Orb", "Freezing Temps"]
+    },
+    {
+        "name": "The Twins",
+        "desc": "These ghosts have been reported to mimic each other's actions. They alternate their attacks to confuse their prey.",
+        "stren": "Either Twin can ben angered and initiate an attack on their prey.",
+        "weak": "The Twins will often interact with the environment at the same time.",
+        "evidence": ["EMF 5", "Spirit Box", "Freezing Temps"]
+    },
+    {
+        "name": "Raiju",
+        "desc": "A Raiju is a demon that thrives on electrical current. While generally calm, they can become agitated when overwhelmed with power.",
+        "stren": "A Raiju can siphon power from nearby electrical devices, making it move faster.",
+        "weak": "Raiju are constantly disrupting electronic equipment when attacking, making it easier to track.",
+        "evidence": ["EMF 5", "Ghost Orb", "DOTS"]
+    },
+    {
+        "name": "Obake",
+        "desc": "Obake are terrifying shape-shifters, capable of taking on may forms. They have been seen taking on humanoid shapes to attract their prey.",
+        "stren": "When interacting with the environment, an Obake will rarely leave a trace.",
+        "weak": "Sometimes this ghost will shapeshift, leaving behind unique evidence.",
+        "evidence": ["EMF 5", "Fingerprints", "Ghost Orb"]
     }
 ]
