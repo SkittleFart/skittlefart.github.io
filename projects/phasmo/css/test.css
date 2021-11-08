@@ -6,10 +6,16 @@
     font-family: crow;
 }
 
+@font-face{
+    src: url(../font/GentiumBasic-Regular.ttf);
+    font-family: gentium;
+}
+
 body{
     background-color: black;
     color: white;
     font-size: 24px;
+    font-family: gentium;
 }
 
 h1, h2{
