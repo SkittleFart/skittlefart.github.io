@@ -5,7 +5,7 @@ function resetEvidence(){
 
 }
 
-function evidenceFound(){
+function evidenceFound(evBtn){
 
 }
 
@@ -17,8 +17,10 @@ function evidenceDisable(){
 
 }
 
-$('.evBTN').on('click', function(evt){
-    console.log("oh hello there");
+function checkEvidenceStatus(evBtn){
+    console.log("checking...");
+    console.log(evBtn.hasClass("btn-primary"));
+    /*
     if($('.evBTN').hasClass("btn-primary")){
         $('.evBTN').removeClass("btn-primary");
         $('.evBTN').addClass("btn-success");
@@ -28,5 +30,10 @@ $('.evBTN').on('click', function(evt){
     }else if($('.evBTN').hasClass("btn-danger")){
         $('.evBTN').removeClass("btn-danger");
         $('.evBTN').addClass("btn-primary");
-    }
+    }*/
+}
+
+$('.evBTN').on('click', function(evt){
+    console.log("oh hello there");
+    checkEvidenceStatus(this);
 });
