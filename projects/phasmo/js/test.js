@@ -19,7 +19,7 @@ function evidenceDisable(){
 
 function checkEvidenceStatus(evBtn){
     console.log("checking...");
-    console.log(evBtn);
+    console.log(evBtn.id);
     /*
     if($('.evBTN').hasClass("btn-primary")){
         $('.evBTN').removeClass("btn-primary");
