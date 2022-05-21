@@ -19,14 +19,14 @@ function evidenceDisable(){
 
 $('.evBTN').on('click', function(evt){
     console.log("oh hello there");
-    if(evt.hasClass("btn-primary")){
-        evt.removeClass("btn-primary");
-        evt.addClass("btn-success");
-    }else if(evt.hasClass("btn-success")){
-        evt.removeClass("btn-success");
-        evt.addClass("btn-danger");
-    }else if(evt.hasClass("btn-danger")){
-        evt.removeClass("btn-danger");
-        evt.addClass("btn-primary");
+    if(this.hasClass("btn-primary")){
+        this.removeClass("btn-primary");
+        this.addClass("btn-success");
+    }else if(this.hasClass("btn-success")){
+        this.removeClass("btn-success");
+        this.addClass("btn-danger");
+    }else if(this.hasClass("btn-danger")){
+        this.removeClass("btn-danger");
+        this.addClass("btn-primary");
     }
 });
