@@ -18,6 +18,7 @@ function evidenceDisable(){
 }
 
 $('.evBTN').on('click', function(evt){
+    console.log("oh hello there");
     if(evt.hasClass("btn-primary")){
         evt.removeClass("btn-primary");
         evt.addClass("btn-success");
