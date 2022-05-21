@@ -2,18 +2,29 @@ var GHOSTS_URL = "js/ghost.json";
 
 /* Button functions */
 function resetEvidence(){
+    var evidenceCounter = 7
+    for(var i=1; i<=evidenceCounter; i++){
+        if($('#evBtn-'+i).hasClass("btn-success")){
+            $('#evBtn-'+i).removeClass("btn-success");
+            $('#evBtn-'+i).addClass("btn-primary");
+        }
+        if($('#evBtn-'+i).hasClass("btn-danger")){
+            $('#evBtn-'+i).removeClass("btn-danger");
+            $('#evBtn-'+i).removeClass("crossed");
+            $('#evBtn-'+i).addClass("btn-primary");
+        }
+    }
+}
+
+function evidenceFound(btn){
 
 }
 
-function evidenceFound(evBtn){
+function evidenceCross(btn){
 
 }
 
-function evidenceCross(){
-
-}
-
-function evidenceDisable(){
+function evidenceDisable(btn){
 
 }
 
@@ -28,9 +39,11 @@ function checkEvidenceStatus(evBtnID){
     }else if($(evBtnID).hasClass("btn-success")){
         $(evBtnID).removeClass("btn-success");
         $(evBtnID).addClass("btn-danger");
+        $(evBtnID).addClass("crossed");
         console.log("checking2");
     }else if($(evBtnID).hasClass("btn-danger")){
         $(evBtnID).removeClass("btn-danger");
+        $(evBtnID).removeClass("crossed");
         $(evBtnID).addClass("btn-primary");
         console.log("checking3");
     }
