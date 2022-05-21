@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>[TEST] Phasmophobia Evidence Assistant</title>
+  <title>Phasmophobia Evidence Assistant</title>
 	<meta name="description" content="Easily keep track of what possible ghosts are hunting you with this handy evidence tracker">
   <meta name="keywords" content="phasmophobia, ghost, hunting, game, evidence">
   <meta name="author" content="Matthew Bamonte, MSIT">
 	<meta name="op:image" content="assets/images/WebsiteLogo.png"/>
 	<meta name="op:image:alt" content="Matthew Bamonte Logo"/>
   <!--Mobile Specific Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/test.css">
   <!--CSS 
@@ -34,72 +34,101 @@
 </head>
 
 <body>
-    <h1 class="mainHeader">Phasmophobia Evidence Assistant</h1>
+  <div class="mainHeader">
+    <h1>Phasmophobia Evidence Assistant</h1>
+    <p>Last Updated: May 2022</p>
+  </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col col-lg-12 text-center">
-                <div id="evHeader">
-                    <h2  class="evHeader">Evidence</h2>
-                    <button type="button" id="resetBTN" class="btn btn-danger evHeader" value="reset">Reset</button>
-                    <hr>
-                    <div id="posEvidence">   
-                        <button type="button" id="evidenceBTN_1" class="evBTN btn btn-primary" value="DOTS">DOTS</button>
-                        <button type="button" id="evidenceBTN_2" class="evBTN btn btn-primary" value="EMF">EMF 5</button>
-                        <button type="button" id="evidenceBTN_3" class="evBTN btn btn-primary" value="Prints">Fingerprints</button>
-                        <button type="button" id="evidenceBTN_4" class="evBTN btn btn-primary" value="Temps">Freezing Temps</button>
-                        <button type="button" id="evidenceBTN_5" class="evBTN btn btn-primary" value="Orbs">Ghost Orb</button>
-                        <button type="button" id="evidenceBTN_6" class="evBTN btn btn-primary" value="Writing">Ghost Writing</button>
-                        <button type="button" id="evidenceBTN_7" class="evBTN btn btn-primary" value="Box">Spirit Box</button>     
-                    </div>
-                </div> 
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-lg-4 col-md-12 col-sm-12">
-                <div id="ev1">
-                    <h3>Evidence 1</h3>
+  <div class="container">
+      <!--
+      <div class="row">
+          <div class="col col-lg-12 text-center">
+              <div id="evHeader">
+                  <h2  class="evHeader">Evidence</h2>
+                  <button type="button" id="resetBTN" class="btn btn-danger evHeader" value="reset">Reset</button>
+                  <hr>
+                  <div id="posEvidence">   
+                      <button type="button" id="evBtn-1" class="evBTN btn btn-primary" value="DOTS">DOTS</button>
+                      <button type="button" id="evBtn-2" class="evBTN btn btn-primary" value="EMF">EMF 5</button>
+                      <button type="button" id="evBtn-3" class="evBTN btn btn-primary" value="Prints">Fingerprints</button>
+                      <button type="button" id="evBtn-4" class="evBTN btn btn-primary" value="Temps">Freezing Temps</button>
+                      <button type="button" id="evBtn-5" class="evBTN btn btn-primary" value="Orbs">Ghost Orb</button>
+                      <button type="button" id="evBtn-6" class="evBTN btn btn-primary" value="Writing">Ghost Writing</button>
+                      <button type="button" id="evBtn-7" class="evBTN btn btn-primary" value="Box">Spirit Box</button>     
+                  </div>
+              </div> 
+          </div>
+      </div>-->
+      <div class="row">
+          <div class="col col-lg-5 leftCol">
+              <!--Left column-->
+              <h2>Evidence</h2>
+              <hr>
+              <div class="row g-2">
+                <div class="col-6 d-grid gap-2">
+                  <button type="button" id="evBtn-1" class="evBTN btn btn-lg btn-primary" value="DOTS">DOTS</button>
                 </div>
-                <div id="ev2">
-                    <h3>Evidence 2</h3>
+                <div class="col-6 d-grid gap-2">
+                  <button type="button" id="evBtn-2" class="evBTN btn btn-lg btn-primary" value="EMF">EMF 5</button>
                 </div>
-                <div id="ev3">
-                    <h3>Evidence 3</h3>
+                <div class="col-6 d-grid gap-2">
+                  <button type="button" id="evBtn-3" class="evBTN btn btn-lg btn-primary" value="Prints">Fingerprints</button>
                 </div>
-            </div>
-            <div class="col col-lg-8 col-md-12 col-md-12">
-                <div id="posGhosts">
-                    <h2>Possible Ghosts</h2>
-                    <div id="ghostList">
-                        <!--start of card
-                        <div id="Spirit" class="card col-lg-12 col-md-12 col-sm-12">
-                            <div class="card-body">
-                                <h5 class="card-title">Spirit</h5>
-                                <ul class="list-group list-group-horizontal">
-                                    <li class="list-group-item bg-secondary">EMF 5</li>
-                                    <li class="list-group-item bg-secondary">Spirit Box</li>
-                                    <li class="list-group-item bg-secondary">Ghost Writing</li>
-                                </ul>
-                                <div class="card card-body">
-                                    <p class="card-text">A spirit is the most common Ghost you will come across, however it is still very powerful and dangerous. They are usually discovered at one of their hunting grounds after an unexplained death.</p>
-                                    <p class="card-text"><strong>Strengths:</strong> Nothing</p>
-                                    <p class="card-text"><strong>Weaknesses:</strong> Using Smudge Sticks on a Spirit will stop it from attacking for a long period of time.</p>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!--end of card-->
-                    </div>
+                <div class="col-6 d-grid gap-2">
+                  <button type="button" id="evBtn-4" class="evBTN btn btn-lg btn-primary" value="Temps">Freezing Temps</button>
                 </div>
-                
+                <div class="col-6 d-grid gap-2">
+                  <button type="button" id="evBtn-5" class="evBTN btn btn-lg btn-primary" value="Orbs">Ghost Orb</button>
+                </div>
+                <div class="col-6 d-grid gap-2">
+                  <button type="button" id="evBtn-6" class="evBTN btn btn-lg btn-primary" value="Writing">Ghost Writing</button>
+                </div>
+                <div class="col-6 d-grid gap-2">
+                  <button type="button" id="evBtn-7" class="evBTN btn btn-lg btn-primary" value="Box">Spirit Box</button> 
+                </div>
+              </div>
+          </div>
 
-            </div>
-        </div>
-    </div>
-    
+          <div class="col col-lg-7 rightCol">
+              <!--Right column-->
+              <h2>Ghosts</h2>
+              <hr>
+              <div class="row">
+                <div class="col d-grid gap-2">
+                  <button type="button" id="ghostBtn-1" class="ghostBTN btn btn-lg btn-primary" value="Spirit">Spirit</button>
+                  <button type="button" id="ghostBtn-2" class="ghostBTN btn btn-lg btn-primary" value="Wraith">Wraith</button>
+                  <button type="button" id="ghostBtn-3" class="ghostBTN btn btn-lg btn-primary" value="Phantom">Phantom</button>
+                  <button type="button" id="ghostBtn-4" class="ghostBTN btn btn-lg btn-primary" value="Poltergeist">Poltergeist</button>
+                  <button type="button" id="ghostBtn-5" class="ghostBTN btn btn-lg btn-primary" value="Banshee">Banshee</button>
+                  <button type="button" id="ghostBtn-6" class="ghostBTN btn btn-lg btn-primary" value="Jinn">Jinn</button>
+                  <button type="button" id="ghostBtn-7" class="ghostBTN btn btn-lg btn-primary" value="Mare">Mare</button>
+                </div>
+                <div class="col d-grid gap-2">                  
+                  <button type="button" id="ghostBtn-8" class="ghostBTN btn btn-lg btn-primary" value="Revenant">Revenant</button>
+                  <button type="button" id="ghostBtn-9" class="ghostBTN btn btn-lg btn-primary" value="Shade">Shade</button>
+                  <button type="button" id="ghostBtn-10" class="ghostBTN btn btn-lg btn-primary" value="Demon">Demon</button>
+                  <button type="button" id="ghostBtn-11" class="ghostBTN btn btn-lg btn-primary" value="Yurei">Yurei</button>
+                  <button type="button" id="ghostBtn-12" class="ghostBTN btn btn-lg btn-primary" value="Oni">Oni</button>
+                  <button type="button" id="ghostBtn-13" class="ghostBTN btn btn-lg btn-primary" value="Yokai">Yokai</button>
+                  <button type="button" id="ghostBtn-14" class="ghostBTN btn btn-lg btn-primary" value="Hantu">Hantu</button>
+                </div>
+                <div class="col d-grid gap-2">                  
+                  <button type="button" id="ghostBtn-15" class="ghostBTN btn btn-lg btn-primary" value="Goryo">Goryo</button>
+                  <button type="button" id="ghostBtn-16" class="ghostBTN btn btn-lg btn-primary" value="Myling">Myling</button>
+                  <button type="button" id="ghostBtn-17" class="ghostBTN btn btn-lg btn-primary" value="Onryo">Onryo</button>
+                  <button type="button" id="ghostBtn-18" class="ghostBTN btn btn-lg btn-primary" value="Twins">The Twins</button>
+                  <button type="button" id="ghostBtn-19" class="ghostBTN btn btn-lg btn-primary" value="Raiju">Raiju</button>
+                  <button type="button" id="ghostBtn-20" class="ghostBTN btn btn-lg btn-primary" value="Obake">Obake</button>
+                  <button type="button" id="ghostBtn-21" class="ghostBTN btn btn-lg btn-primary" value="Mimic">The Mimic</button>
+                </div>
+          </div>
+      </div>
+  </div>
+  
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <script src="js/test.js"></script>
-    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <script src="js/test.js"></script>
+  
 </body>
 </html>
