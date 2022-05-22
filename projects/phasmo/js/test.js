@@ -48,11 +48,15 @@ function setEvidenceDefault(evBtnID){
 
 // mark evidence found
 function setEvidenceFound(evBtnID){
+    // changing the appearance of the button that was clicked
     $(evBtnID).removeClass("btn-primary");
     $(evBtnID).addClass("btn-success");
-    console.log("evidence found");
+    //console.log("evidence found");
 
-    console.log($(evBtnID).attr("value"));
+    // adding the assigned evidence of this button to the current evidence list
+    //console.log($(evBtnID).attr("value"));
+    FOUND_EVIDENCE.push($(evBtnID).attr("value"));
+    console.log("Current evidence list: "+FOUND_EVIDENCE);
 }
 
 // mark evidence not likely
