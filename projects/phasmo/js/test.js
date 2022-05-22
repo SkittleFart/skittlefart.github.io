@@ -99,6 +99,7 @@ function setGhostDefault(ghostID){
 
 function setGhostImpossible(ghostID){
     console.log("This ghost is not a match for this evidence");
+    $(ghostID).removeClass("btn-primary");
     $(ghostID).addClass("btn-secondary");
 }
 
