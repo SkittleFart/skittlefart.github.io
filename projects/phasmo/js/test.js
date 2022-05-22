@@ -112,16 +112,18 @@ $('.evBTN').on('click', function(evt){
         var evidenceFound = false;
         console.log("Ghost: "+GHOSTS[j]);
         for(var k=0; k<EVIDENCE[j].length; k++){
-            console.log("Evidence "+k+": "+EVIDENCE[j][k]);
-            /*
+            console.log("Evidence "+k+": "+EVIDENCE[j][k]);            
             if(IDvalue.localeCompare(EVIDENCE[j][k]) == 0){
                 console.log("match at "+j+" | "+k);// this code will only run if the evidence selected matches a ghost
-
-            }*/
+                evidenceFound = true;
+            }
+            /*
             if(IDvalue.localeCompare(EVIDENCE[j][k]) !== 0){
                 console.log("ghost not possible");// this code will only run if the evidence selected does not match a ghost
-
-            }
+            }*/
+        }
+        if(!evidenceFound){
+            console.log("This ghost is a match for this evidence")
         }
     }
 });
