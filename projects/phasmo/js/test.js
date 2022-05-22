@@ -78,7 +78,7 @@ fetch(GHOSTS_URL)
     .then(function(resp){
         return resp.json();
     })
-    then(function(data){
+    .then(function(data){
         //console.log(data[0].name);
 
         for(var i=0; i<data.length; i++){
