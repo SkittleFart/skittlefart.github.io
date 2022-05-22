@@ -93,6 +93,10 @@ function checkEvidenceStatus(evBtnID){
     }
 }
 
+function setGhostDefault(ghostID){}
+
+function setGhostImpossible(ghostID){}
+
 // every time an evidence button is clicked
 $('.evBTN').on('click', function(evt){
     var evBtnID = this.id;
@@ -109,8 +113,14 @@ $('.evBTN').on('click', function(evt){
         console.log("Ghost: "+GHOSTS[j]);
         for(var k=0; k<EVIDENCE[j].length; k++){
             console.log("Evidence "+k+": "+EVIDENCE[j][k]);
+            /*
             if(IDvalue.localeCompare(EVIDENCE[j][k]) == 0){
-                console.log("match at "+j+" | "+k);
+                console.log("match at "+j+" | "+k);// this code will only run if the evidence selected matches a ghost
+
+            }*/
+            if(IDvalue.localeCompare(EVIDENCE[j][k]) !== 0){
+                console.log("ghost not possible");// this code will only run if the evidence selected does not match a ghost
+
             }
         }
     }
