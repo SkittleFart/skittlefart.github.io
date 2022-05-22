@@ -83,10 +83,7 @@ function setEvidenceDisable(evBtnID){
 }
 
 // check evidence button status
-function checkEvidenceStatus(evBtnID){
-    console.log("checking...");
-    evBtnID = "#".concat(evBtnID);
-    
+function checkEvidenceStatus(evBtnID){    
     if($(evBtnID).hasClass("btn-primary")){
         setEvidenceFound(evBtnID);
     }else if($(evBtnID).hasClass("btn-success")){
@@ -99,6 +96,10 @@ function checkEvidenceStatus(evBtnID){
 // every time an evidence button is clicked
 $('.evBTN').on('click', function(evt){
     var evBtnID = this.id;
+    evBtnID = "#".concat(evBtnID);
+
+    var IDvalue = $(evBtnID).attr("value");
+
     // change appearance of button clicked and assign or remove evidence
     checkEvidenceStatus(evBtnID);
 
@@ -108,6 +109,9 @@ $('.evBTN').on('click', function(evt){
         console.log("Ghost: "+GHOSTS[j]);
         for(var k=0; k<EVIDENCE[j].length; k++){
             console.log("Evidence "+k+": "+EVIDENCE[j][k]);
+            if(IDvalue.localeCompare(EVIDENCE[j][k]) == 0){
+                console.log("match at "+j+" | "+k);
+            }
         }
     }
 });
