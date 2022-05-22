@@ -122,7 +122,7 @@ $('.evBTN').on('click', function(evt){
                 console.log("ghost not possible");// this code will only run if the evidence selected does not match a ghost
             }*/
         }
-        if(!evidenceFound){
+        if(evidenceFound){
             console.log("This ghost is a match for this evidence")
         }
     }
