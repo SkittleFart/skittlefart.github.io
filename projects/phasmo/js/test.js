@@ -61,10 +61,18 @@ function setEvidenceFound(evBtnID){
 
 // mark evidence not likely
 function setEvidenceCross(evBtnID){
+    // changing the appearance of the button that was clicked
     $(evBtnID).removeClass("btn-success");
     $(evBtnID).addClass("btn-danger");
     $(evBtnID).addClass("crossed");
-    console.log("evidence crossed out");
+    //console.log("evidence crossed out");
+
+    // remove the value of this evidence button from the current list of evidence
+    var index = FOUND_EVIDENCE.indexOf($(evBtnID).attr("value"));
+    if(index !== -1){
+        FOUND_EVIDENCE.splice(index, 1);
+    }
+    console.log("Current evidence list: "+FOUND_EVIDENCE);
 }
 
 // mark evidence impossible
