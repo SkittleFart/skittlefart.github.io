@@ -51,10 +51,8 @@ function setEvidenceFound(evBtnID){
     // changing the appearance of the button that was clicked
     $(evBtnID).removeClass("btn-primary");
     $(evBtnID).addClass("btn-success");
-    //console.log("evidence found");
 
     // adding the assigned evidence of this button to the current evidence list
-    //console.log($(evBtnID).attr("value"));
     FOUND_EVIDENCE.push($(evBtnID).attr("value"));
     console.log("Current evidence list: "+FOUND_EVIDENCE);
 }
@@ -65,7 +63,6 @@ function setEvidenceCross(evBtnID){
     $(evBtnID).removeClass("btn-success");
     $(evBtnID).addClass("btn-danger");
     $(evBtnID).addClass("crossed");
-    //console.log("evidence crossed out");
 
     // remove the value of this evidence button from the current list of evidence
     var index = FOUND_EVIDENCE.indexOf($(evBtnID).attr("value"));
@@ -101,7 +98,17 @@ function checkEvidenceStatus(evBtnID){
 
 // every time an evidence button is clicked
 $('.evBTN').on('click', function(evt){
-    console.log("oh hello there");
-    checkEvidenceStatus(this.id);
+    var evBtnID = this.id;
+    // change appearance of button clicked and assign or remove evidence
+    checkEvidenceStatus(evBtnID);
+
+    // update ghost list depending on evidence selected
+    for(var j=0; j<GHOSTS.length; j++){
+        var evidenceFound = false;
+        console.log("Ghost: "+GHOSTS[j]);
+        for(var k=0; k<EVIDENCE[j].length; k++){
+            console.log("Evidence "+k+": "+EVIDENCE[j][k]);
+        }
+    }
 });
 
