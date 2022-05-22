@@ -112,18 +112,20 @@ $('.evBTN').on('click', function(evt){
         var evidenceFound = false;
         console.log("Ghost: "+GHOSTS[j]);
         for(var k=0; k<EVIDENCE[j].length; k++){
-            console.log("Evidence "+k+": "+EVIDENCE[j][k]);            
-            if(IDvalue.localeCompare(EVIDENCE[j][k]) == 0){
-                console.log("match at "+j+" | "+k);// this code will only run if the evidence selected matches a ghost
-                evidenceFound = true;
-            }
-            /*
-            if(IDvalue.localeCompare(EVIDENCE[j][k]) !== 0){
-                console.log("ghost not possible");// this code will only run if the evidence selected does not match a ghost
-            }*/
+            console.log("Evidence "+k+": "+EVIDENCE[j][k]);
+            for(var h=0; h<FOUND_EVIDENCE.length; h++){
+                if(FOUND_EVIDENCE[h].localeCompare(EVIDENCE[j][k]) == 0){
+                    console.log("match at "+j+" | "+k);// this code will only run if the evidence selected matches a ghost
+                    evidenceFound = true;
+                }
+            }         
+            
         }
         if(evidenceFound){
-            console.log("This ghost is a match for this evidence")
+            // this will only run if the ghost is a match for this evidence
+            //console.log("This ghost is a match for this evidence")
+        }else{
+            // this will only run if 
         }
     }
 });
