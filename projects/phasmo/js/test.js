@@ -93,16 +93,21 @@ function checkEvidenceStatus(evBtnID){
     }
 }
 
-function setGhostDefault(ghostID){}
+function setGhostDefault(ghostID){
+    $(ghostID).removeClass("btn-secondary");
+}
 
-function setGhostImpossible(ghostID){}
+function setGhostImpossible(ghostID){
+    console.log("This ghost is not a match for this evidence");
+    $(ghostID).addClass("btn-secondary");
+}
 
 // every time an evidence button is clicked
 $('.evBTN').on('click', function(evt){
     var evBtnID = this.id;
     evBtnID = "#".concat(evBtnID);
 
-    var IDvalue = $(evBtnID).attr("value");
+    var evIDvalue = $(evBtnID).attr("value");
 
     // change appearance of button clicked and assign or remove evidence
     checkEvidenceStatus(evBtnID);
@@ -122,10 +127,11 @@ $('.evBTN').on('click', function(evt){
             
         }
         if(evidenceFound){
-            // this will only run if the ghost is a match for this evidence
+            // this will only run if the ghost is a match for current evidence
             console.log("This ghost is a match for this evidence")
         }else{
-            // this will only run if 
+            // this will only run if the ghost is not a match for current evidence
+            setGhostImpossible("#ghostBtn-"+GHOSTS[j]);
         }
     }
 });
