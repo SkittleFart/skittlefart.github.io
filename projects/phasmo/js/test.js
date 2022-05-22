@@ -1,9 +1,29 @@
 var GHOSTS_URL = "js/ghosttest.json";
+var GHOSTS = [];
+var EVIDENCE = [];
+var FOUND_EVIDENCE = [];
+
+// fetching ghost info from json and storing in arrays
+fetch(GHOSTS_URL)
+    .then(function(resp){
+        return resp.json();
+    })
+    .then(function(data){
+        //console.log(data[0].name);
+
+        for(var i=0; i<data.length; i++){
+            GHOSTS[i] = data[i].name;
+            EVIDENCE[i] = data[i].evidence;
+        }
+        console.log("Ghosts: "+GHOSTS);
+        console.log("Evidence: "+EVIDENCE);
+    });
 
 /* Button functions */
 // reset button function to reset all evidence buttons back to default
 function resetEvidence(){
-    var evidenceCounter = 7
+    FOUND_EVIDENCE = [];
+    var evidenceCounter = 7;
     for(var i=1; i<=evidenceCounter; i++){
         if($('#evBtn-'+i).hasClass("btn-success")){
             $('#evBtn-'+i).removeClass("btn-success");
@@ -31,6 +51,8 @@ function setEvidenceFound(evBtnID){
     $(evBtnID).removeClass("btn-primary");
     $(evBtnID).addClass("btn-success");
     console.log("evidence found");
+
+    console.log($(evBtnID).attr("value"));
 }
 
 // mark evidence not likely
@@ -70,22 +92,4 @@ $('.evBTN').on('click', function(evt){
     console.log("oh hello there");
     checkEvidenceStatus(this.id);
 });
-
-var GHOSTS = [];
-var EVIDENCE = [];
-
-fetch(GHOSTS_URL)
-    .then(function(resp){
-        return resp.json();
-    })
-    .then(function(data){
-        //console.log(data[0].name);
-
-        for(var i=0; i<data.length; i++){
-            GHOSTS[i] = data[i].name;
-            EVIDENCE[i] = data[i].evidence;
-        }
-        console.log("Ghosts: "+GHOSTS);
-        console.log("Evidence: "+EVIDENCE);
-    });
 
