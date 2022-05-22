@@ -123,7 +123,7 @@ $('.evBTN').on('click', function(evt){
         }
         if(evidenceFound){
             // this will only run if the ghost is a match for this evidence
-            //console.log("This ghost is a match for this evidence")
+            console.log("This ghost is a match for this evidence")
         }else{
             // this will only run if 
         }
