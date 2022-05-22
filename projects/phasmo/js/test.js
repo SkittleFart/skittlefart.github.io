@@ -51,6 +51,7 @@ function setEvidenceDisable(evBtnID){
     console.log("evidence impossible");
 }
 
+// check evidence button status
 function checkEvidenceStatus(evBtnID){
     console.log("checking...");
     evBtnID = "#".concat(evBtnID);
@@ -64,8 +65,27 @@ function checkEvidenceStatus(evBtnID){
     }
 }
 
-// 
+// every time an evidence button is clicked
 $('.evBTN').on('click', function(evt){
     console.log("oh hello there");
     checkEvidenceStatus(this.id);
 });
+
+var GHOSTS = [];
+var EVIDENCE = [];
+
+fetch(GHOSTS_URL)
+    .then(function(resp){
+        return resp.json();
+    })
+    then(function(data){
+        //console.log(data[0].name);
+
+        for(var i=0; i<data.length; i++){
+            GHOSTS[i] = data[i].name;
+            EVIDENCE[i] = data[i].evidence;
+        }
+        console.log("Ghosts: "+GHOSTS);
+        console.log("Evidence: "+EVIDENCE);
+    });
+
