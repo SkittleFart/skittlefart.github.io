@@ -23,6 +23,7 @@ fetch(GHOSTS_URL)
 // reset button function to reset all evidence buttons back to default
 function resetEvidence(){
     FOUND_EVIDENCE = [];
+    /*
     var evidenceCounter = 7;
     for(var i=1; i<=evidenceCounter; i++){
         if($('#evBtn-'+i).hasClass("btn-success")){
@@ -34,7 +35,16 @@ function resetEvidence(){
             $('#evBtn-'+i).removeClass("crossed");
             $('#evBtn-'+i).addClass("btn-primary");
         }
-    }
+    }*/
+
+    $('.evBTN').removeClass("btn-success");
+    $('.evBTN').removeClass("btn-danger");
+    $('.evBTN').removeClass("crossed");
+    $('.evBTN').removeClass("btn-secondary");
+    $('.evBTN').addClass("btn-primary");
+
+    $('.ghostBTN').removeClass("btn-secondary");
+    $('.ghostBTN').addClass("btn-primary");
 }
 
 // mark evidence not yet found (default)
@@ -95,6 +105,7 @@ function checkEvidenceStatus(evBtnID){
 
 function setGhostDefault(ghostID){
     $(ghostID).removeClass("btn-secondary");
+    $(ghostID).addClass("btn-primary");
 }
 
 function setGhostImpossible(ghostID){
