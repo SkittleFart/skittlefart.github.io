@@ -20,6 +20,51 @@ fetch(GHOSTS_URL)
         console.log("Evidence: "+EVIDENCE);
     });
 
+function setMarkedEvidence(){}
+
+function setCrossedEvidence(){}
+
+function setOpenEvidence(){}
+
+function resetEvidence(){}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------
+
 /* Button appearance functions */
 // reset button function to reset all evidence buttons back to default
 function resetEvidenceBtn(){
