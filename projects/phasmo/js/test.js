@@ -4,6 +4,7 @@ var EVIDENCE = [];
 var TOTAL_EVIDENCE = ["EMF", "Box", "Writing", "DOTS", "Prints", "Orbs", "Temps"];
 var FOUND_EVIDENCE = [];
 var AVOID_EVIDENCE = [];
+var DISABLED_EVIDENCE = [];
 
 // fetching ghost info from json and storing in arrays
 fetch(GHOSTS_URL)
@@ -21,6 +22,7 @@ fetch(GHOSTS_URL)
         console.log("Evidence: "+EVIDENCE);
     });
 
+// Array reset functions ----------------------------------------------------------------
 function resetTotalEvidenceList(){
     TOTAL_EVIDENCE = ["EMF", "Box", "Writing", "DOTS", "Prints", "Orbs", "Temps"];
 }
@@ -32,6 +34,13 @@ function resetFoundEvidenceList(){
 function resetAvoidEvidenceList(){
     AVOID_EVIDENCE = [];
 }
+
+function resetDisabledEvidenceList(){
+    DISABLED_EVIDENCE = [];
+}
+
+
+// Array push and remove functions --------------------------------------------
 
 function addToTotalEvidence(evBtnValue){
     TOTAL_EVIDENCE.push(evBtnValue);
@@ -60,17 +69,17 @@ function removeFromAvoidEvidence(evBtnValue){
     AVOID_EVIDENCE.splice(avoidIndex, 1);
 }
 
-
-// Button appearance functions -----------------
-function changeEvidenceBtnAppearance(evBtnID){    
-    if($(evBtnID).hasClass("btn-primary")){
-        set_BtnFound(evBtnID);
-    }else if($(evBtnID).hasClass("btn-success")){
-        set_BtnAvoid(evBtnID);
-    }else if($(evBtnID).hasClass("btn-danger")){
-        set_BtnDefault(evBtnID);
-    }
+function addToDisabledEvidence(evBtnValue){
+    DISABLED_EVIDENCE.push(evBtnValue);
 }
+
+function removeFromDisabledEvidence(evBtnValue){
+    var disabledIndex = DISABLED_EVIDENCE.indexOf(evBtnValue);
+    DISABLED_EVIDENCE.splice(disabledIndex, 1);
+}
+
+
+// Button appearance functions ------------------------------------
 
 function set_BtnFound(evBtnID){
     $(evBtnID).removeClass("btn-primary");
