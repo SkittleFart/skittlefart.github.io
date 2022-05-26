@@ -44,16 +44,21 @@ function removeFromTotalEvidence(evBtnValue){
 
 function addToFoundEvidence(evBtnValue){
     FOUND_EVIDENCE.push(evBtnValue);
-    console.log("Found Evidence: "+FOUND_EVIDENCE);
 }
 
-function removeFromFoundEvidence(evBtnValue){}
+function removeFromFoundEvidence(evBtnValue){
+    var foundIndex = FOUND_EVIDENCE.indexOf(evBtnValue);
+    FOUND_EVIDENCE.splice(foundIndex, 1);
+}
 
 function addToAvoidEvidence(evBtnValue){
     AVOID_EVIDENCE.push(evBtnValue);
 }
 
-function removeFromAvoidEvidence(evBtnValue){}
+function removeFromAvoidEvidence(evBtnValue){
+    var avoidIndex = AVOID_EVIDENCE.indexOf(evBtnValue);
+    AVOID_EVIDENCE.splice(avoidIndex, 1);
+}
 
 
 // Button appearance functions -----------------
