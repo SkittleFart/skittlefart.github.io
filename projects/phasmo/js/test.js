@@ -33,13 +33,27 @@ function resetAvoidEvidenceList(){
     AVOID_EVIDENCE = [];
 }
 
-function setFoundEvidence(){}
+function addToTotalEvidence(evBtnValue){
+    TOTAL_EVIDENCE.push(evBtnValue);
+}
 
-function setAvoidEvidence(){}
+function removeFromTotalEvidence(evBtnValue){
+    var totalIndex = TOTAL_EVIDENCE.indexOf(evBtnValue);
+    TOTAL_EVIDENCE.splice(totalIndex, 1);
+}
 
-function setOpenEvidence(){}
+function addToFoundEvidence(evBtnValue){
+    FOUND_EVIDENCE.push(evBtnValue);
+    console.log("Found Evidence: "+FOUND_EVIDENCE);
+}
 
-function resetEvidence(){}
+function removeFromFoundEvidence(evBtnValue){}
+
+function addToAvoidEvidence(evBtnValue){
+    AVOID_EVIDENCE.push(evBtnValue);
+}
+
+function removeFromAvoidEvidence(evBtnValue){}
 
 
 // Button appearance functions -----------------
@@ -79,6 +93,12 @@ function set_BtnDisabled(evBtnID){
     $(evBtnID).addClass("btn-secondary");
 }
 
+function printEvidenceLists(){
+    console.log("Total Evidence: "+TOTAL_EVIDENCE);
+    console.log("Found Evidence: "+FOUND_EVIDENCE);
+    console.log("Avoid Evidence: "+AVOID_EVIDENCE);
+}
+
 
 // On Evidence button click ------------------------
 $('.evBTN').on('click', function(evt){
@@ -86,13 +106,20 @@ $('.evBTN').on('click', function(evt){
     evBtnID = "#".concat(evBtnID);
     var evBtnValue = $(evBtnID).attr("value");
 
-    var evIndex = TOTAL_EVIDENCE.indexOf(evBtnValue);
-    if (evIndex !== -1) {
-        TOTAL_EVIDENCE.splice(evIndex, 1);
-        console.log("Evidence removed.");
-        console.log("Total Evidence: "+TOTAL_EVIDENCE);
-    }else{
-        console.log("Evidence unaffected.");
-        console.log("Total Evidence: "+TOTAL_EVIDENCE);
+    var totalIndex = TOTAL_EVIDENCE.indexOf(evBtnValue);
+    var foundIndex = FOUND_EVIDENCE.indexOf(evBtnValue);
+    var avoidIndex = AVOID_EVIDENCE.indexOf(evBtnValue);
+
+    if (totalIndex !== -1) {
+        removeFromTotalEvidence(evBtnValue);
+        addToFoundEvidence(evBtnValue);
+    }else if(foundIndex !== -1){
+        removeFromFoundEvidence(evBtnValue);
+        addToAvoidEvidence(evBtnValue);
+    }else if(avoidIndex !== -1){
+        removeFromAvoidEvidence(evBtnValue);
+        addToTotalEvidence(evBtnValue);
     }
+
+    printEvidenceLists();
 });
