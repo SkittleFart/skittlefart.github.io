@@ -118,12 +118,15 @@ $('.evBTN').on('click', function(evt){
     if (totalIndex !== -1) {
         removeFromTotalEvidence(evBtnValue);
         addToFoundEvidence(evBtnValue);
+        set_BtnFound(evBtnID);
     }else if(foundIndex !== -1){
         removeFromFoundEvidence(evBtnValue);
         addToAvoidEvidence(evBtnValue);
+        set_BtnAvoid(evBtnID);
     }else if(avoidIndex !== -1){
         removeFromAvoidEvidence(evBtnValue);
         addToTotalEvidence(evBtnValue);
+        set_BtnDefault(evBtnID);
     }
 
     printEvidenceLists();
