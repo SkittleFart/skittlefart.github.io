@@ -22,6 +22,28 @@ fetch(GHOSTS_URL)
         console.log("Evidence: "+EVIDENCE);
     });
 
+// Reset button -----------------------------------------------------
+
+function resetEvidenceBtn(){
+    // reset lists
+    resetTotalEvidenceList();
+    resetFoundEvidenceList();
+    resetAvoidEvidenceList();
+    resetDisabledEvidenceList();
+
+    // reset appearances of evidence
+    $('.evBTN').removeClass("btn-success");
+    $('.evBTN').removeClass("btn-danger");
+    $('.evBTN').removeClass("crossed");
+    $('.evBTN').removeClass("btn-secondary");
+    $('.evBTN').addClass("btn-primary");
+
+    // reset appearances of ghosts
+    $('.ghostBTN').removeClass("btn-secondary");
+    $('.ghostBTN').addClass("btn-primary");
+}
+
+
 // Array reset functions ----------------------------------------------------------------
 function resetTotalEvidenceList(){
     TOTAL_EVIDENCE = ["EMF", "Box", "Writing", "DOTS", "Prints", "Orbs", "Temps"];
