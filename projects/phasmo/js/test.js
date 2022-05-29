@@ -41,6 +41,8 @@ function resetEvidenceBtn(){
     // reset appearances of ghosts
     $('.ghostBTN').removeClass("btn-secondary");
     $('.ghostBTN').addClass("btn-primary");
+
+    printEvidenceLists();
 }
 
 
