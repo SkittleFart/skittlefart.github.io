@@ -5,6 +5,8 @@ var TOTAL_EVIDENCE = ["EMF", "Box", "Writing", "DOTS", "Prints", "Orbs", "Temps"
 var FOUND_EVIDENCE = [];
 var AVOID_EVIDENCE = [];
 var DISABLED_EVIDENCE = [];
+var POSSIBLE_GHOSTS = [];
+var IMPOSSIBLE_GHOSTS = [];
 
 // fetching ghost info from json and storing in arrays
 fetch(GHOSTS_URL)
@@ -61,6 +63,38 @@ function resetAvoidEvidenceList(){
 
 function resetDisabledEvidenceList(){
     DISABLED_EVIDENCE = [];
+}
+
+function resetPossibleGhostsList(){
+    POSSIBLE_GHOSTS = [];
+}
+
+function resetImpossibleGhostsList(){
+    IMPOSSIBLE_GHOSTS = [];
+}
+
+function returnTotalEvidenceList(){
+    return TOTAL_EVIDENCE;
+}
+
+function returnFoundEvidenceList(){
+    return FOUND_EVIDENCE;
+}
+
+function returnAvoidEvidenceList(){
+    return AVOID_EVIDENCE;
+}
+
+function returnDisabledEvidenceList(){
+    return DISABLED_EVIDENCE;
+}
+
+function returnPossibleGhostsList(){
+    return POSSIBLE_GHOSTS;
+}
+
+function returnImpossibleGhostsList(){
+    return IMPOSSIBLE_GHOSTS;
 }
 
 
@@ -135,6 +169,26 @@ function printEvidenceLists(){
     console.log("Total Evidence: "+TOTAL_EVIDENCE);
     console.log("Found Evidence: "+FOUND_EVIDENCE);
     console.log("Avoid Evidence: "+AVOID_EVIDENCE);
+}
+
+function set_GhostBtnDefault(gstBtnID){
+    $(evBtnID).removeClass("btn-secondary");
+    $(evBtnID).addClass("btn-primary");
+}
+
+function set_GhostBtnDisabled(gstBtnID){
+    $(evBtnID).removeClass("btn-primary");
+    $(evBtnID).addClass("btn-secondary");
+}
+
+function reset_GhostBtn(){
+    $(".ghostBTN").removeClass("btn-secondary");
+    $(".ghostBTN").addClass("btn-primary");
+}
+
+// Check evidence ----------------------------------
+function compareEvidence(){
+    f
 }
 
 
