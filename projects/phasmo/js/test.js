@@ -188,7 +188,7 @@ function reset_GhostBtn(){
 
 // Check evidence ----------------------------------
 function compareEvidence(){
-    f
+    
 }
 
 
