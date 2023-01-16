@@ -212,6 +212,10 @@ $('.evBTN').on('click', function(evt){
     var baseBtn = "btn-outline-info";
     var baseBtn2 = "btn-info";
 
+    console.log("BaseBtn:" +baseBtn);
+    console.log("BaseBtn2:" +baseBtn2);
+    console.log("evBtnID:" +evBtnID);
+
     $(evBtnID).removeClass(baseBtn);
     $(evBtnID).addClass(baseBtn2);
 
