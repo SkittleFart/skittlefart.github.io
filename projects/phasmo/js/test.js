@@ -216,7 +216,7 @@ $('.evBTN').on('click', function(evt){
 
     console.log("Btn-value: "+evBtnValue);
 
-    $("th[value|="+evBtnValue+"]").addClass("evidenceActive");
+    $("th[value|="+evBtnValue+"]").addClass("table-info");
 
     /*
     if (totalIndex !== -1) {
