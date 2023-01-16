@@ -14,6 +14,8 @@ $(document).ready(function() {
         let evBtnValue = $(evBtnID).attr("value");
         $("th[value|="+evBtnValue+"]").addClass("table-info");
 
+        console.log("ID: "+evBtnID+" / Value: "+evBtnValue);
+
         updateEvidence();
     });
     $('#resetBTN').on('click', resetEvidence);
