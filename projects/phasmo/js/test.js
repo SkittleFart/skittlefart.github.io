@@ -12,6 +12,7 @@ $(document).ready(function() {
     $('.evBTN').on('click', function(evt){
         let evBtnID = "#".concat(this.id);
         let evBtnValue = $(evBtnID).attr("value");
+        $("th[value|="+evBtnValue+"]").removeClass("table-outline-info");
         $("th[value|="+evBtnValue+"]").addClass("table-info");
 
         console.log("ID: "+evBtnID+" / Value: "+evBtnValue);
