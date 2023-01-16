@@ -1,4 +1,4 @@
-var GHOSTS_URL = "js/ghosttest.json";
+var GHOSTS_URL = "js/ghost.json";
 var GHOSTS = [];
 var EVIDENCE = [];
 var TOTAL_EVIDENCE = ["EMF", "Box", "Writing", "DOTS", "Prints", "Orbs", "Temps"];
@@ -32,9 +32,17 @@ fetch(GHOSTS_URL)
         console.log("Evidence: "+EVIDENCE);
     });
 
+
+
+
+
+function updateEvidence(){
+    console.log("Hello World");
+}
+
 // Reset button -----------------------------------------------------
 
-function resetEvidenceBtn(){
+function resetEvidence(){
     // reset lists
     resetTotalEvidenceList();
     resetFoundEvidenceList();
