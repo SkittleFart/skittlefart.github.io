@@ -202,6 +202,10 @@ $('.evBTN').on('click', function(evt){
     var foundIndex = FOUND_EVIDENCE.indexOf(evBtnValue);
     var avoidIndex = AVOID_EVIDENCE.indexOf(evBtnValue);
 
+    this.removeClass("btn-outline-info");
+    this.addClass("btn-info");
+
+    /*
     if (totalIndex !== -1) {
         removeFromTotalEvidence(evBtnValue);
         addToFoundEvidence(evBtnValue);
@@ -214,7 +218,7 @@ $('.evBTN').on('click', function(evt){
         removeFromAvoidEvidence(evBtnValue);
         addToTotalEvidence(evBtnValue);
         set_BtnDefault(evBtnID);
-    }
+    }*/
 
     printEvidenceLists();
 });
