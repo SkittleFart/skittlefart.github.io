@@ -34,7 +34,12 @@ fetch(GHOSTS_URL)
 
 
 
+function removeSpaces(v){
+    var moo = String(v).replace(/\s/g, '');
+    console.log("moo: "+moo);
 
+    return moo;
+}
 
 function updateEvidence(){
     console.log("Hello World");
