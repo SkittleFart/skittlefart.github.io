@@ -67,11 +67,11 @@ th{
 }
 
 .evidenceActive{
-    border-color: #18C39C;
+    background-color: #18C39C;
 }
 
 .finalEvidence{
-    background-color: #18C39C;
+    background-color: beige;
 }
 
 
