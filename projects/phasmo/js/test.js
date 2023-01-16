@@ -191,6 +191,10 @@ function compareEvidence(){
     
 }
 
+function myFunction(){
+    this.removeClass("btn-outline-info");
+    this.addClass("btn-info");
+}
 
 // On Evidence button click ------------------------
 $('.evBTN').on('click', function(evt){
