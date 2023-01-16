@@ -139,8 +139,8 @@ function removeFromDisabledEvidence(evBtnValue){
 
 // Button appearance functions ------------------------------------
 
-var baseBtn = "btn-outline-info";
-var baseBtn2 = "btn-info";
+//var baseBtn = "btn-outline-info";
+//var baseBtn2 = "btn-info";
 
 function set_BtnFound(evBtnID){
     $(evBtnID).removeClass(baseBtn);
@@ -209,10 +209,13 @@ $('.evBTN').on('click', function(evt){
     var foundIndex = FOUND_EVIDENCE.indexOf(evBtnValue);
     var avoidIndex = AVOID_EVIDENCE.indexOf(evBtnValue);
 
-    this.removeClass("btn-outline-info");
-    this.addClass("btn-info");
+    var baseBtn = "btn-outline-info";
+    var baseBtn2 = "btn-info";
 
-    
+    $(evBtnID).removeClass(baseBtn);
+    $(evBtnID).addClass(baseBtn2);
+
+    /*
     if (totalIndex !== -1) {
         removeFromTotalEvidence(evBtnValue);
         addToFoundEvidence(evBtnValue);
@@ -225,7 +228,7 @@ $('.evBTN').on('click', function(evt){
         removeFromAvoidEvidence(evBtnValue);
         addToTotalEvidence(evBtnValue);
         set_BtnDefault(evBtnID);
-    }
+    }*/
 
     printEvidenceLists();
 });
