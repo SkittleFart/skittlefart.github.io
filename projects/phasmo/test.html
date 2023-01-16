@@ -17,77 +17,101 @@
 <body>
   <div class="mainHeader">
     <h1>Phasmophobia Evidence Assistant</h1>
-    <p>Last Updated: June 12, 2022</p>
   </div>
 
   <div class="container">
+    <hr>
+    <h3 class="evHeader">Evidence</h3>
       <div class="row">
-          <div class="col col-lg-12 text-center">
-              <div id="evHeader">
-                  <h2 class="evHeader">Evidence</h2>
-                  <div id="posEvidence" class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                    <button type="button" id="evidenceBTN_1" class="evBTN btn btn-outline-info btn-lg" value="DOTS">DOTS</button>
-                    <button type="button" id="evidenceBTN_2" class="evBTN btn btn-outline-info btn-lg" value="EMF">EMF 5</button>
-                    <button type="button" id="evidenceBTN_3" class="evBTN btn btn-outline-info btn-lg" value="Prints">Fingerprints</button>
-                    <button type="button" id="evidenceBTN_4" class="evBTN btn btn-outline-info btn-lg" value="Temps">Freezing Temps</button>
-                    <button type="button" id="evidenceBTN_5" class="evBTN btn btn-outline-info btn-lg" value="Orbs">Ghost Orb</button>
-                    <button type="button" id="evidenceBTN_6" class="evBTN btn btn-outline-info btn-lg" value="Writing">Ghost Writing</button>
-                    <button type="button" id="evidenceBTN_7" class="evBTN btn btn-outline-info btn-lg" value="Box">Spirit Box</button> 
-                  </div>
-                  <button type="button" id="resetBTN" class="btn btn-outline-warning evHeader btn-lg" value="reset">Reset</button>
-              </div> 
+          <div class="col col-12 text-center">
+            <div id="posEvidence" class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+              <button type="button" id="evidenceBTN_1" class="evBTN btn btn-outline-info btn-lg" value="DOTS">DOTS</button>
+              <button type="button" id="evidenceBTN_2" class="evBTN btn btn-outline-info btn-lg" value="EMF">EMF 5</button>
+              <button type="button" id="evidenceBTN_3" class="evBTN btn btn-outline-info btn-lg" value="Prints">Fingerprints</button>
+              <button type="button" id="evidenceBTN_4" class="evBTN btn btn-outline-info btn-lg" value="Temps">Freezing Temps</button>
+              <button type="button" id="evidenceBTN_5" class="evBTN btn btn-outline-info btn-lg" value="Orbs">Ghost Orb</button>
+              <button type="button" id="evidenceBTN_6" class="evBTN btn btn-outline-info btn-lg" value="Writing">Ghost Writing</button>
+              <button type="button" id="evidenceBTN_7" class="evBTN btn btn-outline-info btn-lg" value="Box">Spirit Box</button> 
+            </div>
+            <button type="button" id="resetBTN" class="btn btn-outline-warning evHeader btn-lg" value="reset">Reset</button>
           </div>
       </div>
       <hr>
-      <div class="row">
-        <div id="posGhosts">
-          <h2>Possible Ghosts</h2>
-            <div id="ghostList">
-              <!--start of card
-              <div id="Spirit" class="card col-lg-4">
-                  <div class="card-body">
-                      <h5 class="card-title">Spirit</h5>
-                      <ul class="list-group list-group-horizontal">
-                          <li class="list-group-item bg-secondary">EMF 5</li>
-                          <li class="list-group-item bg-secondary">Spirit Box</li>
-                          <li class="list-group-item bg-secondary">Ghost Writing</li>
-                      </ul>
-                      <div class="card card-body">
-                          <p class="card-text">A spirit is the most common Ghost you will come across, however it is still very powerful and dangerous. They are usually discovered at one of their hunting grounds after an unexplained death.</p>
-                          <p class="card-text"><strong>Strengths:</strong> Nothing</p>
-                          <p class="card-text"><strong>Weaknesses:</strong> Using Smudge Sticks on a Spirit will stop it from attacking for a long period of time.</p>
-                      </div>
-                  </div>
-              </div>-->
-              <!--end of card-->
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+      <div class="row g-3">
+        <div id="Spirit" class="card col-12 col-md-6 col-lg-4">
+          <div class="card-body">
+              <h4 class="card-title">Wraith</h4>
+              <div>
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th value="EMF">EMF 5</th>
+                            <th value="Box">Spirit Box</th>
+                            <th value="Writing">Ghost Writing</th>
+                        </tr>
+                    </thead>
+                </table>
               </div>
+              <div class="card card-body">
+                  <p class="card-text">A spirit is the most common Ghost you will come across, however it is still very powerful and dangerous. They are usually discovered at one of their hunting grounds after an unexplained death.</p>
+                  <p class="card-text"><strong>Strengths:</strong> Nothing</p>
+                  <p class="card-text"><strong>Weaknesses:</strong> Using Smudge Sticks on a Spirit will stop it from attacking for a long period of time.</p>
+              </div>
+          </div>
+        </div>
 
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div id="Spirit" class="card col-12 col-md-6 col-lg-4">
+            <div class="card-body">
+                <h4 class="card-title">Demon</h4>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item bg-secondary">EMF 5</li>
+                    <li class="list-group-item bg-secondary">Spirit Box</li>
+                    <li class="list-group-item bg-secondary">Ghost Writing</li>
+                </ul>
+                <div class="card card-body">
+                    <p class="card-text">A spirit is the most common Ghost you will come across, however it is still very powerful and dangerous. They are usually discovered at one of their hunting grounds after an unexplained death.</p>
+                    <p class="card-text"><strong>Strengths:</strong> Nothing</p>
+                    <p class="card-text"><strong>Weaknesses:</strong> Using Smudge Sticks on a Spirit will stop it from attacking for a long period of time.</p>
                 </div>
-              </div>
-
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-                      
-                      
             </div>
         </div>
+
+        <div id="Spirit" class="card col-12 col-md-6 col-lg-4">
+            <div class="card-body">
+                <h4 class="card-title">Phantom</h4>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item bg-secondary">EMF 5</li>
+                    <li class="list-group-item bg-secondary">Spirit Box</li>
+                    <li class="list-group-item bg-secondary">Ghost Writing</li>
+                </ul>
+                <div class="card card-body">
+                    <p class="card-text">A spirit is the most common Ghost you will come across, however it is still very powerful and dangerous. They are usually discovered at one of their hunting grounds after an unexplained death.</p>
+                    <p class="card-text"><strong>Strengths:</strong> Nothing</p>
+                    <p class="card-text"><strong>Weaknesses:</strong> Using Smudge Sticks on a Spirit will stop it from attacking for a long period of time.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="Spirit" class="card col-12 col-md-6 col-lg-4">
+            <div class="card-body">
+                <h4 class="card-title">Spirit</h4>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item bg-secondary">EMF 5</li>
+                    <li class="list-group-item bg-secondary">Spirit Box</li>
+                    <li class="list-group-item bg-secondary">Ghost Writing</li>
+                </ul>
+                <div class="card card-body">
+                    <p class="card-text">A spirit is the most common Ghost you will come across, however it is still very powerful and dangerous. They are usually discovered at one of their hunting grounds after an unexplained death.</p>
+                    <p class="card-text"><strong>Strengths:</strong> Nothing</p>
+                    <p class="card-text"><strong>Weaknesses:</strong> Using Smudge Sticks on a Spirit will stop it from attacking for a long period of time.</p>
+                </div>
+            </div>
+        </div>
+
       </div>
+      <hr>
+      <br>
+      <p class="centered">Last Updated: January 16, 2023</p>
   </div>
   
 

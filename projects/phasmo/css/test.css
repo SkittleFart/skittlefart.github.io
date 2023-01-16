@@ -30,28 +30,48 @@ h2{
     text-align: center;
 }
 
+h3{
+    font-family: crow;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.centered{
+    text-align: center;
+}
+
 .mainHeader{
     margin: 20px 0px;
     text-align: center;
 }
 
-.leftCol{
-    border: 5px solid red;
-}
-
-.rightCol{
-    border: 5px solid red;
-}
-
 .card{
-    color: black;
-    background-color: aqua;
+    color: white;
+    border-color: #18C39C;
+    background-color: black;
+}
+
+.card-body{
+    font-size: 0.8em;
 }
 
 
 /* Button styles */
 .crossed{
     text-decoration: line-through;
+}
+
+/* Table styles */
+th{
+    text-align: center;
+}
+
+.evidenceActive{
+    border-color: #18C39C;
+}
+
+.finalEvidence{
+    background-color: #18C39C;
 }
 
 

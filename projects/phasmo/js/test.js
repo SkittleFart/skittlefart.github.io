@@ -185,18 +185,13 @@ function set_GhostBtnDisabled(gstBtnID){
 }
 
 function reset_GhostBtn(){
-    $(".ghostBTN").removeClass("btn-secondary");
-    $(".ghostBTN").addClass("btn-primary");
+    $(".ghostBTN").removeClass("btn-info");
+    $(".ghostBTN").addClass("btn-outline-info");
 }
 
 // Check evidence ----------------------------------
 function compareEvidence(){
     
-}
-
-function myFunction(){
-    this.removeClass("btn-outline-info");
-    this.addClass("btn-info");
 }
 
 // On Evidence button click ------------------------
@@ -218,6 +213,10 @@ $('.evBTN').on('click', function(evt){
 
     $(evBtnID).removeClass(baseBtn);
     $(evBtnID).addClass(baseBtn2);
+
+    console.log("Btn-value: "+evBtnValue);
+
+    $(th[value|=evBtnValue]).addClass("evidenceActive");
 
     /*
     if (totalIndex !== -1) {
