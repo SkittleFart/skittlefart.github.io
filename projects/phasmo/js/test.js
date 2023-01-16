@@ -139,13 +139,16 @@ function removeFromDisabledEvidence(evBtnValue){
 
 // Button appearance functions ------------------------------------
 
+var baseBtn = "btn-outline-info";
+var baseBtn2 = "btn-info";
+
 function set_BtnFound(evBtnID){
-    $(evBtnID).removeClass("btn-primary");
-    $(evBtnID).addClass("btn-success");
+    $(evBtnID).removeClass(baseBtn);
+    $(evBtnID).addClass(baseBtn2);
 }
 
 function set_BtnAvoid(evBtnID){
-    $(evBtnID).removeClass("btn-success");
+    $(evBtnID).removeClass(baseBtn);
     $(evBtnID).addClass("btn-danger");
     $(evBtnID).addClass("crossed");
 }
@@ -158,8 +161,8 @@ function set_BtnDefault(evBtnID){
 }
 
 function set_BtnDisabled(evBtnID){
-    $(evBtnID).removeClass("btn-success");
-    $(evBtnID).removeClass("btn-primary");
+    $(evBtnID).removeClass(baseBtn2);
+    $(evBtnID).removeClass(baseBtn);
     $(evBtnID).removeClass("btn-danger");
     $(evBtnID).removeClass("crossed");
     $(evBtnID).addClass("btn-secondary");
@@ -173,11 +176,11 @@ function printEvidenceLists(){
 
 function set_GhostBtnDefault(gstBtnID){
     $(evBtnID).removeClass("btn-secondary");
-    $(evBtnID).addClass("btn-primary");
+    $(evBtnID).addClass(baseBtn);
 }
 
 function set_GhostBtnDisabled(gstBtnID){
-    $(evBtnID).removeClass("btn-primary");
+    $(evBtnID).removeClass(baseBtn);
     $(evBtnID).addClass("btn-secondary");
 }
 
@@ -209,7 +212,7 @@ $('.evBTN').on('click', function(evt){
     this.removeClass("btn-outline-info");
     this.addClass("btn-info");
 
-    /*
+    
     if (totalIndex !== -1) {
         removeFromTotalEvidence(evBtnValue);
         addToFoundEvidence(evBtnValue);
@@ -222,7 +225,7 @@ $('.evBTN').on('click', function(evt){
         removeFromAvoidEvidence(evBtnValue);
         addToTotalEvidence(evBtnValue);
         set_BtnDefault(evBtnID);
-    }*/
+    }
 
     printEvidenceLists();
 });
