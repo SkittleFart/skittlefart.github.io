@@ -15,6 +15,7 @@ $(document).ready(function() {
         
         $(evBtnID).removeClass("btn-outline-info");
         $(evBtnID).addClass("btn-info");
+
         $("th[value|="+evBtnValue+"]").addClass("table-info");
 
         console.log("ID: "+evBtnID+" / Value: "+evBtnValue);
@@ -58,5 +59,6 @@ function updateEvidence(){
 
 // Reset button -----------------------------------------------------
 function resetEvidence(){
-    
+    $('.evBTN').removeClass("btn-info");
+    $('.evBTN').addClass("btn-outline-info");
 }
