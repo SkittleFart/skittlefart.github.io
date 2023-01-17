@@ -61,4 +61,5 @@ function updateEvidence(){
 function resetEvidence(){
     $('.evBTN').removeClass("btn-info");
     $('.evBTN').addClass("btn-outline-info");
+    console.log("fdsasdf");
 }
