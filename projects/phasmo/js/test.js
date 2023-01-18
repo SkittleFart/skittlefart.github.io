@@ -56,8 +56,9 @@ function updateEvidence(evBtnID, evBtnValue){
         if($("#evidenceBTN_"+j).hasClass("btn-info")){
             evCounter++;
         }
+        console.log("evCounter: "+evCounter);
     }
-    console.log("evCounter: "+evCounter);
+    
 
     $("th[value|="+evBtnValue+"]").addClass("table-info");
 
