@@ -16,6 +16,8 @@ $(document).ready(function() {
         updateEvidence(evBtnID, evBtnValue);
     });
     $('#resetBTN').on('click', resetEvidence);
+
+    console.log("Update: aaa");
 });
 
 
