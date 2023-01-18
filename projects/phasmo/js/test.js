@@ -17,7 +17,7 @@ $(document).ready(function() {
     });
     $('#resetBTN').on('click', resetEvidence);
 
-    console.log("Update: aaa");
+    console.log("Update: bbb");
 });
 
 
@@ -50,7 +50,7 @@ function updateEvidence(evBtnID, evBtnValue){
     $(evBtnID).removeClass("btn-outline-info");
     $(evBtnID).addClass("btn-info");
 
-    let evCounter = $(evBtnID+"[class|=btn-info]").length;
+    let evCounter = $(evBtnID).hasClass("btn-info").length;
     console.log("evCounter: "+evCounter);
 
     $("th[value|="+evBtnValue+"]").addClass("table-info");
