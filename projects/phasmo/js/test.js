@@ -17,7 +17,7 @@ $(document).ready(function() {
     });
     $('#resetBTN').on('click', resetEvidence);
 
-    console.log("Update: ddd");
+    console.log("Update: eee");
 });
 
 
@@ -52,6 +52,7 @@ function updateEvidence(evBtnID, evBtnValue){
     $(evBtnID).removeClass("btn-outline-info");
     $(evBtnID).addClass("btn-info");
 
+    console.log("evBtn: "+$(".evBtn").length);
     for(var j=0; j<$(".evBtn").length; j++){
         if($("#evidenceBTN_"+j).hasClass("btn-info")){
             evCounter++;
@@ -65,6 +66,7 @@ function updateEvidence(evBtnID, evBtnValue){
     // Hide any ghosts that don't have any current evidence
     for(var i=0; i < GHOSTS.length; i++){
         let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
+        console.log("matchingEvidence: "+matchingEvidence);
         /*
         if(!$("#"+GHOSTS[i]+" th").hasClass("table-info")){
             console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
