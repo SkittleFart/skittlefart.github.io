@@ -61,6 +61,10 @@ h3{
     text-decoration: line-through;
 }
 
+.btn:focus, .btn:active{
+    outline: none;
+}
+
 /* Table styles */
 th{
     text-align: center;
