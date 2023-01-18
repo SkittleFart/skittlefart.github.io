@@ -44,18 +44,25 @@ function removeSpaces(v){
 }
 
 function updateEvidence(evBtnID, evBtnValue){
-    const evCounter = [];
-
     // First, update the appearance of evidence buttons and labels
     $(evBtnID).removeClass("btn-outline-info");
     $(evBtnID).addClass("btn-info");
+
+    let evCounter = $(evBtnID+"[class|=btn-info]").length;
+    console.log("evCounter: "+evCounter);
+
     $("th[value|="+evBtnValue+"]").addClass("table-info");
 
     // Hide any ghosts that don't have any current evidence
     for(var i=0; i < GHOSTS.length; i++){
+        let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
+        /*
         if(!$("#"+GHOSTS[i]+" th").hasClass("table-info")){
-            //console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
-            $("#"+GHOSTS[i]).hide();
+            console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
+            //$("#"+GHOSTS[i]).hide();
+        }*/
+        if(matchingEvidence != evCounter){
+            console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
         }
     }
     
