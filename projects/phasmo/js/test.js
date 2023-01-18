@@ -1,12 +1,6 @@
 var GHOSTS_URL = "js/ghost.json";
 var GHOSTS = [];
 var EVIDENCE = [];
-var TOTAL_EVIDENCE = ["EMF", "Box", "Writing", "DOTS", "Prints", "Orbs", "Temps"];
-var FOUND_EVIDENCE = [];
-var AVOID_EVIDENCE = [];
-var DISABLED_EVIDENCE = [];
-var POSSIBLE_GHOSTS = [];
-var IMPOSSIBLE_GHOSTS = [];
 
 $(document).ready(function() {
     $('.evBTN').on('click', function(evt){
@@ -17,7 +11,7 @@ $(document).ready(function() {
     });
     $('#resetBTN').on('click', resetEvidence);
 
-    console.log("Update: mmm");
+    console.log("Update: nnn");
 });
 
 
@@ -53,7 +47,6 @@ function updateEvidence(evBtnID, evBtnValue){
         $(evBtnID).removeClass("btn-outline-info");
         $(evBtnID).addClass("btn-info");
         $("th[value|="+evBtnValue+"]").addClass("table-info");
-        console.log("evBtnValue: "+evBtnValue);
     }else if($(evBtnID).hasClass("btn-info")){
         // First, update the appearance of evidence buttons and labels
         $(evBtnID).removeClass("btn-info");
@@ -61,25 +54,15 @@ function updateEvidence(evBtnID, evBtnValue){
         $("th[value|="+evBtnValue+"]").removeClass("table-info");
     }
 
-    /*
-    // First, update the appearance of evidence buttons and labels
-    $(evBtnID).removeClass("btn-outline-info");
-    $(evBtnID).addClass("btn-info");*/
-
     for(var j=0; j<=$(".evBTN").length; j++){
         if($("#evidenceBTN_"+j).hasClass("btn-info")){
             evCounter++;
         }
     }
-    console.log("evCounter: "+evCounter);
-    
-
-    //$("th[value|="+evBtnValue+"]").addClass("table-info");
 
     // Hide any ghosts that don't have any current evidence
     for(var i=0; i < GHOSTS.length; i++){
         let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
-        console.log("matchingEvidence: "+matchingEvidence);
 
         if(matchingEvidence != evCounter){
             $("#"+GHOSTS[i]).hide();
