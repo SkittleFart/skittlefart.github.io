@@ -17,7 +17,7 @@ $(document).ready(function() {
     });
     $('#resetBTN').on('click', resetEvidence);
 
-    console.log("Update: eee");
+    console.log("Update: fff");
 });
 
 
@@ -52,8 +52,8 @@ function updateEvidence(evBtnID, evBtnValue){
     $(evBtnID).removeClass("btn-outline-info");
     $(evBtnID).addClass("btn-info");
 
-    console.log("evBtn: "+$(".evBtn").length);
-    for(var j=0; j<$(".evBtn").length; j++){
+    console.log("evBtn: "+$(".evBTN").length);
+    for(var j=0; j<$(".evBTN").length; j++){
         if($("#evidenceBTN_"+j).hasClass("btn-info")){
             evCounter++;
         }
