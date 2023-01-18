@@ -11,7 +11,7 @@ $(document).ready(function() {
     });
     $('#resetBTN').on('click', resetEvidence);
 
-    console.log("Update: qqq");
+    console.log("Update: rrr");
 });
 
 
@@ -26,7 +26,7 @@ fetch(GHOSTS_URL)
         for(var i=0; i<data.length; i++){
             var ghostDiv = $("<div id="+removeSpaces(data[i].name)+" class='card card col-12 col-md-6 col-lg-4'><div class=card-body><h4 class='card-title'>"+data[i].name+"</h4><div><table class='table table-dark table-bordered'><thead><tr><th value="+removeSpaces(data[i].evidence[0])+">"+data[i].evidence[0]+"</th><th value="+removeSpaces(data[i].evidence[1])+">"+data[i].evidence[1]+"</th><th value="+removeSpaces(data[i].evidence[2])+">"+data[i].evidence[2]+"</th></tr></thead></table></div><div class='card card-body meow'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
             $("#ghosts").append(ghostDiv);
-            GHOSTS[i] = data[i].name;
+            GHOSTS[i] = removeSpaces(data[i].name);
             EVIDENCE[i] = data[i].evidence;
         }
         console.log("Ghosts: "+GHOSTS);
@@ -62,12 +62,12 @@ function updateEvidence(evBtnID, evBtnValue){
 
     // Hide any ghosts that don't have any current evidence
     for(var i=0; i < GHOSTS.length; i++){
-        let matchingEvidence = $("#"+removeSpaces(GHOSTS[i])+" th[class|=table-info]").length;
+        let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
 
         if(matchingEvidence != evCounter){
-            $("#"+removeSpaces(GHOSTS[i])).hide();
+            $("#"+GHOSTS[i]).hide();
         }else{
-            $("#"+removeSpaces(GHOSTS[i])).show();
+            $("#"+GHOSTS[i]).show();
         }
     }
 }
@@ -83,6 +83,6 @@ function resetEvidence(){
 
     // show all ghosts
     for(var i=0; i < GHOSTS.length; i++){
-        $("#"+removeSpaces(GHOSTS[i])).show();
+        $("#"+GHOSTS[i]).show();
     }
 }
