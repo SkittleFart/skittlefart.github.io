@@ -17,7 +17,7 @@ $(document).ready(function() {
     });
     $('#resetBTN').on('click', resetEvidence);
 
-    console.log("Update: hhh");
+    console.log("Update: iii");
 });
 
 
@@ -48,33 +48,40 @@ function removeSpaces(v){
 function updateEvidence(evBtnID, evBtnValue){
     let evCounter = 0;
 
+    if($(evBtnID).hasClass("btn-outline-info")){
+        // First, update the appearance of evidence buttons and labels
+        $(evBtnID).removeClass("btn-outline-info");
+        $(evBtnID).addClass("btn-info");
+        $("th[value|="+evBtnValue+"]").addClass("table-info");
+    }else if($(evBtnID).hasClass("btn-info")){
+        // First, update the appearance of evidence buttons and labels
+        $(evBtnID).removeClass("btn-info");
+        $(evBtnID).addClass("btn-outline-info");
+        $("th[value|="+evBtnValue+"]").removeClass("table-info");
+    }
+
+    /*
     // First, update the appearance of evidence buttons and labels
     $(evBtnID).removeClass("btn-outline-info");
-    $(evBtnID).addClass("btn-info");
+    $(evBtnID).addClass("btn-info");*/
 
-    //console.log("evBtn: "+$(".evBTN").length);
     for(var j=0; j<$(".evBTN").length; j++){
         if($("#evidenceBTN_"+j).hasClass("btn-info")){
             evCounter++;
         }
-        //console.log("evCounter: "+evCounter);
     }
     
 
-    $("th[value|="+evBtnValue+"]").addClass("table-info");
+    //$("th[value|="+evBtnValue+"]").addClass("table-info");
 
     // Hide any ghosts that don't have any current evidence
     for(var i=0; i < GHOSTS.length; i++){
         let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
-        //console.log("matchingEvidence: "+matchingEvidence);
-        /*
-        if(!$("#"+GHOSTS[i]+" th").hasClass("table-info")){
-            console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
-            //$("#"+GHOSTS[i]).hide();
-        }*/
+
         if(matchingEvidence != evCounter){
-            //console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
             $("#"+GHOSTS[i]).hide();
+        }else{
+            $("#"+GHOSTS[i]).show();
         }
     }
     
