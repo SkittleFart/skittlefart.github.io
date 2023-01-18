@@ -84,9 +84,6 @@ function updateEvidence(evBtnID, evBtnValue){
             $("#"+GHOSTS[i]).show();
         }
     }
-    
-
-
 }
 
 // Reset button -----------------------------------------------------
