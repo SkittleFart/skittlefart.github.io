@@ -17,7 +17,7 @@ $(document).ready(function() {
     });
     $('#resetBTN').on('click', resetEvidence);
 
-    console.log("Update: bbb");
+    console.log("Update: ccc");
 });
 
 
@@ -46,11 +46,17 @@ function removeSpaces(v){
 }
 
 function updateEvidence(evBtnID, evBtnValue){
+    let evCounter = 0;
+
     // First, update the appearance of evidence buttons and labels
     $(evBtnID).removeClass("btn-outline-info");
     $(evBtnID).addClass("btn-info");
 
-    let evCounter = $(evBtnID).hasClass("btn-info").length;
+    for(var j=0; j<$(".evBtn").length; j++){
+        if($("#evidenceBTN_"+j).hasClass("btn-info")){
+            evCounter++;
+        }
+    }
     console.log("evCounter: "+evCounter);
 
     $("th[value|="+evBtnValue+"]").addClass("table-info");
