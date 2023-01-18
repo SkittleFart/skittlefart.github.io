@@ -6,21 +6,90 @@
     font-family: crow;
 }
 
-body{
-    background-color: black;
-    color: white;
-    font-size: 24px;
+@font-face{
+    src: url(../font/GentiumBasic-Regular.ttf);
+    font-family: gentium;
 }
 
-h1, h2{
+body{
+    background-color: #202427;
+    color: white;
+    font-size: 1em;
+    font-family: gentium;
+}
+
+h1{
     font-family: crow;
     font-size: 2em;
     text-align: center;
 }
 
+h2{
+    font-family: crow;
+    font-size: 2em;
+    text-align: center;
+}
+
+h3{
+    font-family: crow;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.centered{
+    text-align: center;
+}
+
+.mainHeader{
+    margin: 20px 0px;
+    text-align: center;
+}
+
+.card{
+    color: white;
+    border-color: #18C39C;
+    background-color: black;
+}
+
+.card-title{
+    font-family: crow;
+}
+
+.card-text{
+    font-size: 1.2em;
+}
+
+
+/* Button styles */
+.crossed{
+    text-decoration: line-through;
+}
+
+/* Table styles */
+th{
+    text-align: center;
+}
+
+.evidenceActive{
+    background-color: #18C39C;
+}
+
+.finalEvidence{
+    background-color: beige;
+}
+
+.meow{
+    background-color: #212529;
+}
+
+
+
+
+
+
 /*
     ID styles
-*/
+
 
 #ev1, #ev2, #ev3{
     font-size: large;
@@ -30,11 +99,11 @@ h1, h2{
 #posEvidence{
     margin: 10px 5px 30px 5px;
 }
-
+*/
 
 /*
     Class styles
-*/
+
 
 .evHeader{
     display: inline-block;
@@ -53,7 +122,7 @@ h1, h2{
 .card{
     background-color: #3A3A3A;
     font-size: 0.75em;
-    /*display: inline-block;*/
+    /*display: inline-block;
 }
 
 .card .list-group-item{
@@ -63,4 +132,4 @@ h1, h2{
 
 .moreInfoBTN{
     margin-top: 10px;
-}
+}*/

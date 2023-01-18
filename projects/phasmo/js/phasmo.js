@@ -1,33 +1,21 @@
 var GHOSTS_URL = "js/ghost.json";
-
-var tempEv = [["EMF 5", "Spirit Box", "Ghost Writing"],
-              ["EMF 5", "Spirit Box", "DOTS"],
-              ["Spirit Box", "Fingerprints", "DOTS"],
-              ["Spirit Box", "Fingerprints", "Ghost Writing"],
-              ["Fingerprints", "Ghost Orb", "DOTS"],
-              ["EMF 5", "Fingerprints", "Freezing Temps"],
-              ["Spirit Box", "Ghost Orb", "Ghost Writing"],
-              ["Ghost Orb", "Ghost Writing", "Freezing Temps"],
-              ["EMF 5", "Ghost Writing", "Freezing Temps"],
-              ["Fingerprints", "Ghost Writing", "Freezing Temps"],
-              ["Ghost Orb", "Freezing Temps", "DOTS"],
-              ["EMF 5", "Freezing Temps", "DOTS"],
-              ["Fingerprints", "Ghost Orb", "Freezing Temps"],
-              ["Spirit Box", "Ghost Orb", "DOTS"],
-              ["EMF 5", "Fingerprints", "DOTS"],
-              ["EMF 5", "Fingerprints", "Ghost Writing"]
-            ];
-
 var GHOSTS = [];
 var EVIDENCE = [];
 
-function removeSpaces(v){
-    var moo = String(v).replace(/\s/g, '');
-    console.log("moo: "+moo);
+$(document).ready(function() {
+    $('.evBTN').on('click', function(evt){
+        let evBtnID = "#".concat(this.id);
+        let evBtnValue = $(evBtnID).attr("value");
 
-    return moo;
-}
+        updateEvidence(evBtnID, evBtnValue);
+    });
+    $('#resetBTN').on('click', resetEvidence);
 
+    console.log("Update: ooo");
+});
+
+
+// fetching ghost info from json and storing in arrays
 fetch(GHOSTS_URL)
     .then(function(resp){
         return resp.json();
@@ -36,144 +24,65 @@ fetch(GHOSTS_URL)
         //console.log(data[0].name);
 
         for(var i=0; i<data.length; i++){
-            var ghostDiv = $("<div id="+data[i].name+" class='card col-lg-12'><div class=card-body><h5 class='card-title'>"+data[i].name+"</h5><ul class='list-group list-group-horizontal'><li class='list-group-item bg-secondary EV-"+removeSpaces(data[i].evidence[0])+"'>"+data[i].evidence[0]+"</li><li class='list-group-item bg-secondary EV-"+removeSpaces(data[i].evidence[1])+"'>"+data[i].evidence[1]+"</li><li class='list-group-item bg-secondary EV-"+removeSpaces(data[i].evidence[2])+"'>"+data[i].evidence[2]+"</li></ul><div class='card card-body'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
-            $("#ghostList").append(ghostDiv);
+            var ghostDiv = $("<div id="+data[i].name+" class='card card col-12 col-md-6 col-lg-4'><div class=card-body><h4 class='card-title'>"+data[i].name+"</h4><div><table class='table table-dark table-bordered'><thead><tr><th value="+removeSpaces(data[i].evidence[0])+">"+data[i].evidence[0]+"</th><th value="+removeSpaces(data[i].evidence[1])+">"+data[i].evidence[1]+"</th><th value="+removeSpaces(data[i].evidence[2])+">"+data[i].evidence[2]+"</th></tr></thead></table></div><div class='card card-body meow'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
+            $("#ghosts").append(ghostDiv);
             GHOSTS[i] = data[i].name;
             EVIDENCE[i] = data[i].evidence;
         }
+        console.log("Ghosts: "+GHOSTS);
+        console.log("Evidence: "+EVIDENCE);
     });
 
-Array.prototype.contains = function(v) {
-    for (var i = 0; i < this.length; i++) {
-        if (this[i] === v) return true;
+// 
+function removeSpaces(v){
+    var moo = String(v).replace(/\s/g, '');
+    return moo;
+}
+
+function updateEvidence(evBtnID, evBtnValue){
+    let evCounter = 0;
+
+    if($(evBtnID).hasClass("btn-outline-info")){
+        // First, update the appearance of evidence buttons and labels
+        $(evBtnID).removeClass("btn-outline-info");
+        $(evBtnID).addClass("btn-info");
+        $("th[value|="+evBtnValue+"]").addClass("table-info");
+    }else if($(evBtnID).hasClass("btn-info")){
+        // First, update the appearance of evidence buttons and labels
+        $(evBtnID).removeClass("btn-info");
+        $(evBtnID).addClass("btn-outline-info");
+        $("th[value|="+evBtnValue+"]").removeClass("table-info");
     }
-    return false;
-};
-    
-Array.prototype.unique = function() {
-    var arr = [];
-    for (var i = 0; i < this.length; i++) {
-        if (!arr.contains(this[i])) {
-            arr.push(this[i]);
+
+    for(var j=0; j<=$(".evBTN").length; j++){
+        if($("#evidenceBTN_"+j).hasClass("btn-info")){
+            evCounter++;
         }
     }
-    return arr;
-};
 
-$( document ).ready(function() {
-    var newArr = [];
+    // Hide any ghosts that don't have any current evidence
+    for(var i=0; i < GHOSTS.length; i++){
+        let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
 
-    for(var i=0; i<tempEv.length; i++){
-        newArr = newArr.concat(tempEv[i]);
-    }
-
-    var availEv = newArr.unique();    
-
-    console.log("availEv: "+availEv);
-
-    /*
-    for(var i=0; i<availEv.length; i++){
-        var temp = String(availEv[i]);
-        var evidenceListItem = $("<button type='button' class='evBTN btn btn-primary'>"+availEv[i]+"</button>");
-        $('#posEvidence').append(evidenceListItem);
-    }*/
-    
-});
-
-// Evidence buttons
-$('.evBTN').on('click', function(evt){
-    console.log("GHOSTS: "+GHOSTS);
-    console.log("EVIDENCE:"+EVIDENCE);
-
-    if ($("#ev1 .evBTN").length == 0){ 
-        $('#ev1').append(this);
-
-        // scan ghosts to eliminate potential options
-        for(var j=0; j<GHOSTS.length; j++){
-            var evidenceFound = false;
-            for(var k=0; k<EVIDENCE[j].length; k++){
-                //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
-                //console.log("this.text: "+$(this).text());
-                //console.log("arrayText: "+EVIDENCE[j][k]);
-                //console.log("thisGhost: "+GHOSTS[j]);
-                if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
-                    //console.log("Evidence is required");
-                    evidenceFound = true;
-                    $('.EV-'+removeSpaces($(this).text())).css("color", "black");
-                }else{
-                    //console.log("Evidence is not required");
-                }                
-            }
-
-            //console.log("Ghost: "+GHOSTS[j]);
-            //console.log("evidenceFound: "+evidenceFound);
-            if(!evidenceFound){
-                $('#'+GHOSTS[j]).hide();
-            }
-        }
-    }else if($("#ev2 .evBTN").length == 0){
-        $('#ev2').append(this);
-
-        // scan ghosts to eliminate potential options
-        for(var j=0; j<GHOSTS.length; j++){
-            var evidenceFound = false;
-            for(var k=0; k<EVIDENCE[j].length; k++){
-                //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
-                //console.log("this.text: "+$(this).text());
-                //console.log("arrayText: "+EVIDENCE[j][k]);
-                //console.log("thisGhost: "+GHOSTS[j]);
-                if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
-                    //console.log("Evidence is required");
-                    evidenceFound = true;
-                    $('.EV-'+removeSpaces($(this).text())).css("color", "black");
-                }else{
-                    //console.log("Evidence is not required");
-                }                
-            }
-
-            //console.log("Ghost: "+GHOSTS[j]);
-            //console.log("evidenceFound: "+evidenceFound);
-            if(!evidenceFound){
-                $('#'+GHOSTS[j]).hide();
-            }
-        }
-    }else if($("#ev3 .evBTN").length == 0){
-        $('#ev3').append(this);
-
-        // scan ghosts to eliminate potential options
-        for(var j=0; j<GHOSTS.length; j++){
-            var evidenceFound = false;
-            for(var k=0; k<EVIDENCE[j].length; k++){
-                //console.log("Evidence["+j+"]["+k+"]: "+EVIDENCE[j][k]);
-                //console.log("this.text: "+$(this).text());
-                //console.log("arrayText: "+EVIDENCE[j][k]);
-                //console.log("thisGhost: "+GHOSTS[j]);
-                if($(this).text().localeCompare(EVIDENCE[j][k]) == 0){
-                    //console.log("Evidence is required");
-                    evidenceFound = true;
-                    $('.EV-'+removeSpaces($(this).text())).css("color", "black");
-                }else{
-                    //console.log("Evidence is not required");
-                }                
-            }
-
-            //console.log("Ghost: "+GHOSTS[j]);
-            //console.log("evidenceFound: "+evidenceFound);
-            if(!evidenceFound){
-                $('#'+GHOSTS[j]).hide();
-            }
+        if(matchingEvidence != evCounter){
+            $("#"+GHOSTS[i]).hide();
+        }else{
+            $("#"+GHOSTS[i]).show();
         }
     }
-}); 
+}
 
-// Reset button
-$('#resetBTN').on('click', function(evt){
-    $("#posEvidence").append($("#ev1 .evBTN"));
-    $("#posEvidence").append($("#ev2 .evBTN"));
-    $("#posEvidence").append($("#ev3 .evBTN"));
-    for(var j=0; j<GHOSTS.length; j++){
-        $('#'+GHOSTS[j]).show();
+// Reset button -----------------------------------------------------
+function resetEvidence(){
+    // revert all evidence buttons back to normal
+    $('.evBTN').removeClass("btn-info");
+    $('.evBTN').addClass("btn-outline-info");
+
+    // revert all evidence labels to normal
+    $('th').removeClass("table-info");
+
+    // show all ghosts
+    for(var i=0; i < GHOSTS.length; i++){
+        $("#"+GHOSTS[i]).show();
     }
-    $('.list-group-item').css("color", "white");
-}); 
-
+}
