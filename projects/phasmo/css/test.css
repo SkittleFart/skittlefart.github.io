@@ -51,10 +51,6 @@ h3{
     background-color: black;
 }
 
-.card-body{
-    font-size: 0.8em;
-}
-
 .card-title{
     font-family: crow;
 }
@@ -80,6 +76,7 @@ th{
 
 .meow{
     background-color: #212529;
+    font-size: 1.2em;
 }
 
 
