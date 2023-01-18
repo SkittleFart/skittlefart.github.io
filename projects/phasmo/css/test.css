@@ -55,6 +55,10 @@ h3{
     font-family: crow;
 }
 
+.card-text{
+    font-size: 1.2em;
+}
+
 
 /* Button styles */
 .crossed{
@@ -76,7 +80,6 @@ th{
 
 .meow{
     background-color: #212529;
-    font-size: 1.2em;
 }
 
 
