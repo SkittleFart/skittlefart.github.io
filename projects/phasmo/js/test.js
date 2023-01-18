@@ -17,7 +17,7 @@ $(document).ready(function() {
     });
     $('#resetBTN').on('click', resetEvidence);
 
-    console.log("Update: ggg");
+    console.log("Update: hhh");
 });
 
 
@@ -73,7 +73,8 @@ function updateEvidence(evBtnID, evBtnValue){
             //$("#"+GHOSTS[i]).hide();
         }*/
         if(matchingEvidence != evCounter){
-            console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
+            //console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
+            $("#"+GHOSTS[i]).hide();
         }
     }
     
