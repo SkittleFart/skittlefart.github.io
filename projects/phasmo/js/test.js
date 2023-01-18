@@ -53,10 +53,8 @@ function updateEvidence(evBtnID, evBtnValue){
 
     // Hide any ghosts that don't have any current evidence
     for(var i=0; i < GHOSTS.length; i++){
-        if($("#"+GHOSTS[i]+" th").hasClass("table-info")){
-            console.log(GHOSTS[i]+": True");
-        }else{
-            console.log(GHOSTS[i]+": False");
+        if(!$("#"+GHOSTS[i]+" th").hasClass("table-info")){
+            console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
         }
     }
     
