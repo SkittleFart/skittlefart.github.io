@@ -17,7 +17,7 @@ $(document).ready(function() {
     });
     $('#resetBTN').on('click', resetEvidence);
 
-    console.log("Update: kkk");
+    console.log("Update: lll");
 });
 
 
@@ -71,6 +71,7 @@ function updateEvidence(evBtnID, evBtnValue){
             evCounter++;
         }
     }
+    console.log("evCounter: "+evCounter);
     
 
     //$("th[value|="+evBtnValue+"]").addClass("table-info");
