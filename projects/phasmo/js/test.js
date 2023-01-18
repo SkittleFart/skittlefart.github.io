@@ -17,7 +17,7 @@ $(document).ready(function() {
     });
     $('#resetBTN').on('click', resetEvidence);
 
-    console.log("Update: fff");
+    console.log("Update: ggg");
 });
 
 
@@ -52,12 +52,12 @@ function updateEvidence(evBtnID, evBtnValue){
     $(evBtnID).removeClass("btn-outline-info");
     $(evBtnID).addClass("btn-info");
 
-    console.log("evBtn: "+$(".evBTN").length);
+    //console.log("evBtn: "+$(".evBTN").length);
     for(var j=0; j<$(".evBTN").length; j++){
         if($("#evidenceBTN_"+j).hasClass("btn-info")){
             evCounter++;
         }
-        console.log("evCounter: "+evCounter);
+        //console.log("evCounter: "+evCounter);
     }
     
 
@@ -66,7 +66,7 @@ function updateEvidence(evBtnID, evBtnValue){
     // Hide any ghosts that don't have any current evidence
     for(var i=0; i < GHOSTS.length; i++){
         let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
-        console.log("matchingEvidence: "+matchingEvidence);
+        //console.log("matchingEvidence: "+matchingEvidence);
         /*
         if(!$("#"+GHOSTS[i]+" th").hasClass("table-info")){
             console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
