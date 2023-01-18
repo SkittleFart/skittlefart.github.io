@@ -62,12 +62,12 @@ function updateEvidence(evBtnID, evBtnValue){
 
     // Hide any ghosts that don't have any current evidence
     for(var i=0; i < GHOSTS.length; i++){
-        let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
+        let matchingEvidence = $("#"+removeSpaces(GHOSTS[i])+" th[class|=table-info]").length;
 
         if(matchingEvidence != evCounter){
-            $("#"+GHOSTS[i]).hide();
+            $("#"+removeSpaces(GHOSTS[i])).hide();
         }else{
-            $("#"+GHOSTS[i]).show();
+            $("#"+removeSpaces(GHOSTS[i])).show();
         }
     }
 }
@@ -83,6 +83,6 @@ function resetEvidence(){
 
     // show all ghosts
     for(var i=0; i < GHOSTS.length; i++){
-        $("#"+GHOSTS[i]).show();
+        $("#"+removeSpaces(GHOSTS[i])).show();
     }
 }
