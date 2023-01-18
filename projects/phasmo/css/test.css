@@ -55,6 +55,10 @@ h3{
     font-size: 0.8em;
 }
 
+.card-title{
+    font-family: crow;
+}
+
 
 /* Button styles */
 .crossed{
