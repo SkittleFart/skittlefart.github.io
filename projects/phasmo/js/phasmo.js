@@ -11,7 +11,7 @@ $(document).ready(function() {
     });
     $('#resetBTN').on('click', resetEvidence);
 
-    console.log("Update: ppp");
+    console.log("Update: qqq");
 });
 
 
