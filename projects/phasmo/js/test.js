@@ -54,7 +54,8 @@ function updateEvidence(evBtnID, evBtnValue){
     // Hide any ghosts that don't have any current evidence
     for(var i=0; i < GHOSTS.length; i++){
         if(!$("#"+GHOSTS[i]+" th").hasClass("table-info")){
-            console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
+            //console.log(GHOSTS[i]+": This ghost doesn't have this evidence");
+            $("#"+GHOSTS[i]).hide();
         }
     }
     
@@ -70,4 +71,9 @@ function resetEvidence(){
 
     // revert all evidence labels to normal
     $('th').removeClass("table-info");
+
+    // show all ghosts
+    for(var i=0; i < GHOSTS.length; i++){
+        $("#"+GHOSTS[i]).show();
+    }
 }
