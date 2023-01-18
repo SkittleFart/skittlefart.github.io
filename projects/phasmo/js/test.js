@@ -13,15 +13,7 @@ $(document).ready(function() {
         let evBtnID = "#".concat(this.id);
         let evBtnValue = $(evBtnID).attr("value");
 
-        console.log("evBtnID: "+evBtnID);
-        console.log("evBtnValue: "+evBtnValue);
-        
-        $(evBtnID).removeClass("btn-outline-info");
-        $(evBtnID).addClass("btn-info");
-
-        $("th[value|="+evBtnValue+"]").addClass("table-info");
-
-        updateEvidence();
+        updateEvidence(evBtnID, evBtnValue);
     });
     $('#resetBTN').on('click', resetEvidence);
 });
@@ -48,13 +40,28 @@ fetch(GHOSTS_URL)
 // 
 function removeSpaces(v){
     var moo = String(v).replace(/\s/g, '');
-    //console.log("moo: "+moo);
-
     return moo;
 }
 
-function updateEvidence(){
-    console.log("Hello World");
+function updateEvidence(evBtnID, evBtnValue){
+    const evCounter = [];
+
+    // First, update the appearance of evidence buttons and labels
+    $(evBtnID).removeClass("btn-outline-info");
+    $(evBtnID).addClass("btn-info");
+    $("th[value|="+evBtnValue+"]").addClass("table-info");
+
+    // Hide any ghosts that don't have any current evidence
+    for(var i=0; i < GHOSTS.length; i++){
+        if($("#"+GHOSTS[i]+" th").hasClass("table-info")){
+            console.log(GHOSTS[i]+": True");
+        }else{
+            console.log(GHOSTS[i]+": False");
+        }
+    }
+    
+
+
 }
 
 // Reset button -----------------------------------------------------
