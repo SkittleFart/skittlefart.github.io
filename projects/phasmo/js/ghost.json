@@ -119,7 +119,7 @@
         "evidence": ["Spirit Box", "Ghost Orb", "Freezing Temps"]
     },
     {
-        "name": "TheTwins",
+        "name": "The Twins",
         "desc": "These ghosts have been reported to mimic each other's actions. They alternate their attacks to confuse their prey.",
         "stren": "Either Twin can ben angered and initiate an attack on their prey.",
         "weak": "The Twins will often interact with the environment at the same time.",
@@ -140,7 +140,7 @@
         "evidence": ["EMF 5", "Fingerprints", "Ghost Orb"]
     },
     {
-        "name": "TheMimic",
+        "name": "The Mimic",
         "desc": "The Mimic is an elusive, mysterious, copycat ghost that mirrors traits and behaviours from others, including other ghost types.",
         "stren": "We're unsure what this ghost is capable of. Be careful.",
         "weak": "Several reports have noted ghost orb sightings near mimics.",
