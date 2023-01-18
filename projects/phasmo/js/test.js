@@ -18,8 +18,6 @@ $(document).ready(function() {
 
         $("th[value|="+evBtnValue+"]").addClass("table-info");
 
-        console.log("ID: "+evBtnID+" / Value: "+evBtnValue);
-
         updateEvidence();
     });
     $('#resetBTN').on('click', resetEvidence);
@@ -44,11 +42,10 @@ fetch(GHOSTS_URL)
         console.log("Evidence: "+EVIDENCE);
     });
 
-
-
+// 
 function removeSpaces(v){
     var moo = String(v).replace(/\s/g, '');
-    console.log("moo: "+moo);
+    //console.log("moo: "+moo);
 
     return moo;
 }
@@ -61,5 +58,4 @@ function updateEvidence(){
 function resetEvidence(){
     $('.evBTN').removeClass("btn-info");
     $('.evBTN').addClass("btn-outline-info");
-    console.log("fdsasdf");
 }
