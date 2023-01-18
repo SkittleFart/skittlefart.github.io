@@ -12,6 +12,9 @@ $(document).ready(function() {
     $('.evBTN').on('click', function(evt){
         let evBtnID = "#".concat(this.id);
         let evBtnValue = $(evBtnID).attr("value");
+
+        console.log("evBtnID: "+evBtnID);
+        console.log("evBtnValue: "+evBtnValue);
         
         $(evBtnID).removeClass("btn-outline-info");
         $(evBtnID).addClass("btn-info");
@@ -56,6 +59,10 @@ function updateEvidence(){
 
 // Reset button -----------------------------------------------------
 function resetEvidence(){
+    // revert all evidence buttons back to normal
     $('.evBTN').removeClass("btn-info");
     $('.evBTN').addClass("btn-outline-info");
+
+    // revert all evidence labels to normal
+    $('th').removeClass("table-info");
 }
