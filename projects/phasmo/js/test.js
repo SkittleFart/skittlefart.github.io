@@ -1,6 +1,10 @@
 var GHOSTS_URL = "js/ghost.json";
 var GHOSTS = [];
 var EVIDENCE = [];
+var evBtnClass_neutral = "btn-outline-info";
+var evBtnClass_active = "btn-info";
+var evBtnClass_crossed = "btn-outline-danger";
+var evBtnClass_disabled = "btn-secondary";
 
 $(document).ready(function() {
     $('.evBTN').on('click', function(evt){
@@ -42,20 +46,16 @@ function removeSpaces(v){
 function updateEvidence(evBtnID, evBtnValue){
     let evCounter = 0;
 
-    if($(evBtnID).hasClass("btn-outline-info")){
-        // First, update the appearance of evidence buttons and labels
-        $(evBtnID).removeClass("btn-outline-info");
-        $(evBtnID).addClass("btn-info");
-        $("th[value|="+evBtnValue+"]").addClass("table-info");
-    }else if($(evBtnID).hasClass("btn-info")){
-        // First, update the appearance of evidence buttons and labels
-        $(evBtnID).removeClass("btn-info");
-        $(evBtnID).addClass("btn-outline-info");
-        $("th[value|="+evBtnValue+"]").removeClass("table-info");
+    if($(evBtnID).hasClass(evBtnClass_neutral)){
+        setEvidenceBtnActive(evBtnID);
+    }else if($(evBtnID).hasClass(evBtnClass_active)){
+        setEvidenceBtnCrossed(evBtnID);
+    }else if($(evBtnID).hasClass(evBtnClass_crossed)){
+        setEvidenceBtnNeutral(evBtnID);
     }
 
     for(var j=0; j<=$(".evBTN").length; j++){
-        if($("#evidenceBTN_"+j).hasClass("btn-info")){
+        if($("#evidenceBTN_"+j).hasClass(evBtnClass_active)){
             evCounter++;
         }
     }
@@ -75,8 +75,9 @@ function updateEvidence(evBtnID, evBtnValue){
 // Reset button -----------------------------------------------------
 function resetEvidence(){
     // revert all evidence buttons back to normal
-    $('.evBTN').removeClass("btn-info");
-    $('.evBTN').addClass("btn-outline-info");
+    $('.evBTN').removeClass(evBtnClass_active);
+    $('.evBTN').removeClass(evBtnClass_crossed);
+    $('.evBTN').addClass(evBtnClass_neutral);
 
     // revert all evidence labels to normal
     $('th').removeClass("table-info");
@@ -85,4 +86,47 @@ function resetEvidence(){
     for(var i=0; i < GHOSTS.length; i++){
         $("#"+GHOSTS[i]).show();
     }
+}
+
+
+// Change evidence button appearance -----------------------------------------------------
+
+function setEvidenceBtnNeutral(evBtnID){
+    // If evidence button is crossed, switch to neutral
+    $(evBtnID).removeClass(evBtnClass_crossed);
+    $(evBtnID).addClass(evBtnClass_neutral);
+    // Change appearance of matching ghost traits to neutral
+    $("th[value|="+evBtnValue+"]").addClass("table-info");
+}
+
+function setEvidenceBtnActive(evBtnID){
+    // If evidence button is neutral, switch to active
+    $(evBtnID).removeClass(evBtnClass_neutral);
+    $(evBtnID).addClass(evBtnClass_active);
+    // Change appearance of matching ghost traits to active
+    $("th[value|="+evBtnValue+"]").addClass("table-info");
+}
+
+function setEvidenceBtnCrossed(evBtnID){
+    // If evidence button is active, switch to crossed
+    $(evBtnID).removeClass(evBtnClass_active);
+    $(evBtnID).addClass(evBtnClass_crossed);
+    // Change appearance of matching ghost traits to crossed
+    $("th[value|="+evBtnValue+"]").addClass("table-info");
+}
+
+// Set evidence button disabled states -----------------------------------------------------
+
+function setEvidenceBtnDisabled(evBtnID){
+    // Remove all other button classes, add disabled
+    $(evBtnID).removeClass(evBtnClass_active);
+    $(evBtnID).removeClass(evBtnClass_crossed);
+    $(evBtnID).removeClass(evBtnClass_neutral);
+    $(evBtnID).addClass(evBtnClass_crossed);
+    // Change appearance of matching ghost traits to crossed
+    $("th[value|="+evBtnValue+"]").addClass("table-info");
+}
+
+function setEvidenceBtnEnabled(evBtnID){
+    
 }

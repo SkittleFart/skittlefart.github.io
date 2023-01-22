@@ -61,6 +61,15 @@ h3{
 
 
 /* Button styles */
+/* ------------------------------------------------- */
+.btn-outline-danger{
+    text-decoration: line-through;
+}
+
+.btn-outline-info{
+    text-decoration: none;
+}
+
 .crossed{
     text-decoration: line-through;
 }
