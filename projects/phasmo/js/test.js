@@ -25,14 +25,17 @@ fetch(GHOSTS_URL)
         return resp.json();
     })
     .then(function(data){
+        var temp = new Map();
         for(var i=0; i<data.length; i++){
             var ghostDiv = $("<div id="+removeSpaces(data[i].name)+" class='card col-12 col-md-6 col-lg-4'><div class=card-body><h4 class='card-title'>"+data[i].name+"</h4><div><table class='table table-dark table-bordered'><thead><tr><th value="+removeSpaces(data[i].evidence[0])+">"+data[i].evidence[0]+"</th><th value="+removeSpaces(data[i].evidence[1])+">"+data[i].evidence[1]+"</th><th value="+removeSpaces(data[i].evidence[2])+">"+data[i].evidence[2]+"</th></tr></thead></table></div><div class='card card-body meow'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong class='strengths'>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong class='weakness'>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
             $("#ghosts").append(ghostDiv);
             GHOSTS[i] = removeSpaces(data[i].name);
             EVIDENCE[i] = data[i].evidence;
+            temp.set(removeSpaces(data[i].name), data[i].evidence);
         }
         console.log("Ghosts: "+GHOSTS);
         console.log("Evidence: "+EVIDENCE);
+        console.log("temp: "+temp);
     });
 
 // Remove spaces from the ghost names
@@ -44,7 +47,7 @@ function removeSpaces(v){
 // Update evidence ----------------------------------------------------------
 
 function updateEvidence(evBtnID, evBtnValue){
-    
+    var selectedEvidence = [];
 }
 
 // Reset button -----------------------------------------------------
@@ -89,4 +92,18 @@ function setEvidenceBtnCrossed(evBtnID){
 function setEvidenceLabelsFound(evBtnValue){
     // Change appearance of matching ghost traits to crossed
     $("th[value|="+evBtnValue+"]").addClass("table-info");
+}
+
+
+
+// Set disabled evidence -----------------------------------------------------
+
+function setEvidenceDisabled(evBtnValue){
+    var possibleEvidence = new Set();
+
+    if(possibleEvidence.has(evBtnValue)){
+        $("button[value|="+evBtnValue+"]").prop( "disabled", false );
+    }else{
+        $("button[value|="+evBtnValue+"]").prop( "disabled", true );
+    }
 }
