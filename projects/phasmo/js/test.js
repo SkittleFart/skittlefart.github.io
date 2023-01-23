@@ -52,6 +52,8 @@ function removeSpaces(v){
 
 function updateEvidence(evBtnID, evBtnValue){
     var selectedEvidence = [];
+
+    setEvidenceDisabled(evBtnValue);
 }
 
 // Reset button -----------------------------------------------------
