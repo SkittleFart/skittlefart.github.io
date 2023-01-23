@@ -1,6 +1,6 @@
 var GHOSTS_URL = "js/ghost.json";
 var GHOSTS = [];
-var EVIDENCE = [];
+var EVIDENCE = new Set();
 var evBtnClass_neutral = "btn-outline-info";
 var evBtnClass_active = "btn-info";
 var evBtnClass_crossed = "btn-outline-danger";
@@ -25,13 +25,13 @@ fetch(GHOSTS_URL)
         return resp.json();
     })
     .then(function(data){
-        //console.log(data[0].name);
-
         for(var i=0; i<data.length; i++){
             var ghostDiv = $("<div id="+removeSpaces(data[i].name)+" class='card card col-12 col-md-6 col-lg-4'><div class=card-body><h4 class='card-title'>"+data[i].name+"</h4><div><table class='table table-dark table-bordered'><thead><tr><th value="+removeSpaces(data[i].evidence[0])+">"+data[i].evidence[0]+"</th><th value="+removeSpaces(data[i].evidence[1])+">"+data[i].evidence[1]+"</th><th value="+removeSpaces(data[i].evidence[2])+">"+data[i].evidence[2]+"</th></tr></thead></table></div><div class='card card-body meow'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong class='strengths'>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong class='weakness'>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
             $("#ghosts").append(ghostDiv);
             GHOSTS[i] = removeSpaces(data[i].name);
-            EVIDENCE[i] = data[i].evidence;
+            for(var j=0; j<3; j++){
+                EVIDENCE.add(data[i].evidence[j]);
+            }
         }
         console.log("Ghosts: "+GHOSTS);
         console.log("Evidence: "+EVIDENCE);
@@ -47,11 +47,14 @@ function updateEvidence(evBtnID, evBtnValue){
     let evCounter = 0;
 
     if($(evBtnID).hasClass(evBtnClass_neutral)){
-        setEvidenceBtnActive(evBtnID, evBtnValue);
+        setEvidenceBtnActive(evBtnID);
+        setEvidenceLabelsFound(evBtnValue);
     }else if($(evBtnID).hasClass(evBtnClass_active)){
-        setEvidenceBtnCrossed(evBtnID, evBtnValue);
+        setEvidenceBtnCrossed(evBtnID);
+        setEvidenceLabelsFound(evBtnValue);
     }else if($(evBtnID).hasClass(evBtnClass_crossed)){
-        setEvidenceBtnNeutral(evBtnID, evBtnValue);
+        setEvidenceBtnNeutral(evBtnID);
+        setEvidenceLabelsFound(evBtnValue);
     }
 
     for(var j=0; j<=$(".evBTN").length; j++){
@@ -64,7 +67,7 @@ function updateEvidence(evBtnID, evBtnValue){
     for(var i=0; i < GHOSTS.length; i++){
         let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
 
-        if(matchingEvidence != evCounter){
+        if(matchingEvidence == evCounter){
             $("#"+GHOSTS[i]).hide();
         }else{
             $("#"+GHOSTS[i]).show();
@@ -91,31 +94,37 @@ function resetEvidence(){
 
 // Change evidence button appearance -----------------------------------------------------
 
-function setEvidenceBtnNeutral(evBtnID, evBtnValue){
+function setEvidenceBtnNeutral(evBtnID){
     // If evidence button is crossed, switch to neutral
     $(evBtnID).removeClass(evBtnClass_crossed);
     $(evBtnID).addClass(evBtnClass_neutral);
-    // Change appearance of matching ghost traits to neutral
-    $("th[value|="+evBtnValue+"]").addClass("table-info");
 }
 
-function setEvidenceBtnActive(evBtnID, evBtnValue){
+function setEvidenceBtnActive(evBtnID){
     // If evidence button is neutral, switch to active
     $(evBtnID).removeClass(evBtnClass_neutral);
     $(evBtnID).addClass(evBtnClass_active);
-    // Change appearance of matching ghost traits to active
-    $("th[value|="+evBtnValue+"]").addClass("table-info");
 }
 
-function setEvidenceBtnCrossed(evBtnID, evBtnValue){
+function setEvidenceBtnCrossed(evBtnID){
     // If evidence button is active, switch to crossed
     $(evBtnID).removeClass(evBtnClass_active);
     $(evBtnID).addClass(evBtnClass_crossed);
+}
+
+// Set evidence label (ghost) states -----------------------------------------------------
+
+function setEvidenceLabelsFound(evBtnValue){
     // Change appearance of matching ghost traits to crossed
     $("th[value|="+evBtnValue+"]").addClass("table-info");
 }
 
 // Set evidence button disabled states -----------------------------------------------------
+
+function updateAvailableEvidence(ghostName){
+    // function is called when a ghost gets hidden
+
+}
 
 function setEvidenceBtnDisabled(evBtnID){
     // Remove all other button classes, add disabled
