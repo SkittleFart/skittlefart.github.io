@@ -40,3 +40,53 @@ function removeSpaces(v){
     var moo = String(v).replace(/\s/g, '');
     return moo;
 }
+
+// Update evidence ----------------------------------------------------------
+
+function updateEvidence(evBtnID, evBtnValue){
+    
+}
+
+// Reset button -----------------------------------------------------
+function resetEvidence(){
+    // revert all evidence buttons back to normal
+    $('.evBTN').removeClass(evBtnClass_active);
+    $('.evBTN').removeClass(evBtnClass_crossed);
+    $('.evBTN').addClass(evBtnClass_neutral);
+
+    // revert all evidence labels to normal
+    $('th').removeClass("table-info");
+
+    // show all ghosts
+    for(var i=0; i < GHOSTS.length; i++){
+        $("#"+GHOSTS[i]).show();
+    }
+}
+
+
+// Change evidence button appearance -----------------------------------------------------
+
+function setEvidenceBtnNeutral(evBtnID){
+    // If evidence button is crossed, switch to neutral
+    $(evBtnID).removeClass(evBtnClass_crossed);
+    $(evBtnID).addClass(evBtnClass_neutral);
+}
+
+function setEvidenceBtnActive(evBtnID){
+    // If evidence button is neutral, switch to active
+    $(evBtnID).removeClass(evBtnClass_neutral);
+    $(evBtnID).addClass(evBtnClass_active);
+}
+
+function setEvidenceBtnCrossed(evBtnID){
+    // If evidence button is active, switch to crossed
+    $(evBtnID).removeClass(evBtnClass_active);
+    $(evBtnID).addClass(evBtnClass_crossed);
+}
+
+// Set evidence label (ghost) states -----------------------------------------------------
+
+function setEvidenceLabelsFound(evBtnValue){
+    // Change appearance of matching ghost traits to crossed
+    $("th[value|="+evBtnValue+"]").addClass("table-info");
+}
