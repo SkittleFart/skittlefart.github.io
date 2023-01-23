@@ -36,11 +36,10 @@ fetch(GHOSTS_URL)
         console.log("Ghosts: "+GHOSTS);
         console.log("Evidence: "+EVIDENCE);
         console.log("temp size: "+temp.size);
-        temp.forEach(function(evidence, name){
-            console.log("Name: "+name+" / Evidence: "+evidence);
-        });
+        temp.forEach(function(evidence, name){console.log("Name: "+name+" / Evidence: "+evidence);});
         console.log("blah: "+temp.get(GHOSTS[17]));
-        console.log("blah: "+temp.get(GHOSTS[17])[0]);
+        console.log("blah2: "+temp.get(GHOSTS[17])[0]);
+        console.log("blah3: "+temp.has(GHOSTS[17]));
     });
 
 // Remove spaces from the ghost names
