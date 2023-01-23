@@ -40,6 +40,7 @@ fetch(GHOSTS_URL)
             console.log("Name: "+name+" / Evidence: "+evidence);
         });
         console.log("blah: "+temp.get(GHOSTS[17]));
+        console.log("blah: "+temp.get(GHOSTS[17])[0]);
     });
 
 // Remove spaces from the ghost names
