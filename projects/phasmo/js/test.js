@@ -59,13 +59,13 @@ function updateEvidence(evBtnID, evBtnValue){
         // If button is neutral, change to active
         setEvidenceBtnActive(evBtnID);
         selectedEvidence.add(evBtnValue);
-        //setEvidenceLabelsFound(evBtnValue);
+        setEvidenceLabelsFound(evBtnValue);
     }else if($(evBtnID).hasClass(evBtnClass_active)){
         // If button is active, change to crossed
         setEvidenceBtnCrossed(evBtnID);
         selectedEvidence.delete(evBtnValue);
         crossedEvidence.add(evBtnValue);
-        //setEvidenceLabelsFound(evBtnValue);
+        setEvidenceLabelsNeutral(evBtnValue);
     }else if($(evBtnID).hasClass(evBtnClass_crossed)){
         // If button is crossed, change to neutral
         setEvidenceBtnNeutral(evBtnID);
@@ -73,13 +73,9 @@ function updateEvidence(evBtnID, evBtnValue){
         //setEvidenceLabelsFound(evBtnValue);
     }
 
-    selectedEvidence.forEach (function(value) {
-        console.log("selectedEvidence: "+value);
-    });
+    //selectedEvidence.forEach (function(value){console.log("selectedEvidence: "+value);});
 
-    crossedEvidence.forEach (function(value) {
-        console.log("crossedEvidence: "+value);
-    });
+    //crossedEvidence.forEach (function(value){console.log("crossedEvidence: "+value);});
     
 
     // 
@@ -128,6 +124,11 @@ function setEvidenceBtnCrossed(evBtnID){
 function setEvidenceLabelsFound(evBtnValue){
     // Change appearance of matching ghost traits to crossed
     $("th[value|="+evBtnValue+"]").addClass("table-info");
+}
+
+function setEvidenceLabelsNeutral(evBtnValue){
+    // Change appearance of matching ghost traits to crossed
+    $("th[value|="+evBtnValue+"]").removeClass("table-info");
 }
 
 
