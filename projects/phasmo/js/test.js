@@ -73,8 +73,13 @@ function updateEvidence(evBtnID, evBtnValue){
         //setEvidenceLabelsFound(evBtnValue);
     }
 
-    console.log("selectedEvidence: "+selectedEvidence);
-    console.log("crossedEvidence: "+crossedEvidence);
+    selectedEvidence.forEach (function(value) {
+        console.log("selectedEvidence: "+value);
+    });
+
+    crossedEvidence.forEach (function(value) {
+        console.log("crossedEvidence: "+crossedEvidence);
+    });
 
     // 
 }
