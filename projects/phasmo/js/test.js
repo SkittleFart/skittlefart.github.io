@@ -151,6 +151,7 @@ function setEvidenceDisabled(evBtnValue){
 
 function updateGhosts(){
     var isMatch = false;
+    let evCounter = 0;
 
     // hide all ghosts
     //$('.card').hide();
