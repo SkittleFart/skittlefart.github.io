@@ -153,12 +153,30 @@ function updateGhosts(){
     var isMatch = false;
 
     // hide all ghosts
-    $('.card').hide();
+    //$('.card').hide();
 
     // get set sizes
     var total_evidence = selectedEvidence.size;
     var total_crossed = crossedEvidence.size;
 
+    for(var j=0; j<=$(".evBTN").length; j++){
+        if($("#evidenceBTN_"+j).hasClass(evBtnClass_active)){
+            evCounter++;
+        }
+    }
+
+    // Hide any ghosts that don't have any current evidence
+    for(var i=0; i < GHOSTS.length; i++){
+        let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
+
+        if(matchingEvidence != evCounter){
+            $("#"+GHOSTS[i]).hide();
+        }else{
+            $("#"+GHOSTS[i]).show();
+        }
+    }
+
+    /*
     for(var i=0; i < GHOSTS.length; i++){
         for(var j=0; j<total_evidence; j++){
             console.log(GHOSTS[i]+" : "+COMPLETE_SET.get(GHOSTS[i]));
@@ -168,6 +186,6 @@ function updateGhosts(){
                 console.log(COMPLETE_SET.get(GHOSTS[i])[j]+" | Evidence is a match");
             }
         }
-    }
+    }*/
 
 }
