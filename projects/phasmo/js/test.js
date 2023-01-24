@@ -52,6 +52,7 @@ function removeSpaces(v){
 
 function updateEvidence(evBtnID, evBtnValue){
     var selectedEvidence = [];
+    var crossedEvidence = [];
 
     // Check status of evidence button when clicked
     if($(evBtnID).hasClass(evBtnClass_neutral)){
@@ -63,12 +64,17 @@ function updateEvidence(evBtnID, evBtnValue){
         // If button is active, change to crossed
         setEvidenceBtnCrossed(evBtnID);
         selectedEvidence.pop(evBtnValue);
+        crossedEvidence.push(evBtnValue);
         //setEvidenceLabelsFound(evBtnValue);
     }else if($(evBtnID).hasClass(evBtnClass_crossed)){
         // If button is crossed, change to neutral
         setEvidenceBtnNeutral(evBtnID);
+        crossedEvidence.pop(evBtnValue);
         //setEvidenceLabelsFound(evBtnValue);
     }
+
+    console.log("selectedEvidence: "+selectedEvidence);
+    console.log("crossedEvidence: "+crossedEvidence);
 
     // 
 }
