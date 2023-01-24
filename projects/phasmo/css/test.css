@@ -74,6 +74,11 @@ h3{
     text-decoration: line-through;
 }
 
+.btn:focus, .btn:active{
+    outline: none !important;
+    box-shadow: none;
+}
+
 /* Table styles */
 th{
     text-align: center;
@@ -89,6 +94,14 @@ th{
 
 .meow{
     background-color: #212529;
+}
+
+.strengths{
+    color:red;
+}
+
+.weakness{
+    color:greenyellow;
 }
 
 

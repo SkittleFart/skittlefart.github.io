@@ -37,7 +37,7 @@ fetch(GHOSTS_URL)
         console.log("Evidence: "+EVIDENCE);
         console.log("temp size: "+temp.size);
         temp.forEach(function(evidence, name){console.log("Name: "+name+" / Evidence: "+evidence);});
-        console.log("blah: "+temp.get(GHOSTS[17]));
+        console.log(GHOSTS[17]+": "+temp.get(GHOSTS[17]));
         console.log("blah2: "+temp.get(GHOSTS[17])[0]);
         console.log("blah3: "+temp.has(GHOSTS[17]));
     });
@@ -53,7 +53,7 @@ function removeSpaces(v){
 function updateEvidence(evBtnID, evBtnValue){
     var selectedEvidence = [];
 
-    setEvidenceDisabled(evBtnValue);
+    
 }
 
 // Reset button -----------------------------------------------------
@@ -62,6 +62,7 @@ function resetEvidence(){
     $('.evBTN').removeClass(evBtnClass_active);
     $('.evBTN').removeClass(evBtnClass_crossed);
     $('.evBTN').addClass(evBtnClass_neutral);
+    $('.evBTN').prop( "disabled", false );
 
     // revert all evidence labels to normal
     $('th').removeClass("table-info");
