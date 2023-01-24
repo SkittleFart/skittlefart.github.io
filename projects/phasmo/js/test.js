@@ -7,8 +7,8 @@ var evBtnClass_active = "btn-info";
 var evBtnClass_crossed = "btn-outline-danger";
 var evBtnClass_disabled = "btn-secondary";
 
-var selectedEvidence = [];
-var crossedEvidence = [];
+var selectedEvidence = new Set();
+var crossedEvidence = new Set();
 
 $(document).ready(function() {
     $('.evBTN').on('click', function(evt){
@@ -58,18 +58,18 @@ function updateEvidence(evBtnID, evBtnValue){
     if($(evBtnID).hasClass(evBtnClass_neutral)){
         // If button is neutral, change to active
         setEvidenceBtnActive(evBtnID);
-        selectedEvidence.push(evBtnValue);
+        selectedEvidence.add(evBtnValue);
         //setEvidenceLabelsFound(evBtnValue);
     }else if($(evBtnID).hasClass(evBtnClass_active)){
         // If button is active, change to crossed
         setEvidenceBtnCrossed(evBtnID);
-        selectedEvidence.pop(evBtnValue);
-        crossedEvidence.push(evBtnValue);
+        selectedEvidence.delete(evBtnValue);
+        crossedEvidence.add(evBtnValue);
         //setEvidenceLabelsFound(evBtnValue);
     }else if($(evBtnID).hasClass(evBtnClass_crossed)){
         // If button is crossed, change to neutral
         setEvidenceBtnNeutral(evBtnID);
-        crossedEvidence.pop(evBtnValue);
+        crossedEvidence.delete(evBtnValue);
         //setEvidenceLabelsFound(evBtnValue);
     }
 
