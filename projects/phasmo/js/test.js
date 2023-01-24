@@ -150,6 +150,8 @@ function setEvidenceDisabled(evBtnValue){
 // Show/hide ghosts ----------------------------------------------------------
 
 function updateGhosts(){
+    var isMatch = false;
+
     // hide all ghosts
     $('.card').hide();
 
@@ -162,6 +164,9 @@ function updateGhosts(){
             console.log(GHOSTS[i]+" : "+COMPLETE_SET.get(GHOSTS[i]));
             console.log("Evidence: "+COMPLETE_SET.get(GHOSTS[i])[j]);
             //console.log(GHOSTS[i]+": has evidence? "+selectedEvidence.has(COMPLETE_SET.get(GHOSTS[i])[j]));
+            if(selectedEvidence.has(COMPLETE_SET.get(GHOSTS[i])[j])){
+                console.log(COMPLETE_SET.get(GHOSTS[i])[j]+" | Evidence is a match");
+            }
         }
     }
 
