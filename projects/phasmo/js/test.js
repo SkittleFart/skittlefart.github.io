@@ -1,7 +1,7 @@
 var GHOSTS_URL = "js/ghost.json";
 var GHOSTS = [];
 var EVIDENCE = [];
-var EVIDENCE_SET = new Set();
+var COMPLETE_SET = new Set();
 var evBtnClass_neutral = "btn-outline-info";
 var evBtnClass_active = "btn-info";
 var evBtnClass_crossed = "btn-outline-danger";
@@ -36,6 +36,7 @@ fetch(GHOSTS_URL)
             EVIDENCE[i] = data[i].evidence;
             temp.set(removeSpaces(data[i].name), data[i].evidence);
         }
+        COMPLETE_SET = temp;
         console.log("Ghosts: "+GHOSTS);
         console.log("Evidence: "+EVIDENCE);
         console.log("temp size: "+temp.size);
@@ -60,25 +61,28 @@ function updateEvidence(evBtnID, evBtnValue){
         setEvidenceBtnActive(evBtnID);
         selectedEvidence.add(evBtnValue);
         setEvidenceLabelsFound(evBtnValue);
+
+        // Call function to show/hide ghosts
+        updateGhosts();
+
     }else if($(evBtnID).hasClass(evBtnClass_active)){
         // If button is active, change to crossed
         setEvidenceBtnCrossed(evBtnID);
         selectedEvidence.delete(evBtnValue);
         crossedEvidence.add(evBtnValue);
         setEvidenceLabelsNeutral(evBtnValue);
+
+        // Call function to show/hide ghosts
+        updateGhosts();
+
     }else if($(evBtnID).hasClass(evBtnClass_crossed)){
         // If button is crossed, change to neutral
         setEvidenceBtnNeutral(evBtnID);
         crossedEvidence.delete(evBtnValue);
-        //setEvidenceLabelsFound(evBtnValue);
+        
+        // Call function to show/hide ghosts
+        updateGhosts();
     }
-
-    //selectedEvidence.forEach (function(value){console.log("selectedEvidence: "+value);});
-
-    //crossedEvidence.forEach (function(value){console.log("crossedEvidence: "+value);});
-    
-
-    // 
 }
 
 // Reset button -----------------------------------------------------
@@ -131,8 +135,6 @@ function setEvidenceLabelsNeutral(evBtnValue){
     $("th[value|="+evBtnValue+"]").removeClass("table-info");
 }
 
-
-
 // Set disabled evidence -----------------------------------------------------
 
 function setEvidenceDisabled(evBtnValue){
@@ -143,4 +145,23 @@ function setEvidenceDisabled(evBtnValue){
     }else{
         $("button[value|="+evBtnValue+"]").prop( "disabled", true );
     }
+}
+
+// Show/hide ghosts ----------------------------------------------------------
+
+function updateGhosts(){
+    // hide all ghosts
+    $('.card').hide();
+
+    // get set sizes
+    var total_evidence = selectedEvidence.size();
+    var total_crossed = crossedEvidence.size();
+
+    for(var i=0; i < GHOSTS.length; i++){
+        for(var j=0; j<total_evidence; j++){
+            console.log(GHOSTS[i]+" : "+COMPLETE_SET.get(GHOSTS[i]));
+            console.log("selectedEvidence: "+selectedEvidence.get());
+        }
+    }
+
 }
