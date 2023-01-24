@@ -80,6 +80,8 @@ function updateEvidence(evBtnID, evBtnValue){
     crossedEvidence.forEach (function(value) {
         console.log("crossedEvidence: "+crossedEvidence);
     });
+    console.log("selectedEvidence: "+selectedEvidence.values());
+    console.log("crossedEvidence: "+crossedEvidence.values());
 
     // 
 }
