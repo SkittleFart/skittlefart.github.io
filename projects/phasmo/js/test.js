@@ -160,7 +160,8 @@ function updateGhosts(){
     for(var i=0; i < GHOSTS.length; i++){
         for(var j=0; j<total_evidence; j++){
             console.log(GHOSTS[i]+" : "+COMPLETE_SET.get(GHOSTS[i]));
-            console.log(GHOSTS[i]+": has evidence? "+selectedEvidence.has(COMPLETE_SET.get(GHOSTS[i])[j]));
+            console.log("Evidence: "+COMPLETE_SET.get(GHOSTS[i])[j]);
+            //console.log(GHOSTS[i]+": has evidence? "+selectedEvidence.has(COMPLETE_SET.get(GHOSTS[i])[j]));
         }
     }
 
