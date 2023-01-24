@@ -154,8 +154,8 @@ function updateGhosts(){
     $('.card').hide();
 
     // get set sizes
-    var total_evidence = selectedEvidence.size();
-    var total_crossed = crossedEvidence.size();
+    var total_evidence = selectedEvidence.size;
+    var total_crossed = crossedEvidence.size;
 
     for(var i=0; i < GHOSTS.length; i++){
         for(var j=0; j<total_evidence; j++){
