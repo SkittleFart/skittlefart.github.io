@@ -34,7 +34,7 @@ fetch(GHOSTS_URL)
             $("#ghosts").append(ghostDiv);
             GHOSTS[i] = removeSpaces(data[i].name);
             EVIDENCE[i] = data[i].evidence;
-            temp.set(removeSpaces(data[i].name), data[i].evidence);
+            temp.set(removeSpaces(data[i].name), removeSpaces(data[i].evidence));
         }
         COMPLETE_SET = temp;
         console.log("Ghosts: "+GHOSTS);
