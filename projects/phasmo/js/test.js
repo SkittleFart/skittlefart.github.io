@@ -58,19 +58,16 @@ function updateEvidence(evBtnID, evBtnValue){
         // If button is neutral, change to active
         setEvidenceBtnActive(evBtnID);
         selectedEvidence.push(evBtnValue);
-        console.log("selectedEvidence: "+selectedEvidence);
-
-
-
-        setEvidenceLabelsFound(evBtnValue);
+        //setEvidenceLabelsFound(evBtnValue);
     }else if($(evBtnID).hasClass(evBtnClass_active)){
         // If button is active, change to crossed
         setEvidenceBtnCrossed(evBtnID);
-        setEvidenceLabelsFound(evBtnValue);
+        selectedEvidence.pop(evBtnValue);
+        //setEvidenceLabelsFound(evBtnValue);
     }else if($(evBtnID).hasClass(evBtnClass_crossed)){
         // If button is crossed, change to neutral
         setEvidenceBtnNeutral(evBtnID);
-        setEvidenceLabelsFound(evBtnValue);
+        //setEvidenceLabelsFound(evBtnValue);
     }
 
     // 
