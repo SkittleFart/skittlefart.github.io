@@ -7,6 +7,9 @@ var evBtnClass_active = "btn-info";
 var evBtnClass_crossed = "btn-outline-danger";
 var evBtnClass_disabled = "btn-secondary";
 
+var selectedEvidence = [];
+var crossedEvidence = [];
+
 $(document).ready(function() {
     $('.evBTN').on('click', function(evt){
         let evBtnID = "#".concat(this.id);
@@ -51,9 +54,6 @@ function removeSpaces(v){
 // Update evidence ----------------------------------------------------------
 
 function updateEvidence(evBtnID, evBtnValue){
-    var selectedEvidence = [];
-    var crossedEvidence = [];
-
     // Check status of evidence button when clicked
     if($(evBtnID).hasClass(evBtnClass_neutral)){
         // If button is neutral, change to active
