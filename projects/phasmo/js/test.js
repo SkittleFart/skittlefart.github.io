@@ -30,7 +30,7 @@ fetch(GHOSTS_URL)
     .then(function(data){
         var temp = new Map();
         for(var i=0; i<data.length; i++){
-            var ghostDiv = $("<div id="+removeSpaces(data[i].name)+" class='card col-12 col-md-6 col-lg-4'><div class=card-body><h4 class='card-title'>"+data[i].name+"</h4><div><table class='table table-dark table-bordered'><thead><tr><th value="+removeSpaces(data[i].evidence[0])+">"+data[i].evidence[0]+"</th><th value="+removeSpaces(data[i].evidence[1])+">"+data[i].evidence[1]+"</th><th value="+removeSpaces(data[i].evidence[2])+">"+data[i].evidence[2]+"</th></tr></thead></table></div><div class='card card-body meow'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong class='strengths'>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong class='weakness'>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
+            var ghostDiv = $("<div id="+removeSpaces(data[i].name)+" class='card col-12 col-md-6 col-lg-4'><div class=card-body><h4 class='card-title'>"+data[i].name+"</h4><div><table class='table table-dark table-bordered'><thead><tr><th class='ev1' value="+removeSpaces(data[i].evidence[0])+">"+data[i].evidence[0]+"</th><th class='ev2' value="+removeSpaces(data[i].evidence[1])+">"+data[i].evidence[1]+"</th><th class='ev3' value="+removeSpaces(data[i].evidence[2])+">"+data[i].evidence[2]+"</th></tr></thead></table></div><div class='card card-body meow'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong class='strengths'>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong class='weakness'>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
             $("#ghosts").append(ghostDiv);
             GHOSTS[i] = removeSpaces(data[i].name);
             EVIDENCE[i] = data[i].evidence;
@@ -51,6 +51,13 @@ function removeSpaces(v){
     var moo = String(v).replace(/\s/g, '');
     return moo;
 }
+
+// Compare strings
+function compareStrings(str1, str2){
+    let result = str1.localeCompare(str2);
+    return result;
+}
+
 
 // Update evidence ----------------------------------------------------------
 
@@ -170,8 +177,12 @@ function updateGhosts(){
     for(var i=0; i < GHOSTS.length; i++){
         let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
 
+        console.log($("#"+GHOSTS[i]+" .ev1").text());
+        console.log($("#"+GHOSTS[i]+" .ev2").text());
+        console.log($("#"+GHOSTS[i]+" .ev3").text());
+
         console.log(GHOSTS[i]+": "+matchingEvidence);
-        console.log(EVIDENCE[i][0]);
+        
 
         /*
         if(matchingEvidence != evCounter){
@@ -182,7 +193,7 @@ function updateGhosts(){
     }
 
 
-    
+
     /*
     // asdfdsa
     for(var i=0; i < GHOSTS.length; i++){
