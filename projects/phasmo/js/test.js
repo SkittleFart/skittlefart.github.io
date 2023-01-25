@@ -170,14 +170,21 @@ function updateGhosts(){
     for(var i=0; i < GHOSTS.length; i++){
         let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
 
+        console.log(GHOSTS[i]+": "+matchingEvidence);
+        console.log(EVIDENCE[i][0]);
+
+        /*
         if(matchingEvidence != evCounter){
             $("#"+GHOSTS[i]).hide();
         }else{
             $("#"+GHOSTS[i]).show();
-        }
+        }*/
     }
 
+
+    
     /*
+    // asdfdsa
     for(var i=0; i < GHOSTS.length; i++){
         for(var j=0; j<total_evidence; j++){
             console.log(GHOSTS[i]+" : "+COMPLETE_SET.get(GHOSTS[i]));
