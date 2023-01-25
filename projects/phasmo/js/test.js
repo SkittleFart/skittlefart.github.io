@@ -158,8 +158,12 @@ function setEvidenceDisabled(evBtnValue){
 // Show/hide ghosts ----------------------------------------------------------
 
 function updateGhosts(evBtnText){
-    var isMatch = false;
+    var isSelectedMatch = false;
+    var isCrossedMatch = false;
     let evCounter = 0;
+
+    // hide every ghost by default
+    $('.card').hide();
 
     // get set sizes
     var total_evidence = selectedEvidence.size;
@@ -170,20 +174,30 @@ function updateGhosts(evBtnText){
         console.log("Does this ghost have the evidence?");
 
         $("#"+GHOSTS[i]+" th").each(function(){
-            //console.log($(this).text()+": "+selectedEvidence.has($(this).text()));
-
             if(selectedEvidence.has($(this).text())){
                 evCounter++;
+                isSelectedMatch = true;
+            }
+
+            if(crossedEvidence.has($(this).text())){
+                isCrossedMatch = true;
             }
         });
 
+        /*
         if(evCounter === total_evidence){
             console.log(GHOSTS[i]+" is a match");
         }else{
             $("#"+GHOSTS[i]).hide();
+        }*/
+
+        if(isSelectedMatch && !isCrossedMatch){
+            $("#"+GHOSTS[i]).show();
         }
 
-        evCounter = 0;        
+        evCounter = 0;
+        isSelectedMatch = false;
+        isCrossedMatch = false;
     }
 
 }
