@@ -185,6 +185,7 @@ function updateGhosts(evBtnText){
         selectedEvidence.forEach(function(value){
             $("#"+GHOSTS[i]+" th").each(function(){
                 if(compareStrings(value, $(this).text())){
+                    console.log("Match! "+value+" / "+$(this).text());
                     evCounter++;
                     isSelectedMatch = true;
                 }
@@ -194,6 +195,7 @@ function updateGhosts(evBtnText){
         crossedEvidence.forEach(function(value){
             $("#"+GHOSTS[i]+" th").each(function(){
                 if(compareStrings(value, $(this).text())){
+                    console.log("Crossed Match! "+value+" / "+$(this).text());
                     crossCounter++;
                     isCrossedMatch = true;
                 }
