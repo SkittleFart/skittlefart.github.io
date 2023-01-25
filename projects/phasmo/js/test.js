@@ -218,6 +218,10 @@ function updateGhosts(evBtnText){
             $("#"+GHOSTS[i]).hide();
         }*/
 
+        console.log(GHOSTS[i]);
+        console.log("isSelectedMatch: "+isSelectedMatch);
+        console.log("isCrossedMatch: "+isCrossedMatch);
+
         if(isSelectedMatch){
             $("#"+GHOSTS[i]).show();
         }
