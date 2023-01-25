@@ -170,7 +170,7 @@ function updateGhosts(evBtnText){
         console.log("Does this ghost have the evidence?");
 
         $("#"+GHOSTS[i]+" th").each(function(){
-            console.log($(this).text()+": "+selectedEvidence.has($(this).text()));
+            //console.log($(this).text()+": "+selectedEvidence.has($(this).text()));
 
             if(selectedEvidence.has($(this).text())){
                 evCounter++;
