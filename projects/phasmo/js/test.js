@@ -224,6 +224,8 @@ function updateGhosts(evBtnText){
 
         if(isSelectedMatch){
             $("#"+GHOSTS[i]).show();
+        }else{
+            $("#"+GHOSTS[i]).hide();
         }
 
         if(isCrossedMatch){
