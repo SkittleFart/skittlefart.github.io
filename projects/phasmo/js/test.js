@@ -169,9 +169,10 @@ function updateGhosts(evBtnText){
     var isSelectedMatch = false;
     var isCrossedMatch = false;
     let evCounter = 0;
+    let crossCounter = 0;
 
     // hide every ghost by default
-    $('.ghostCard').hide();
+    //$('.ghostCard').hide();
 
     // get set sizes
     var total_evidence = selectedEvidence.size;
@@ -181,6 +182,24 @@ function updateGhosts(evBtnText){
     for(var i=0; i < GHOSTS.length; i++){
         //console.log("Does this ghost have the evidence?");
 
+        selectedEvidence.forEach(function(value){
+            $("#"+GHOSTS[i]+" th").each(function(){
+                if(compareStrings(value, $(this).text())){
+                    evCounter++;
+                    isSelectedMatch = true;
+                }
+            });
+        });
+
+        crossedEvidence.forEach(function(value){
+            $("#"+GHOSTS[i]+" th").each(function(){
+                if(compareStrings(value, $(this).text())){
+                    crossCounter++;
+                    isCrossedMatch = true;
+                }
+            });
+        });
+        /*
         $("#"+GHOSTS[i]+" th").each(function(){
             if(selectedEvidence.has($(this).text())){
                 evCounter++;
@@ -192,15 +211,19 @@ function updateGhosts(evBtnText){
             }
         });
 
-        /*
+        
         if(evCounter === total_evidence){
             console.log(GHOSTS[i]+" is a match");
         }else{
             $("#"+GHOSTS[i]).hide();
         }*/
 
-        if(isSelectedMatch && !isCrossedMatch){
+        if(isSelectedMatch){
             $("#"+GHOSTS[i]).show();
+        }
+
+        if(isCrossedMatch){
+            $("#"+GHOSTS[i]).hide();
         }
 
         evCounter = 0;
