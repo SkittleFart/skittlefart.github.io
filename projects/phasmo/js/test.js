@@ -165,21 +165,25 @@ function updateGhosts(evBtnText){
     var total_evidence = selectedEvidence.size;
     var total_crossed = crossedEvidence.size;
 
-    for(var j=0; j<=$(".evBTN").length; j++){
-        if($("#evidenceBTN_"+j).hasClass(evBtnClass_active)){
-            evCounter++;
-        }
-    }
-
     // Hide any ghosts that don't have any current evidence
     for(var i=0; i < GHOSTS.length; i++){
-        let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
-
         console.log("Does this ghost have the evidence?");
 
         $("#"+GHOSTS[i]+" th").each(function(){
             console.log($(this).text()+": "+selectedEvidence.has($(this).text()));
+
+            if(selectedEvidence.has($(this).text())){
+                evCounter++;
+            }
         });
+
+        if(evCounter === total_evidence){
+            console.log(GHOSTS[i]+"is a match");
+        }else{
+            $("#"+GHOSTS[i]).hide();
+        }
+
+
         
     }
 
