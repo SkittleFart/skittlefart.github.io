@@ -178,13 +178,12 @@ function updateGhosts(evBtnText){
         });
 
         if(evCounter === total_evidence){
-            console.log(GHOSTS[i]+"is a match");
+            console.log(GHOSTS[i]+" is a match");
         }else{
             $("#"+GHOSTS[i]).hide();
         }
 
-
-        
+        evCounter = 0;        
     }
 
 }
