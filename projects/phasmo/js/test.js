@@ -91,6 +91,14 @@ function updateEvidence(evBtnID, evBtnValue, evBtnText){
         // Call function to show/hide ghosts
         updateGhosts(evBtnText);
     }
+
+    selectedEvidence.forEach(function(value){
+        console.log("selectedEvidence: "+value);
+    });
+
+    crossedEvidence.forEach(function(value){
+        console.log("crossedEvidence: "+value);
+    });
 }
 
 // Reset button -----------------------------------------------------
@@ -171,7 +179,7 @@ function updateGhosts(evBtnText){
 
     // Hide any ghosts that don't have any current evidence
     for(var i=0; i < GHOSTS.length; i++){
-        console.log("Does this ghost have the evidence?");
+        //console.log("Does this ghost have the evidence?");
 
         $("#"+GHOSTS[i]+" th").each(function(){
             if(selectedEvidence.has($(this).text())){
