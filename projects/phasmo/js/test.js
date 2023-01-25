@@ -14,8 +14,9 @@ $(document).ready(function() {
     $('.evBTN').on('click', function(evt){
         let evBtnID = "#".concat(this.id);
         let evBtnValue = $(evBtnID).attr("value");
+        let evBtnText = $(evBtnID).text();
 
-        updateEvidence(evBtnID, evBtnValue);
+        updateEvidence(evBtnID, evBtnValue, evBtnText);
     });
     $('#resetBTN').on('click', resetEvidence);
 
@@ -30,7 +31,7 @@ fetch(GHOSTS_URL)
     .then(function(data){
         var temp = new Map();
         for(var i=0; i<data.length; i++){
-            var ghostDiv = $("<div id="+removeSpaces(data[i].name)+" class='card col-12 col-md-6 col-lg-4'><div class=card-body><h4 class='card-title'>"+data[i].name+"</h4><div><table class='table table-dark table-bordered'><thead><tr><th class='ev1' value="+removeSpaces(data[i].evidence[0])+">"+data[i].evidence[0]+"</th><th class='ev2' value="+removeSpaces(data[i].evidence[1])+">"+data[i].evidence[1]+"</th><th class='ev3' value="+removeSpaces(data[i].evidence[2])+">"+data[i].evidence[2]+"</th></tr></thead></table></div><div class='card card-body meow'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong class='strengths'>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong class='weakness'>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
+            var ghostDiv = $("<div id="+removeSpaces(data[i].name)+" class='card col-12 col-md-6 col-lg-4'><div class=card-body><h4 class='card-title'>"+data[i].name+"</h4><div><table class='table table-dark table-bordered'><thead><tr><th value="+removeSpaces(data[i].evidence[0])+">"+data[i].evidence[0]+"</th><th value="+removeSpaces(data[i].evidence[1])+">"+data[i].evidence[1]+"</th><th value="+removeSpaces(data[i].evidence[2])+">"+data[i].evidence[2]+"</th></tr></thead></table></div><div class='card card-body meow'><p class='card-text'>"+data[i].desc+"</p><p class='card-text'><strong class='strengths'>Strengths:</strong> "+data[i].stren+"</p><p class='card-text'><strong class='weakness'>Weaknesses:</strong> "+data[i].weak+"</p></div></div></div>");
             $("#ghosts").append(ghostDiv);
             GHOSTS[i] = removeSpaces(data[i].name);
             EVIDENCE[i] = data[i].evidence;
@@ -61,34 +62,34 @@ function compareStrings(str1, str2){
 
 // Update evidence ----------------------------------------------------------
 
-function updateEvidence(evBtnID, evBtnValue){
+function updateEvidence(evBtnID, evBtnValue, evBtnText){
     // Check status of evidence button when clicked
     if($(evBtnID).hasClass(evBtnClass_neutral)){
         // If button is neutral, change to active
         setEvidenceBtnActive(evBtnID);
-        selectedEvidence.add(evBtnValue);
+        selectedEvidence.add(evBtnText);
         setEvidenceLabelsFound(evBtnValue);
 
         // Call function to show/hide ghosts
-        updateGhosts();
+        updateGhosts(evBtnText);
 
     }else if($(evBtnID).hasClass(evBtnClass_active)){
         // If button is active, change to crossed
         setEvidenceBtnCrossed(evBtnID);
-        selectedEvidence.delete(evBtnValue);
-        crossedEvidence.add(evBtnValue);
+        selectedEvidence.delete(evBtnText);
+        crossedEvidence.add(evBtnText);
         setEvidenceLabelsNeutral(evBtnValue);
 
         // Call function to show/hide ghosts
-        updateGhosts();
+        updateGhosts(evBtnText);
 
     }else if($(evBtnID).hasClass(evBtnClass_crossed)){
         // If button is crossed, change to neutral
         setEvidenceBtnNeutral(evBtnID);
-        crossedEvidence.delete(evBtnValue);
+        crossedEvidence.delete(evBtnText);
         
         // Call function to show/hide ghosts
-        updateGhosts();
+        updateGhosts(evBtnText);
     }
 }
 
@@ -156,12 +157,9 @@ function setEvidenceDisabled(evBtnValue){
 
 // Show/hide ghosts ----------------------------------------------------------
 
-function updateGhosts(){
+function updateGhosts(evBtnText){
     var isMatch = false;
     let evCounter = 0;
-
-    // hide all ghosts
-    //$('.card').hide();
 
     // get set sizes
     var total_evidence = selectedEvidence.size;
@@ -177,38 +175,12 @@ function updateGhosts(){
     for(var i=0; i < GHOSTS.length; i++){
         let matchingEvidence = $("#"+GHOSTS[i]+" th[class|=table-info]").length;
 
-        console.log($("#"+GHOSTS[i]+" .ev1").text());
-        console.log($("#"+GHOSTS[i]+" .ev2").text());
-        console.log($("#"+GHOSTS[i]+" .ev3").text());
-
-        console.log(GHOSTS[i]+": "+matchingEvidence);
+        console.log("Does this ghost have the evidence?");
 
         $("#"+GHOSTS[i]+" th").each(function(){
-            console.log($(this).text());
+            console.log($(this).text()+": "+selectedEvidence.has($(this).text()));
         });
         
-
-        /*
-        if(matchingEvidence != evCounter){
-            $("#"+GHOSTS[i]).hide();
-        }else{
-            $("#"+GHOSTS[i]).show();
-        }*/
     }
-
-
-
-    /*
-    // asdfdsa
-    for(var i=0; i < GHOSTS.length; i++){
-        for(var j=0; j<total_evidence; j++){
-            console.log(GHOSTS[i]+" : "+COMPLETE_SET.get(GHOSTS[i]));
-            console.log("Evidence: "+COMPLETE_SET.get(GHOSTS[i])[j]);
-            //console.log(GHOSTS[i]+": has evidence? "+selectedEvidence.has(COMPLETE_SET.get(GHOSTS[i])[j]));
-            if(selectedEvidence.has(COMPLETE_SET.get(GHOSTS[i])[j])){
-                console.log(COMPLETE_SET.get(GHOSTS[i])[j]+" | Evidence is a match");
-            }
-        }
-    }*/
 
 }
