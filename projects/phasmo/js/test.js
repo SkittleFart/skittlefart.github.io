@@ -182,6 +182,10 @@ function updateGhosts(){
         console.log($("#"+GHOSTS[i]+" .ev3").text());
 
         console.log(GHOSTS[i]+": "+matchingEvidence);
+
+        $("#"+GHOSTS[i]+" th").each(function(){
+            console.log($(this).text());
+        });
         
 
         /*
