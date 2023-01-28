@@ -264,9 +264,6 @@ function updateGhosts(evBtnText){
     let possibleGhostCount = 0;
 
     possibleGhostCount = $(".ghostCard:enabled").length;
-    console.log("possibleGhostCount: "+possibleGhostCount);
-
-    console.log("THIS IS A TEST DO YOU SEE ME");
 
     setEvidenceDisabled();
 }
