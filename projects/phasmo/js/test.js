@@ -196,6 +196,7 @@ function updateGhosts(evBtnText){
         });
 
         console.log("evCounter: "+evCounter);
+        evCounter = 0;
     }
 
 }
