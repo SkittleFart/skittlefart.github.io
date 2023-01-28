@@ -119,6 +119,9 @@ function resetEvidence(){
     for(var i=0; i < GHOSTS.length; i++){
         $("#"+GHOSTS[i]).show();
     }
+
+    selectedEvidence.clear();
+    crossedEvidence.clear();
 }
 
 
@@ -170,6 +173,7 @@ function setEvidenceDisabled(evBtnValue){
 
 function updateGhosts(evBtnText){
     let evCounter = 0;
+    let crossCounter = 0;
 
     // hide every ghost by default
     $('.ghostCard').hide();
@@ -181,6 +185,7 @@ function updateGhosts(evBtnText){
         console.log(EVIDENCE[i]);
 
         let isMatch;
+        let isCross;
 
         // see if ghost has current evidence
         selectedEvidence.forEach(function(value){
@@ -195,11 +200,27 @@ function updateGhosts(evBtnText){
             }            
         });
 
+        crossedEvidence.forEach(function(value){
+            for(var k=0; k<EVIDENCE[i].length; j++){
+                isCross = compareStrings(value, EVIDENCE[i][j]);
+
+                if(isCross === 0){
+                    crossCounter++;
+                }
+            }
+        });
+
         if(evCounter === selectedEvidence.size){
             $("#"+GHOSTS[i]).show();
         }
+
+        if(crossCounter !== 0){
+            $("#"+GHOSTS[i]).hide();
+        }
+        console.log(GHOSTS[i]+" | evCounter: "+evCounter);
         console.log(GHOSTS[i]+" | evCounter: "+evCounter);
         evCounter = 0;
+        crossCounter = 0;
     }
 
 }
