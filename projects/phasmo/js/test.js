@@ -178,6 +178,16 @@ function setPossibleEvidence(){
 // Set disabled evidence -----------------------------------------------------
 
 function setEvidenceDisabled(){
+    // if any ghost does not match any evidence button, disable the button
+    for(var i=0; i < GHOSTS.length; i++){
+        for(var j=0; j<EVIDENCE[i].length; j++){
+            let availableEvidence = compareStrings(possibleEvidence(), EVIDENCE[i][j]);
+
+            if(isMatch === 0){
+
+            }
+        }
+    }
     $(".evBtn").each(function(){
         if(possibleEvidence.has($(this).text())){
             console.log($(this).text()+" exists!");
@@ -250,6 +260,11 @@ function updateGhosts(evBtnText){
         evCounter = 0;
         crossCounter = 0;
     }
+
+    let possibleGhostCount = 0;
+
+    possibleGhostCount = $(".ghostCard:enabled").length;
+    console.log("possibleGhostCount: "+possibleGhostCount);
 
     console.log("THIS IS A TEST DO YOU SEE ME");
 
