@@ -195,8 +195,9 @@ function updateGhosts(evBtnText){
             }            
         });
 
-        console.log("evCounter: "+evCounter);
+        console.log(GHOSTS[i]+" | evCounter: "+evCounter);
         evCounter = 0;
+        $("#"+GHOSTS[i]).show();
     }
 
 }
