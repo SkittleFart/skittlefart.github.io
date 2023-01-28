@@ -182,6 +182,7 @@ function setEvidenceDisabled(){
     for(var i=0; i < GHOSTS.length; i++){
         for(var j=0; j<EVIDENCE[i].length; j++){
             //let availableEvidence = compareStrings(possibleEvidence(), EVIDENCE[i][j]);
+            let isMatch = 0;
 
             if(isMatch === 0){
 
