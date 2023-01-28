@@ -178,6 +178,10 @@ function setPossibleEvidence(){
 // Set disabled evidence -----------------------------------------------------
 
 function setEvidenceDisabled(){
+    $('.evBTN').prop('disabled', true);
+    if(selectedEvidence.size === 2){
+
+    }
     // if any ghost does not match any evidence button, disable the button
     for(var i=0; i < GHOSTS.length; i++){
         for(var j=0; j<EVIDENCE[i].length; j++){
@@ -189,7 +193,7 @@ function setEvidenceDisabled(){
             }
         }
     }
-    $(".evBtn").each(function(){
+    $(".evBTN").each(function(){
         if(possibleEvidence.has($(this).text())){
             console.log($(this).text()+" exists!");
         }else{
