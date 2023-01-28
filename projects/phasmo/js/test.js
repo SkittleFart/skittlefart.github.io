@@ -174,10 +174,8 @@ function updateGhosts(evBtnText){
     // cycle through each ghost
     for(var i=0; i < GHOSTS.length; i++){
         // see current status of each ghost matching
-        IS_MATCH.forEach(function(value){
-            console.log(GHOSTS[i]+" | "+value);
-        });
-        
+        console.log(GHOSTS[i]+" | "+IS_MATCH.get(GHOSTS[i]));
+
         // see if ghost has current evidence
         selectedEvidence.forEach(function(value){
             
