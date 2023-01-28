@@ -201,7 +201,7 @@ function updateGhosts(evBtnText){
         });
 
         crossedEvidence.forEach(function(value){
-            for(var k=0; k<EVIDENCE[i].length; j++){
+            for(var k=0; k<EVIDENCE[i].length; k++){
                 isCross = compareStrings(value, EVIDENCE[i][k]);
 
                 if(isCross === 0){
