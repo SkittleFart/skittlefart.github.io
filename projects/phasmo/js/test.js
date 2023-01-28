@@ -243,7 +243,7 @@ function updateGhosts(evBtnText){
             $("#"+GHOSTS[i]).hide();
         }
         console.log(GHOSTS[i]+" | evCounter: "+evCounter);
-        console.log(GHOSTS[i]+" | evCounter: "+evCounter);
+        console.log(GHOSTS[i]+" | crossCounter: "+crossCounter);
         evCounter = 0;
         crossCounter = 0;
     }
