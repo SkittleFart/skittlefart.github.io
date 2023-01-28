@@ -264,7 +264,7 @@ function updateGhosts(evBtnText){
 
     let possibleGhostCount = 0;
 
-    possibleGhostCount = $(".ghostCard[display|=block").length;
+    possibleGhostCount = $(".ghostCard[display|=block]").length;
     console.log("possibleGhostCount: "+possibleGhostCount);
 
     console.log("THIS IS A TEST DO YOU SEE ME");
