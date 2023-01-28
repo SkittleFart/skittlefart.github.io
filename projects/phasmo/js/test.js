@@ -184,6 +184,7 @@ function setEvidenceDisabled(){
         }else{
             console.log($(this).text+" does not exists...");
         }
+        console.log("DO YOU SEE ME TOO?");
     });
 
     /*
