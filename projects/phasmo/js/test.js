@@ -169,8 +169,10 @@ function setEvidenceDisabled(evBtnValue){
 // Show/hide ghosts ----------------------------------------------------------
 
 function updateGhosts(evBtnText){
+    let evCounter = 0;
+
     // hide every ghost by default
-    //$('.ghostCard').hide();
+    $('.ghostCard').hide();
 
     // cycle through each ghost
     for(var i=0; i < GHOSTS.length; i++){
@@ -188,10 +190,12 @@ function updateGhosts(evBtnText){
                 if(isMatch === 0){
                     console.log("Match found");
                     console.log(GHOSTS[i]+" has a matching evidence of "+value+" | "+EVIDENCE[i][j]);
+                    evCounter++;
                 }
-            }
-            
+            }            
         });
+
+        console.log("evCounter: "+evCounter);
     }
 
 }
