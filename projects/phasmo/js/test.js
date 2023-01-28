@@ -10,6 +10,7 @@ var evBtnClass_disabled = "btn-secondary";
 
 var selectedEvidence = new Set();
 var crossedEvidence = new Set();
+var possibleEvidence = new Set();
 
 $(document).ready(function() {
     $('.evBTN').on('click', function(evt){
@@ -48,17 +49,7 @@ fetch(GHOSTS_URL)
         console.log("blah2: "+temp.get(GHOSTS[17])[0]);
         console.log("blah3: "+temp.has(GHOSTS[17]));
 
-        var possibleEvidence = new Set();
-
-        for(var i=0; i < GHOSTS.length; i++){
-            for(var j=0; j<EVIDENCE[i].length; j++){
-                possibleEvidence.add(EVIDENCE[i][j]);
-            }
-        }
-        console.log("possibleEvidence: "+possibleEvidence.size);
-        possibleEvidence.forEach(function(value){
-            console.log(value);
-        });
+        setPossibleEvidence();
     });
 
 // Remove spaces from the ghost names
@@ -134,6 +125,7 @@ function resetEvidence(){
 
     selectedEvidence.clear();
     crossedEvidence.clear();
+    setPossibleEvidence();
 }
 
 
@@ -169,9 +161,30 @@ function setEvidenceLabelsNeutral(evBtnValue){
     $("th[value|="+evBtnValue+"]").removeClass("table-info");
 }
 
+// Set possible evidence -----------------------------------------------------
+function setPossibleEvidence(){
+    possibleEvidence.clear();
+    for(var i=0; i < GHOSTS.length; i++){
+        for(var j=0; j<EVIDENCE[i].length; j++){
+            possibleEvidence.add(EVIDENCE[i][j]);
+        }
+    }
+    console.log("possibleEvidence: "+possibleEvidence.size);
+    possibleEvidence.forEach(function(value){
+        console.log(value);
+    });
+}
+
 // Set disabled evidence -----------------------------------------------------
 
 function setEvidenceDisabled(){
+    $(".evBtn").each(function(){
+        if(possibleEvidence.has($(this).text)){
+            console.log($(this).text+" exists!");
+        }else{
+            console.log($(this).text+" does not exists...");
+        }
+    });
 
     /*
     if(possibleEvidence.has(evBtnValue)){
