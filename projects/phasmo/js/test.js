@@ -195,9 +195,11 @@ function updateGhosts(evBtnText){
             }            
         });
 
+        if(evCounter === selectedEvidence.size){
+            $("#"+GHOSTS[i]).show();
+        }
         console.log(GHOSTS[i]+" | evCounter: "+evCounter);
         evCounter = 0;
-        $("#"+GHOSTS[i]).show();
     }
 
 }
