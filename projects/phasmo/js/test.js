@@ -94,13 +94,14 @@ function updateEvidence(evBtnID, evBtnValue, evBtnText){
         updateGhosts(evBtnText);
     }
 
+    /*
     selectedEvidence.forEach(function(value){
         console.log("selectedEvidence: "+value);
     });
 
     crossedEvidence.forEach(function(value){
         console.log("crossedEvidence: "+value);
-    });
+    });*/
 }
 
 // Reset button -----------------------------------------------------
@@ -169,12 +170,13 @@ function setEvidenceDisabled(evBtnValue){
 
 function updateGhosts(evBtnText){
     // hide every ghost by default
-    $('.ghostCard').hide();
+    //$('.ghostCard').hide();
 
     // cycle through each ghost
     for(var i=0; i < GHOSTS.length; i++){
         // see current status of each ghost matching
-        console.log(GHOSTS[i]+" | "+IS_MATCH.get(GHOSTS[i]));
+        //console.log(GHOSTS[i]+" | "+IS_MATCH.get(GHOSTS[i]));
+        console.log(EVIDENCE[i]);
 
         // see if ghost has current evidence
         selectedEvidence.forEach(function(value){
