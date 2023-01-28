@@ -187,6 +187,8 @@ function setEvidenceDisabled(){
         console.log("DO YOU SEE ME TOO?");
     });
 
+    console.log("DO YOU SEE ME EITHER?");
+
     /*
     if(possibleEvidence.has(evBtnValue)){
         $("button[value|="+evBtnValue+"]").prop( "disabled", false );
