@@ -248,5 +248,7 @@ function updateGhosts(evBtnText){
         crossCounter = 0;
     }
 
+    console.log("THIS IS A TEST DO YOU SEE ME");
+
     setEvidenceDisabled();
 }
