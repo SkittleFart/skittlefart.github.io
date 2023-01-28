@@ -2,6 +2,7 @@ var GHOSTS_URL = "js/ghost.json";
 var GHOSTS = [];
 var EVIDENCE = [];
 var COMPLETE_SET = new Set();
+var IS_MATCH = new Map();
 var evBtnClass_neutral = "btn-outline-info";
 var evBtnClass_active = "btn-info";
 var evBtnClass_crossed = "btn-outline-danger";
@@ -36,6 +37,7 @@ fetch(GHOSTS_URL)
             GHOSTS[i] = removeSpaces(data[i].name);
             EVIDENCE[i] = data[i].evidence;
             temp.set(removeSpaces(data[i].name), removeSpaces(data[i].evidence));
+            IS_MATCH.set(GHOSTS[i], false);
         }
         COMPLETE_SET = temp;
         console.log("Ghosts: "+GHOSTS);
@@ -166,79 +168,20 @@ function setEvidenceDisabled(evBtnValue){
 // Show/hide ghosts ----------------------------------------------------------
 
 function updateGhosts(evBtnText){
-    var isSelectedMatch = false;
-    var isCrossedMatch = false;
-    let evCounter = 0;
-    let crossCounter = 0;
-
     // hide every ghost by default
-    //$('.ghostCard').hide();
+    $('.ghostCard').hide();
 
-    // get set sizes
-    var total_evidence = selectedEvidence.size;
-    var total_crossed = crossedEvidence.size;
-
-    // Hide any ghosts that don't have any current evidence
+    // cycle through each ghost
     for(var i=0; i < GHOSTS.length; i++){
-        //console.log("Does this ghost have the evidence?");
-
-        selectedEvidence.forEach(function(value){
-            $("#"+GHOSTS[i]+" th").each(function(){
-                if(compareStrings(value, $(this).text()) === 0){
-                    console.log("Match! "+value+" / "+$(this).text());
-                    evCounter++;
-                    isSelectedMatch = true;
-                }
-            });
+        // see current status of each ghost matching
+        IS_MATCH.forEach(function(value){
+            console.log(GHOSTS[i]+" | "+value);
         });
-
-        crossedEvidence.forEach(function(value){
-            $("#"+GHOSTS[i]+" th").each(function(){
-                if(compareStrings(value, $(this).text()) === 0){
-                    console.log("Crossed Match! "+value+" / "+$(this).text());
-                    crossCounter++;
-                    isCrossedMatch = true;
-                }
-            });
-        });
-        /*
-        $("#"+GHOSTS[i]+" th").each(function(){
-            if(selectedEvidence.has($(this).text())){
-                evCounter++;
-                isSelectedMatch = true;
-            }
-
-            if(crossedEvidence.has($(this).text())){
-                isCrossedMatch = true;
-            }
-        });
-
         
-        if(evCounter === total_evidence){
-            console.log(GHOSTS[i]+" is a match");
-        }else{
-            $("#"+GHOSTS[i]).hide();
-        }*/
-
-        console.log(GHOSTS[i]);
-        console.log("isSelectedMatch: "+isSelectedMatch);
-        console.log("isCrossedMatch: "+isCrossedMatch);
-
-        if(isSelectedMatch){
-            $("#"+GHOSTS[i]).show();
-        }else{
-            $("#"+GHOSTS[i]).hide();
-        }
-
-        if(isCrossedMatch){
-            $("#"+GHOSTS[i]).hide();
-        }else{
-            $("#"+GHOSTS[i]).show();
-        }
-
-        evCounter = 0;
-        isSelectedMatch = false;
-        isCrossedMatch = false;
+        // see if ghost has current evidence
+        selectedEvidence.forEach(function(value){
+            
+        });
     }
 
 }
