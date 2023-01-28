@@ -181,7 +181,7 @@ function setEvidenceDisabled(){
     // if any ghost does not match any evidence button, disable the button
     for(var i=0; i < GHOSTS.length; i++){
         for(var j=0; j<EVIDENCE[i].length; j++){
-            let availableEvidence = compareStrings(possibleEvidence(), EVIDENCE[i][j]);
+            //let availableEvidence = compareStrings(possibleEvidence(), EVIDENCE[i][j]);
 
             if(isMatch === 0){
 
@@ -264,6 +264,9 @@ function updateGhosts(evBtnText){
     let possibleGhostCount = 0;
 
     possibleGhostCount = $(".ghostCard:enabled").length;
+    console.log("possibleGhostCount: "+possibleGhostCount);
+
+    console.log("THIS IS A TEST DO YOU SEE ME");
 
     setEvidenceDisabled();
 }
