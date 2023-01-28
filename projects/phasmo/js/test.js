@@ -232,6 +232,8 @@ function updateGhosts(evBtnText){
 
         if(isCrossedMatch){
             $("#"+GHOSTS[i]).hide();
+        }else{
+            $("#"+GHOSTS[i]).show();
         }
 
         evCounter = 0;
