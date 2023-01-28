@@ -47,6 +47,18 @@ fetch(GHOSTS_URL)
         console.log(GHOSTS[17]+": "+temp.get(GHOSTS[17]));
         console.log("blah2: "+temp.get(GHOSTS[17])[0]);
         console.log("blah3: "+temp.has(GHOSTS[17]));
+
+        var possibleEvidence = new Set();
+
+        for(var i=0; i < GHOSTS.length; i++){
+            for(var j=0; j<EVIDENCE[i].length; j++){
+                possibleEvidence.add(EVIDENCE[i][j]);
+            }
+        }
+        console.log("possibleEvidence: "+possibleEvidence.size);
+        possibleEvidence.forEach(function(value){
+            console.log(value);
+        });
     });
 
 // Remove spaces from the ghost names
@@ -159,14 +171,14 @@ function setEvidenceLabelsNeutral(evBtnValue){
 
 // Set disabled evidence -----------------------------------------------------
 
-function setEvidenceDisabled(evBtnValue){
-    var possibleEvidence = new Set();
+function setEvidenceDisabled(){
 
+    /*
     if(possibleEvidence.has(evBtnValue)){
         $("button[value|="+evBtnValue+"]").prop( "disabled", false );
     }else{
         $("button[value|="+evBtnValue+"]").prop( "disabled", true );
-    }
+    }*/
 }
 
 // Show/hide ghosts ----------------------------------------------------------
@@ -223,4 +235,5 @@ function updateGhosts(evBtnText){
         crossCounter = 0;
     }
 
+    setEvidenceDisabled();
 }
