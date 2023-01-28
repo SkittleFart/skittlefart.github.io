@@ -55,7 +55,7 @@ function removeSpaces(v){
     return moo;
 }
 
-// Compare strings
+// Compare strings - returns 0 if strings are equal
 function compareStrings(str1, str2){
     let result = str1.localeCompare(str2);
     return result;
@@ -178,8 +178,18 @@ function updateGhosts(evBtnText){
         //console.log(GHOSTS[i]+" | "+IS_MATCH.get(GHOSTS[i]));
         console.log(EVIDENCE[i]);
 
+        let isMatch;
+
         // see if ghost has current evidence
         selectedEvidence.forEach(function(value){
+            for(var j=0; j<EVIDENCE[i].length; j++){
+                isMatch = compareStrings(value, EVIDENCE[i][j]);
+                
+                if(isMatch === 0){
+                    console.log("Match found");
+                    console.log(GHOSTS[i]+" has a matching evidence of "+value+" | "+EVIDENCE[i][j]);
+                }
+            }
             
         });
     }
