@@ -179,10 +179,10 @@ function setPossibleEvidence(){
 
 function setEvidenceDisabled(){
     $(".evBtn").each(function(){
-        if(possibleEvidence.has($(this).text)){
-            console.log($(this).text+" exists!");
+        if(possibleEvidence.has($(this).text())){
+            console.log($(this).text()+" exists!");
         }else{
-            console.log($(this).text+" does not exists...");
+            console.log($(this).text()+" does not exists...");
         }
         console.log("DO YOU SEE ME TOO?");
     });
