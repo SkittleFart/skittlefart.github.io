@@ -192,6 +192,11 @@ function setEvidenceDisabled(){
     });
 
     //console.log("remainingEvidence: "+remainingEvidence);
+    let blerh = [];
+    remainingEvidence.forEach(function(value){
+        blerh.push(value);
+    });
+    console.log("remainingEvidence(blerh): "+blerh);
 
     $('.evBTN').each(function(){
         console.log("this.value: "+this.value);
