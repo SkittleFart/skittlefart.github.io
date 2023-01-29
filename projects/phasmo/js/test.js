@@ -209,6 +209,7 @@ function setEvidenceDisabled(){
             console.log($(this).text()+" has been enabled.");
         }
     });
+
 }
 
 // Show/hide ghosts ----------------------------------------------------------

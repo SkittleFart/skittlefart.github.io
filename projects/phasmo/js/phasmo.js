@@ -23,8 +23,6 @@ $(document).ready(function() {
         updateEvidence(evBtnID, evBtnValue, evBtnText);
     });
     $('#resetBTN').on('click', resetEvidence);
-
-    console.log("Update: rrr");
 });
 
 // fetching ghost info from json and storing in arrays
@@ -43,13 +41,6 @@ fetch(GHOSTS_URL)
             IS_MATCH.set(GHOSTS[i], false);
         }
         COMPLETE_SET = temp;
-        console.log("Ghosts: "+GHOSTS);
-        console.log("Evidence: "+EVIDENCE);
-        console.log("temp size: "+temp.size);
-        temp.forEach(function(evidence, name){console.log("Name: "+name+" / Evidence: "+evidence);});
-        console.log(GHOSTS[17]+": "+temp.get(GHOSTS[17]));
-        console.log("blah2: "+temp.get(GHOSTS[17])[0]);
-        console.log("blah3: "+temp.has(GHOSTS[17]));
 
         setPossibleEvidence();
     });
@@ -162,10 +153,6 @@ function setPossibleEvidence(){
             possibleEvidence.add(EVIDENCE[i][j]);
         }
     }
-    console.log("possibleEvidence: "+possibleEvidence.size);
-    possibleEvidence.forEach(function(value){
-        console.log(value);
-    });
 }
 
 // Set disabled evidence -----------------------------------------------------
@@ -199,14 +186,10 @@ function setEvidenceDisabled(){
     remainingEvidence.forEach(function(value){
         blerh.push(value);
     });
-    console.log("remainingEvidence(blerh): "+blerh);
 
     $('.evBTN').each(function(){
-        console.log("this.text: "+$(this).text());
-        console.log(remainingEvidence.has($(this).text()));
         if(remainingEvidence.has($(this).text()) || selectedEvidence.has($(this).text())){
             $(this).prop('disabled', false);
-            console.log($(this).text()+" has been enabled.");
         }
     });
 }
@@ -223,8 +206,6 @@ function updateGhosts(evBtnText){
     // cycle through each ghost
     for(var i=0; i < GHOSTS.length; i++){
         // see current status of each ghost matching
-        //console.log(GHOSTS[i]+" | "+IS_MATCH.get(GHOSTS[i]));
-        //console.log(EVIDENCE[i]);
 
         let isMatch;
         let isCross;
@@ -235,8 +216,6 @@ function updateGhosts(evBtnText){
                 isMatch = compareStrings(value, EVIDENCE[i][j]);
                 
                 if(isMatch === 0){
-                    console.log("Match found");
-                    console.log(GHOSTS[i]+" has a matching evidence of "+value+" | "+EVIDENCE[i][j]);
                     evCounter++;
                 }
             }            
@@ -261,20 +240,13 @@ function updateGhosts(evBtnText){
             $("#"+GHOSTS[i]).hide();
         }
 
-        console.log(GHOSTS[i]+" | evCounter: "+evCounter);
-        console.log(GHOSTS[i]+" | crossCounter: "+crossCounter);
         evCounter = 0;
         crossCounter = 0;
     }
 
-    //console.log("remainingGhosts: "+remainingGhosts);
-
     let possibleGhostCount = 0;
 
     possibleGhostCount = GHOSTS.length - $(".ghostCard:hidden").length;
-    console.log("possibleGhostCount: "+possibleGhostCount);
-
-    console.log("THIS IS A TEST DO YOU SEE ME");
 
     if(selectedEvidence.size === 2){
         setEvidenceDisabled();
