@@ -174,6 +174,12 @@ function setEvidenceDisabled(){
     // this function is only called if there are two evidences selected already
     let remainingEvidence = [];
 
+    $('.ghostCard:visible').each(function(){
+        let cardID = this.id;
+        remainingGhosts.push(cardID);
+    });
+
+    console.log("remainingGhosts: "+remainingGhosts);
 
 }
 
@@ -220,7 +226,7 @@ function updateGhosts(evBtnText){
 
         if(evCounter === selectedEvidence.size){
             $("#"+GHOSTS[i]).show();
-            remainingGhosts.push(GHOSTS[i]);
+            //remainingGhosts.push(GHOSTS[i]);
         }
 
         if(crossCounter !== 0){
@@ -233,7 +239,7 @@ function updateGhosts(evBtnText){
         crossCounter = 0;
     }
 
-    console.log("remainingGhosts: "+remainingGhosts);
+    //console.log("remainingGhosts: "+remainingGhosts);
 
     let possibleGhostCount = 0;
 
