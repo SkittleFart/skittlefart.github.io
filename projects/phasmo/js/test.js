@@ -12,7 +12,7 @@ var selectedEvidence = new Set();
 var crossedEvidence = new Set();
 var possibleEvidence = new Set();
 
-var remainingGhosts = [];
+var remainingGhosts = new Set();
 
 $(document).ready(function() {
     $('.evBTN').on('click', function(evt){
@@ -172,14 +172,26 @@ function setPossibleEvidence(){
 
 function setEvidenceDisabled(){
     // this function is only called if there are two evidences selected already
-    let remainingEvidence = [];
+    let remainingEvidence = new Set();
+    remainingGhosts.clear();
 
     $('.ghostCard:visible').each(function(){
         let cardID = this.id;
-        remainingGhosts.push(cardID);
+        remainingGhosts.add(cardID);
     });
 
     console.log("remainingGhosts: "+remainingGhosts);
+
+    remainingGhosts.forEach(function(value){
+        let index = GHOSTS.indexOf(value);
+        for(var i=0; i<EVIDENCE[index].length; i++){
+            if(!selectedEvidence.has(EVIDENCE[index][i])){
+                remainingEvidence.add(EVIDENCE[index][i]);
+            }
+        }
+    });
+
+    console.log("remainingEvidence: "+remainingEvidence);
 
 }
 
