@@ -51,12 +51,25 @@ h3{
     background-color: black;
 }
 
+.card-title{
+    font-family: crow;
+}
+
 .card-text{
     font-size: 1.2em;
 }
 
 
 /* Button styles */
+/* ------------------------------------------------- */
+.btn-outline-danger{
+    text-decoration: line-through;
+}
+
+.btn-outline-info{
+    text-decoration: none;
+}
+
 .crossed{
     text-decoration: line-through;
 }
@@ -90,6 +103,7 @@ th{
 .weakness{
     color:greenyellow;
 }
+
 
 
 
