@@ -180,7 +180,7 @@ function setEvidenceDisabled(){
         remainingGhosts.add(cardID);
     });
 
-    console.log("remainingGhosts: "+remainingGhosts);
+    //console.log("remainingGhosts: "+remainingGhosts);
 
     remainingGhosts.forEach(function(value){
         let index = GHOSTS.indexOf(value);
@@ -191,7 +191,14 @@ function setEvidenceDisabled(){
         }
     });
 
-    console.log("remainingEvidence: "+remainingEvidence);
+    //console.log("remainingEvidence: "+remainingEvidence);
+
+    $('.evBTN').each(function(){
+        if(!remainingEvidence.has(this.value)){
+            // $(this).prop('disabled', true);
+            console.log(this.value+" has been disabled.");
+        }
+    });
 
 }
 
