@@ -211,7 +211,7 @@ function setEvidenceDisabled(){
     });
 
     selectedEvidence.forEach(function(value){
-        $("#"+value).prop('disabled', false);;
+        $("#"+value).prop('disabled', false);
     });
 
 }
