@@ -220,12 +220,11 @@ function updateGhosts(evBtnText){
 
         if(evCounter === selectedEvidence.size){
             $("#"+GHOSTS[i]).show();
+            remainingGhosts.push(GHOSTS[i]);
         }
 
         if(crossCounter !== 0){
             $("#"+GHOSTS[i]).hide();
-        }else{
-            remainingGhosts.push(GHOSTS[i]);
         }
 
         console.log(GHOSTS[i]+" | evCounter: "+evCounter);
