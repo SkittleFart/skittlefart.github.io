@@ -12,6 +12,8 @@ var selectedEvidence = new Set();
 var crossedEvidence = new Set();
 var possibleEvidence = new Set();
 
+var remainingGhosts = [];
+
 $(document).ready(function() {
     $('.evBTN').on('click', function(evt){
         let evBtnID = "#".concat(this.id);
@@ -96,15 +98,6 @@ function updateEvidence(evBtnID, evBtnValue, evBtnText){
         // Call function to show/hide ghosts
         updateGhosts(evBtnText);
     }
-
-    /*
-    selectedEvidence.forEach(function(value){
-        console.log("selectedEvidence: "+value);
-    });
-
-    crossedEvidence.forEach(function(value){
-        console.log("crossedEvidence: "+value);
-    });*/
 }
 
 // Reset button -----------------------------------------------------
@@ -178,38 +171,10 @@ function setPossibleEvidence(){
 // Set disabled evidence -----------------------------------------------------
 
 function setEvidenceDisabled(){
-    $('.evBTN').prop('disabled', true);
-    if(selectedEvidence.size === 2){
+    // this function is only called if there are two evidences selected already
+    let remainingEvidence = [];
 
-    }
-    // if any ghost does not match any evidence button, disable the button
-    for(var i=0; i < GHOSTS.length; i++){
-        for(var j=0; j<EVIDENCE[i].length; j++){
-            //let availableEvidence = compareStrings(possibleEvidence(), EVIDENCE[i][j]);
-            let isMatch = 0;
 
-            if(isMatch === 0){
-
-            }
-        }
-    }
-    $(".evBTN").each(function(){
-        if(possibleEvidence.has($(this).text())){
-            console.log($(this).text()+" exists!");
-        }else{
-            console.log($(this).text()+" does not exists...");
-        }
-        console.log("DO YOU SEE ME TOO?");
-    });
-
-    console.log("DO YOU SEE ME EITHER?");
-
-    /*
-    if(possibleEvidence.has(evBtnValue)){
-        $("button[value|="+evBtnValue+"]").prop( "disabled", false );
-    }else{
-        $("button[value|="+evBtnValue+"]").prop( "disabled", true );
-    }*/
 }
 
 // Show/hide ghosts ----------------------------------------------------------
@@ -225,7 +190,7 @@ function updateGhosts(evBtnText){
     for(var i=0; i < GHOSTS.length; i++){
         // see current status of each ghost matching
         //console.log(GHOSTS[i]+" | "+IS_MATCH.get(GHOSTS[i]));
-        console.log(EVIDENCE[i]);
+        //console.log(EVIDENCE[i]);
 
         let isMatch;
         let isCross;
@@ -259,12 +224,17 @@ function updateGhosts(evBtnText){
 
         if(crossCounter !== 0){
             $("#"+GHOSTS[i]).hide();
+        }else{
+            remainingGhosts.push(GHOSTS[i]);
         }
+
         console.log(GHOSTS[i]+" | evCounter: "+evCounter);
         console.log(GHOSTS[i]+" | crossCounter: "+crossCounter);
         evCounter = 0;
         crossCounter = 0;
     }
+
+    console.log("remainingGhosts: "+remainingGhosts);
 
     let possibleGhostCount = 0;
 
@@ -273,5 +243,7 @@ function updateGhosts(evBtnText){
 
     console.log("THIS IS A TEST DO YOU SEE ME");
 
-    setEvidenceDisabled();
+    if(selectedEvidence.size === 2){
+        setEvidenceDisabled();
+    }    
 }
