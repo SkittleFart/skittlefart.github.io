@@ -200,8 +200,8 @@ function setEvidenceDisabled(){
 
     $('.evBTN').each(function(){
         console.log("this.text: "+$(this).text());
-        console.log(!remainingEvidence.has($(this).text()));
-        if(!remainingEvidence.has($(this).text())){
+        console.log(remainingEvidence.has($(this).text()));
+        if(remainingEvidence.has($(this).text())){
             // $(this).prop('disabled', true);
             console.log($(this).text()+" has been disabled.");
         }
