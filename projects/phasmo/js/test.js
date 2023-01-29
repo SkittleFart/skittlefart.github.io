@@ -209,11 +209,6 @@ function setEvidenceDisabled(){
             console.log($(this).text()+" has been enabled.");
         }
     });
-
-    selectedEvidence.forEach(function(value){
-        $("#"+value).prop('disabled', false);
-    });
-
 }
 
 // Show/hide ghosts ----------------------------------------------------------
@@ -283,5 +278,7 @@ function updateGhosts(evBtnText){
 
     if(selectedEvidence.size === 2){
         setEvidenceDisabled();
-    }    
+    }else{
+        $('.evBTN').prop('disabled', false);
+    }
 }
