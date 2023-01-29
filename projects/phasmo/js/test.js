@@ -175,6 +175,9 @@ function setEvidenceDisabled(){
     let remainingEvidence = new Set();
     remainingGhosts.clear();
 
+    // disable every evidence button
+    $('.evBTN').prop('disabled', true);
+
     $('.ghostCard:visible').each(function(){
         let cardID = this.id;
         remainingGhosts.add(cardID);
@@ -202,9 +205,13 @@ function setEvidenceDisabled(){
         console.log("this.text: "+$(this).text());
         console.log(remainingEvidence.has($(this).text()));
         if(remainingEvidence.has($(this).text())){
-            // $(this).prop('disabled', true);
-            console.log($(this).text()+" has been disabled.");
+            $(this).prop('disabled', false);
+            console.log($(this).text()+" has been enabled.");
         }
+    });
+
+    selectedEvidence.forEach(function(value){
+        $("#"+value).prop('disabled', false);;
     });
 
 }
