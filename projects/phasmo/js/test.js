@@ -199,11 +199,11 @@ function setEvidenceDisabled(){
     console.log("remainingEvidence(blerh): "+blerh);
 
     $('.evBTN').each(function(){
-        console.log("this.value: "+this.value);
-        console.log(!remainingEvidence.has(this.value));
-        if(!remainingEvidence.has(this.value)){
+        console.log("this.text: "+this.text);
+        console.log(!remainingEvidence.has(this.text));
+        if(!remainingEvidence.has(this.text)){
             // $(this).prop('disabled', true);
-            console.log(this.value+" has been disabled.");
+            console.log(this.text+" has been disabled.");
         }
     });
 
